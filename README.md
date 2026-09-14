@@ -1,5 +1,11 @@
 # Medical Miscommunication Detector
 
+[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/framework-FastAPI-009688)](https://fastapi.tiangolo.com/)
+[![Tests: pytest](https://img.shields.io/badge/tests-pytest-0A9EDC)](tests/)
+[![Status: prototype](https://img.shields.io/badge/status-prototype-orange)](#13-known-limitations)
+[![Repo](https://img.shields.io/badge/GitHub-nlp--medical--miscommunication--detector-181717?logo=github)](https://github.com/SakthiQ/nlp-medical-miscommunication-detector)
+
 An NLP system that turns hard-to-read medical reports into plain-language explanations
 for patients, without ever diagnosing, prescribing, or making things up.
 
