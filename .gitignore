@@ -1,0 +1,9 @@
+# Runtime-generated, never source. Audit logs can contain full report text — must
+# never be committed even though this project's own data is synthetic.
+audit_log.jsonl
+data/audit_log*.jsonl
+
+__pycache__/
+*.pyc
+.pytest_cache/
+.env

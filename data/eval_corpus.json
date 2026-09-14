@@ -1,0 +1,187 @@
+{
+  "schema_version": "1.0",
+  "notes": "Synthetic, non-PHI report snippets. gold_terms are hand-annotated. kb_id null means the term is deliberately outside the knowledge base, to exercise the coverage-gap path.",
+  "snippets": [
+    {
+      "id": "ev-001",
+      "source_type": "ultrasound_abdomen",
+      "text": "Mild hepatic steatosis with elevated ALT.",
+      "gold_terms": [
+        {"surface": "hepatic steatosis", "kb_id": "kb-001"},
+        {"surface": "ALT", "kb_id": "kb-002"}
+      ]
+    },
+    {
+      "id": "ev-002",
+      "source_type": "lab_panel",
+      "text": "HbA1c 7.8%. Fasting glucose 142 mg/dL. Serum creatinine 1.1 mg/dL with eGFR 78 mL/min/1.73m2.",
+      "gold_terms": [
+        {"surface": "HbA1c", "kb_id": "kb-004"},
+        {"surface": "Serum creatinine", "kb_id": "kb-015"},
+        {"surface": "eGFR", "kb_id": "kb-016"}
+      ]
+    },
+    {
+      "id": "ev-003",
+      "source_type": "chest_xray",
+      "text": "Mild cardiomegaly noted. Small left pleural effusion with adjacent basilar atelectasis. No focal consolidation.",
+      "gold_terms": [
+        {"surface": "cardiomegaly", "kb_id": "kb-008"},
+        {"surface": "pleural effusion", "kb_id": "kb-010"},
+        {"surface": "atelectasis", "kb_id": "kb-009"},
+        {"surface": "consolidation", "kb_id": null}
+      ]
+    },
+    {
+      "id": "ev-004",
+      "source_type": "discharge_summary",
+      "text": "Patient admitted with dyspnea on exertion and bilateral pedal edema. Known history of hypertension.",
+      "gold_terms": [
+        {"surface": "dyspnea", "kb_id": "kb-012"},
+        {"surface": "edema", "kb_id": "kb-011"},
+        {"surface": "hypertension", "kb_id": "kb-005"}
+      ]
+    },
+    {
+      "id": "ev-005",
+      "source_type": "lipid_panel",
+      "text": "Lipid profile shows LDL 168 mg/dL, HDL 38 mg/dL, triglycerides 210 mg/dL, consistent with dyslipidemia.",
+      "gold_terms": [
+        {"surface": "LDL", "kb_id": "kb-017"},
+        {"surface": "HDL", "kb_id": "kb-018"},
+        {"surface": "triglycerides", "kb_id": "kb-019"},
+        {"surface": "dyslipidemia", "kb_id": "kb-020"}
+      ]
+    },
+    {
+      "id": "ev-006",
+      "source_type": "cbc",
+      "text": "Complete blood count reveals hemoglobin 9.4 g/dL consistent with anemia, and mild thrombocytopenia.",
+      "gold_terms": [
+        {"surface": "hemoglobin", "kb_id": "kb-022"},
+        {"surface": "anemia", "kb_id": "kb-021"},
+        {"surface": "thrombocytopenia", "kb_id": "kb-024"}
+      ]
+    },
+    {
+      "id": "ev-007",
+      "source_type": "ct_abdomen",
+      "text": "Non-obstructing 4 mm calculus in the right renal pelvis. No hydronephrosis. Cholelithiasis noted incidentally.",
+      "gold_terms": [
+        {"surface": "renal", "kb_id": null},
+        {"surface": "hydronephrosis", "kb_id": "kb-041"},
+        {"surface": "Cholelithiasis", "kb_id": "kb-007"},
+        {"surface": "incidentally", "kb_id": "kb-045"}
+      ]
+    },
+    {
+      "id": "ev-008",
+      "source_type": "mri_spine",
+      "text": "Lumbar spondylosis with degenerative disc disease at L4-L5. No canal stenosis.",
+      "gold_terms": [
+        {"surface": "Lumbar spondylosis", "kb_id": "kb-028"},
+        {"surface": "degenerative disc disease", "kb_id": "kb-027"},
+        {"surface": "canal stenosis", "kb_id": null}
+      ]
+    },
+    {
+      "id": "ev-009",
+      "source_type": "thyroid_panel",
+      "text": "TSH elevated at 8.2 mIU/L. Findings are consistent with hypothyroidism.",
+      "gold_terms": [
+        {"surface": "TSH", "kb_id": "kb-033"},
+        {"surface": "hypothyroidism", "kb_id": "kb-032"}
+      ]
+    },
+    {
+      "id": "ev-010",
+      "source_type": "ecg",
+      "text": "ECG shows normal sinus rhythm at 72 bpm. No evidence of acute ischemia.",
+      "gold_terms": [
+        {"surface": "normal sinus rhythm", "kb_id": "kb-036"},
+        {"surface": "ischemia", "kb_id": "kb-038"}
+      ]
+    },
+    {
+      "id": "ev-011",
+      "source_type": "liver_panel",
+      "text": "ALT 68 U/L and AST 54 U/L, both mildly elevated. Hepatomegaly on prior imaging.",
+      "gold_terms": [
+        {"surface": "ALT", "kb_id": "kb-002"},
+        {"surface": "AST", "kb_id": "kb-003"},
+        {"surface": "Hepatomegaly", "kb_id": "kb-042"}
+      ]
+    },
+    {
+      "id": "ev-012",
+      "source_type": "urinalysis",
+      "text": "Urinalysis positive for proteinuria. Follow-up microalbuminuria testing recommended.",
+      "gold_terms": [
+        {"surface": "proteinuria", "kb_id": "kb-039"},
+        {"surface": "microalbuminuria", "kb_id": "kb-040"}
+      ]
+    },
+    {
+      "id": "ev-013",
+      "source_type": "ct_chest",
+      "text": "6 mm pulmonary nodule in the right upper lobe, likely benign. Mediastinal lymphadenopathy is absent.",
+      "gold_terms": [
+        {"surface": "nodule", "kb_id": "kb-031"},
+        {"surface": "benign", "kb_id": "kb-029"},
+        {"surface": "Mediastinal", "kb_id": null},
+        {"surface": "lymphadenopathy", "kb_id": "kb-044"}
+      ]
+    },
+    {
+      "id": "ev-014",
+      "source_type": "dexa_scan",
+      "text": "Bone density scan shows osteopenia at the femoral neck. T-score -1.8. No osteoporosis.",
+      "gold_terms": [
+        {"surface": "osteopenia", "kb_id": "kb-025"},
+        {"surface": "femoral neck", "kb_id": null},
+        {"surface": "osteoporosis", "kb_id": "kb-026"}
+      ]
+    },
+    {
+      "id": "ev-015",
+      "source_type": "endoscopy",
+      "text": "Endoscopy demonstrates antral gastritis. Findings consistent with GERD.",
+      "gold_terms": [
+        {"surface": "antral", "kb_id": null},
+        {"surface": "gastritis", "kb_id": "kb-035"},
+        {"surface": "GERD", "kb_id": "kb-034"}
+      ]
+    },
+    {
+      "id": "ev-016",
+      "source_type": "discharge_summary",
+      "text": "History of myocardial infarction in 2019. Presented with tachycardia at 118 bpm. Afebrile, no cough.",
+      "gold_terms": [
+        {"surface": "myocardial infarction", "kb_id": "kb-037"},
+        {"surface": "tachycardia", "kb_id": "kb-013"},
+        {"surface": "Afebrile", "kb_id": null},
+        {"surface": "cough", "kb_id": "kb-common-004"}
+      ]
+    },
+    {
+      "id": "ev-017",
+      "source_type": "ultrasound_abdomen",
+      "text": "Liver is unremarkable. Spleen measures 14 cm, consistent with splenomegaly.",
+      "gold_terms": [
+        {"surface": "unremarkable", "kb_id": "kb-046"},
+        {"surface": "splenomegaly", "kb_id": "kb-043"}
+      ]
+    },
+    {
+      "id": "ev-018",
+      "source_type": "control_plain_language",
+      "text": "Patient reports fever, headache, and nausea for three days. Blood pressure was normal.",
+      "gold_terms": [
+        {"surface": "fever", "kb_id": "kb-common-001"},
+        {"surface": "headache", "kb_id": "kb-common-002"},
+        {"surface": "nausea", "kb_id": "kb-common-005"},
+        {"surface": "Blood pressure", "kb_id": "kb-common-003"}
+      ]
+    }
+  ]
+}

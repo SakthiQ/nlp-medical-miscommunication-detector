@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "notes": "Retrieval evaluation queries. 'paraphrases' are lay wordings that are not KB aliases, each with the entry it should retrieve. 'unrelated' are real medical terms with no KB entry: retrieval must never be allowed to explain them with their nearest entry. The unrelated terms are the corpus coverage gaps plus test names the NER stage flags.",
+  "paraphrases": [
+    {"query": "fat in the liver", "kb_id": "kb-001"},
+    {"query": "stones in the gallbladder", "kb_id": "kb-007"},
+    {"query": "low red blood cell count", "kb_id": "kb-021"},
+    {"query": "fluid around the lung", "kb_id": "kb-010"},
+    {"query": "thin fragile bones", "kb_id": "kb-026"},
+    {"query": "average blood sugar test", "kb_id": "kb-004"},
+    {"query": "reduced kidney filtering", "kb_id": "kb-016"},
+    {"query": "swollen ankles", "kb_id": "kb-011"},
+    {"query": "underactive thyroid gland", "kb_id": "kb-032"},
+    {"query": "heart looks bigger than normal", "kb_id": "kb-008"},
+    {"query": "urine backed up in the kidney", "kb_id": "kb-041"},
+    {"query": "bad cholesterol", "kb_id": "kb-017"}
+  ],
+  "unrelated": [
+    "consolidation",
+    "renal",
+    "canal stenosis",
+    "Mediastinal",
+    "femoral neck",
+    "antral",
+    "Afebrile",
+    "Bone density scan",
+    "Urinalysis",
+    "ECG"
+  ]
+}

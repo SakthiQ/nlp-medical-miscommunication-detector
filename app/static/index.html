@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Understand your report</title>
+<style>
+  :root {
+    --ink: #1b2a2f;
+    --muted: #5c6b70;
+    --faint: #8a9799;
+    --ground: #f7f8f6;
+    --surface: #ffffff;
+    --rule: #dde2de;
+    --accent: #0f6e6e;
+    --accent-soft: #e4efed;
+    --explained-bg: #dcefe9;
+    --explained-border: #7fbcae;
+    --negated-bg: #e7e4f4;
+    --negated-border: #a79ee0;
+    --gap-bg: transparent;
+    --gap-border: #c7893f;
+    --danger: #a32d2d;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font: 16px/1.55 -apple-system, "Segoe UI", system-ui, sans-serif;
+  }
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 4rem;
+  }
+  header h1 {
+    font-size: 1.65rem;
+    margin: 0 0 0.35rem;
+    letter-spacing: -0.01em;
+  }
+  header p {
+    color: var(--muted);
+    margin: 0 0 1.75rem;
+    max-width: 62ch;
+  }
+  .privacy-note {
+    font-size: 0.85rem;
+    color: var(--faint);
+    margin-top: 0.4rem;
+  }
+  .scope-note {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 1.75rem;
+  }
+  form {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+  label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.01em;
+  }
+  textarea {
+    width: 100%;
+    min-height: 9rem;
+    padding: 0.75rem;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    font: inherit;
+    resize: vertical;
+    background: var(--ground);
+    color: var(--ink);
+  }
+  textarea:focus, select:focus, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  select {
+    padding: 0.45rem 0.6rem;
+    border-radius: 6px;
+    border: 1px solid var(--rule);
+    background: var(--surface);
+    color: var(--ink);
+    font: inherit;
+  }
+  .audio-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.88rem;
+    color: var(--muted);
+    font-weight: 400;
+    cursor: pointer;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .audio-toggle input { width: 1rem; height: 1rem; accent-color: var(--accent); }
+  button {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.65rem 1.3rem;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  button:disabled { opacity: 0.6; cursor: default; }
+  button:hover:not(:disabled) { filter: brightness(1.07); }
+
+  .error {
+    display: none;
+    background: #fbeaea;
+    border: 1px solid #e3b3b3;
+    color: var(--danger);
+    border-radius: 6px;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.92rem;
+  }
+  .error[data-show] { display: block; }
+
+  .progress {
+    display: none;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .progress[data-show] { display: flex; }
+  .spinner {
+    width: 14px; height: 14px;
+    border: 2px solid var(--rule);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) {
+    .spinner { animation: none; }
+  }
+
+  .results { display: none; margin-top: 1.75rem; }
+  .results[data-show] { display: block; }
+
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 1rem;
+    font-size: 0.82rem; color: var(--muted);
+    margin-bottom: 0.85rem;
+  }
+  .legend span { display: inline-flex; align-items: center; gap: 0.35rem; }
+  .swatch { width: 0.85rem; height: 0.85rem; border-radius: 3px; display: inline-block; }
+  .swatch.explained { background: var(--explained-bg); border: 1px solid var(--explained-border); }
+  .swatch.negated { background: var(--negated-bg); border: 1px solid var(--negated-border); }
+  .swatch.gap { background: var(--gap-bg); border: 1px dashed var(--gap-border); }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1.1rem 1.25rem;
+    margin-bottom: 1.1rem;
+  }
+  .card h2 {
+    font-size: 1rem;
+    margin: 0 0 0.7rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .report-text { white-space: pre-wrap; line-height: 1.8; }
+
+  mark {
+    background: var(--explained-bg);
+    border-bottom: 2px solid var(--explained-border);
+    color: inherit;
+    padding: 0.02em 0.1em;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  mark.negated {
+    background: var(--negated-bg);
+    border-bottom: 2px solid var(--negated-border);
+  }
+  mark.gap {
+    background: var(--gap-bg);
+    border: none;
+    border-bottom: 2px dashed var(--gap-border);
+    border-radius: 0;
+  }
+  mark[aria-expanded="true"] { filter: brightness(0.9); }
+
+  /* Term detail lives OUTSIDE the report text flow — never breaks the patient's own
+     sentences onto stray lines. Only one is shown at a time. */
+  .term-detail {
+    display: none;
+    margin-top: 1rem;
+    background: var(--accent-soft);
+    border: 1px solid var(--explained-border);
+    border-radius: 6px;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.92rem;
+  }
+  .term-detail[data-show] { display: block; }
+  .term-detail .row-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+  .term-detail .label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+  .term-detail .close-btn {
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 1.1rem;
+    line-height: 1;
+    padding: 0;
+    cursor: pointer;
+    font-weight: 400;
+  }
+  .term-detail .source {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .explanation p { margin: 0 0 0.7rem; }
+  .explanation p:last-child { margin-bottom: 0; color: var(--muted); font-style: italic; }
+
+  .citations { list-style: none; margin: 0; padding: 0; font-size: 0.88rem; color: var(--muted); }
+  .citations li { padding: 0.2rem 0; }
+
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 0.9rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--rule);
+  }
+  .audio-player audio { max-width: 100%; }
+  .audio-note {
+    font-size: 0.85rem;
+    color: var(--faint);
+  }
+
+  footer {
+    margin-top: 2.5rem;
+    font-size: 0.8rem;
+    color: var(--faint);
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <h1>Understand your report</h1>
+    <p>Paste a medical report below and get a plain-language explanation of the terms
+       it uses. This explains findings already written in your report — it does not
+       diagnose, prescribe, or replace your doctor.</p>
+  </header>
+
+  <div class="scope-note">
+    This tool explains documented findings in plain language. It does not diagnose,
+    does not prescribe, and does not replace your doctor's judgment.
+  </div>
+
+  <form id="explain-form">
+    <div>
+      <label for="report-text">Your report</label><br>
+      <textarea id="report-text" name="report_text" placeholder="Paste your report here, e.g. &quot;Mild hepatic steatosis with elevated ALT.&quot;" required></textarea>
+      <div class="privacy-note">Your report is sent for processing and is not saved.</div>
+    </div>
+    <div class="row">
+      <div>
+        <label for="language">Language</label><br>
+        <select id="language" name="target_language">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी (Hindi) — slower, can take a minute or more</option>
+        </select>
+      </div>
+      <label class="audio-toggle">
+        <input type="checkbox" id="include-audio" name="include_audio">
+        Also read this aloud
+      </label>
+      <button type="submit" id="submit-btn">Explain my report</button>
+    </div>
+    <div class="progress" id="progress">
+      <span class="spinner" aria-hidden="true"></span>
+      <span id="progress-text">Reading your report…</span>
+    </div>
+    <div class="error" id="error-box" role="alert"></div>
+  </form>
+
+  <div class="results" id="results">
+    <div class="legend">
+      <span><span class="swatch explained"></span> Explained</span>
+      <span><span class="swatch negated"></span> Not found in your report</span>
+      <span><span class="swatch gap"></span> No checked explanation yet</span>
+    </div>
+
+    <div class="card">
+      <h2>Your report</h2>
+      <div class="report-text" id="report-render"></div>
+      <div class="term-detail" id="term-detail">
+        <div class="row-top">
+          <div>
+            <span class="label" id="term-detail-label"></span>
+            <span id="term-detail-text"></span>
+          </div>
+          <button type="button" class="close-btn" id="term-detail-close" aria-label="Close">&times;</button>
+        </div>
+        <span class="source" id="term-detail-source"></span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>What it means</h2>
+      <div class="explanation" id="explanation-render"></div>
+      <div class="audio-player" id="audio-player" hidden>
+        <audio controls id="audio-el"></audio>
+        <span class="audio-note">Includes the disclaimer at the end.</span>
+      </div>
+    </div>
+
+    <div class="card" id="citations-card">
+      <h2>Sources</h2>
+      <ul class="citations" id="citations-render"></ul>
+    </div>
+  </div>
+
+  <footer>
+    Prototype — not a substitute for medical advice. Always discuss your report with
+    your doctor.
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  const form = document.getElementById("explain-form");
+  const textArea = document.getElementById("report-text");
+  const languageSelect = document.getElementById("language");
+  const includeAudioCheckbox = document.getElementById("include-audio");
+  const audioPlayer = document.getElementById("audio-player");
+  const audioEl = document.getElementById("audio-el");
+  const submitBtn = document.getElementById("submit-btn");
+  const progress = document.getElementById("progress");
+  const progressText = document.getElementById("progress-text");
+  const errorBox = document.getElementById("error-box");
+  const results = document.getElementById("results");
+  const reportRender = document.getElementById("report-render");
+  const explanationRender = document.getElementById("explanation-render");
+  const citationsCard = document.getElementById("citations-card");
+  const citationsRender = document.getElementById("citations-render");
+  const termDetail = document.getElementById("term-detail");
+  const termDetailLabel = document.getElementById("term-detail-label");
+  const termDetailText = document.getElementById("term-detail-text");
+  const termDetailSource = document.getElementById("term-detail-source");
+  const termDetailClose = document.getElementById("term-detail-close");
+
+  let activeMark = null;
+
+  function closeTermDetail() {
+    termDetail.removeAttribute("data-show");
+    if (activeMark) { activeMark.setAttribute("aria-expanded", "false"); }
+    activeMark = null;
+  }
+
+  termDetailClose.addEventListener("click", closeTermDetail);
+
+  let progressTimer = null;
+
+  function showError(message) {
+    errorBox.textContent = message;
+    errorBox.setAttribute("data-show", "");
+  }
+
+  function clearError() {
+    errorBox.textContent = "";
+    errorBox.removeAttribute("data-show");
+  }
+
+  function setBusy(busy, targetLanguage) {
+    submitBtn.disabled = busy;
+    textArea.disabled = busy;
+    if (busy) {
+      progress.setAttribute("data-show", "");
+      const translating = targetLanguage && targetLanguage !== "en";
+      progressText.textContent = "Reading your report…";
+      let elapsed = 0;
+      progressTimer = window.setInterval(function () {
+        elapsed += 5;
+        if (translating) {
+          // Translation is measured, not guessed: eval/translation_results.md — a
+          // CPU translation model, not a lookup, so this genuinely takes a while.
+          progressText.textContent = elapsed < 30
+            ? "Reading your report…"
+            : "Still working — translation is slow on this server and can take a "
+              + "minute or more. Thank you for your patience.";
+        } else {
+          progressText.textContent = elapsed < 5
+            ? "Reading your report…"
+            : "Still working — this can take up to 20 seconds for reports with several findings.";
+        }
+      }, 5000);
+    } else {
+      progress.removeAttribute("data-show");
+      if (progressTimer) { window.clearInterval(progressTimer); progressTimer = null; }
+    }
+  }
+
+  function escapeHtml(text) {
+    const div = document.createElement("div");
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  function termClass(term) {
+    if (term.negated) return "negated";
+    if (term.status === "no_vetted_definition") return "gap";
+    return "explained";
+  }
+
+  function openTermDetail(mark, term) {
+    const reopening = activeMark === mark;
+    closeTermDetail();
+    if (reopening) { return; } // clicking the open term again just closes it
+
+    if (term.status === "explained" && term.definition) {
+      termDetailLabel.textContent = term.negated ? "Not found in your report" : "What this means";
+      termDetailText.textContent = term.definition;
+      termDetailSource.textContent = term.source_citation ? "Source: " + term.source_citation : "";
+    } else {
+      termDetailLabel.textContent = "No checked explanation yet";
+      termDetailText.textContent = "We do not have a reviewed plain-language definition for this term. Please ask your doctor about it.";
+      termDetailSource.textContent = "";
+    }
+    termDetail.setAttribute("data-show", "");
+    mark.setAttribute("aria-expanded", "true");
+    activeMark = mark;
+  }
+
+  function renderReport(originalText, terms) {
+    reportRender.innerHTML = "";
+    closeTermDetail();
+    const sorted = terms.slice().sort(function (a, b) { return a.start - b.start; });
+    let cursor = 0;
+
+    // Marks stay fully inline with the surrounding text — the report is the patient's
+    // own wording and must read exactly as written, with no injected line breaks.
+    sorted.forEach(function (term) {
+      if (term.start > cursor) {
+        reportRender.appendChild(document.createTextNode(originalText.slice(cursor, term.start)));
+      }
+      const mark = document.createElement("mark");
+      mark.className = termClass(term);
+      mark.textContent = originalText.slice(term.start, term.end);
+      mark.tabIndex = 0;
+      mark.setAttribute("role", "button");
+      mark.setAttribute("aria-expanded", "false");
+      mark.setAttribute("aria-controls", "term-detail");
+
+      function activate() { openTermDetail(mark, term); }
+      mark.addEventListener("click", activate);
+      mark.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          activate();
+        }
+      });
+
+      reportRender.appendChild(mark);
+      cursor = term.end;
+    });
+
+    if (cursor < originalText.length) {
+      reportRender.appendChild(document.createTextNode(originalText.slice(cursor)));
+    }
+  }
+
+  function renderExplanation(text) {
+    explanationRender.innerHTML = "";
+    text.split("\n").filter(function (line) { return line.trim().length > 0; }).forEach(function (line) {
+      const p = document.createElement("p");
+      p.textContent = line;
+      explanationRender.appendChild(p);
+    });
+  }
+
+  function renderCitations(citations) {
+    citationsRender.innerHTML = "";
+    if (!citations.length) {
+      citationsCard.style.display = "none";
+      return;
+    }
+    citationsCard.style.display = "";
+    citations.forEach(function (citation) {
+      const li = document.createElement("li");
+      li.textContent = citation.term + " — " + citation.source_citation;
+      citationsRender.appendChild(li);
+    });
+  }
+
+  let audioObjectUrl = null;
+
+  function renderAudio(audioBase64) {
+    if (audioObjectUrl) {
+      URL.revokeObjectURL(audioObjectUrl);
+      audioObjectUrl = null;
+    }
+    if (!audioBase64) {
+      audioPlayer.hidden = true;
+      audioEl.removeAttribute("src");
+      return;
+    }
+    const bytes = Uint8Array.from(atob(audioBase64), function (c) { return c.charCodeAt(0); });
+    const blob = new Blob([bytes], { type: "audio/mpeg" });
+    audioObjectUrl = URL.createObjectURL(blob);
+    audioEl.src = audioObjectUrl;
+    audioPlayer.hidden = false;
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    clearError();
+    const reportText = textArea.value.trim();
+    if (!reportText) {
+      showError("Please paste your report first.");
+      return;
+    }
+
+    setBusy(true, languageSelect.value);
+    results.removeAttribute("data-show");
+
+    fetch("/explain", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        report_text: reportText,
+        target_language: languageSelect.value,
+        include_audio: includeAudioCheckbox.checked,
+      }),
+    })
+      .then(function (response) {
+        return response.json().then(function (body) {
+          return { ok: response.ok, status: response.status, body: body };
+        });
+      })
+      .then(function (result) {
+        setBusy(false);
+        if (!result.ok) {
+          const detail = result.body && result.body.detail;
+          if (detail && detail.stage === "translation") {
+            showError("That language isn't available yet. Please try English.");
+          } else if (detail && detail.stage) {
+            showError("Something went wrong while explaining your report (" + detail.stage + "). Please try again.");
+          } else {
+            showError("Please check your report text and try again.");
+          }
+          return;
+        }
+        renderReport(result.body.original_text, result.body.terms);
+        renderExplanation(result.body.explanation);
+        renderCitations(result.body.citations || []);
+        renderAudio(result.body.audio_base64);
+        results.setAttribute("data-show", "");
+      })
+      .catch(function () {
+        setBusy(false);
+        showError("Could not reach the server. Please check your connection and try again.");
+      });
+  });
+})();
+</script>
+</body>
+</html>

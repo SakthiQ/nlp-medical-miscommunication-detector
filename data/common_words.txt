@@ -1,0 +1,44 @@
+# Everyday words the NER model tags as medical terms, but patients already understand.
+# NER hits matching a line here are never flagged. Matched case-insensitively.
+# Commonly understood terms that need a KB definition belong in knowledge_base.json
+# with "is_common": true instead.
+
+# body parts
+liver
+spleen
+heart
+lung
+lungs
+kidney
+kidneys
+bone
+bones
+blood
+skin
+brain
+stomach
+chest
+abdomen
+belly
+back
+neck
+head
+arm
+arms
+leg
+legs
+foot
+feet
+hand
+hands
+eye
+eyes
+
+# directions the model sometimes tags as anatomy
+right
+left
+upper
+lower
+
+# everyday symptoms
+pain

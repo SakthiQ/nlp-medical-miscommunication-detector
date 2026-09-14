@@ -1,0 +1,35 @@
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+
+# Preprocessing
+# scispaCy is not used: it requires spaCy <3.8, which has no Python 3.14 build.
+spacy>=3.8
+pysbd==0.3.4       # abbreviation-aware sentence segmentation
+negspacy==1.1.0    # NegEx negation detection (clinical termset)
+
+# NER
+transformers
+torch
+
+# Retrieval / RAG
+sentence-transformers
+faiss-cpu
+# chromadb  # alternative to faiss-cpu, pick one
+
+# Generation
+# Talks to a local Ollama server (https://ollama.com), not a pip package. Install
+# Ollama separately and `ollama pull llama3`; the app falls back to the deterministic
+# template if it can't be reached.
+requests
+
+# Translation
+sentencepiece==0.2.2   # NLLB tokenizer
+
+# Speech
+gTTS==2.5.4   # hosted (needs internet), no API key required
+
+# Testing
+pytest
+httpx
