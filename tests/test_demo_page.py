@@ -30,8 +30,9 @@ def test_demo_page_references_report_text_field(client):
     assert "include_audio" in body
 
 
-def test_demo_page_offers_hindi_and_audio(client):
+def test_demo_page_offers_indian_languages_and_audio(client):
     body = client.get("/").text
-    assert 'value="hi"' in body
+    for code in ("hi", "ta", "te", "ml"):
+        assert f'value="{code}"' in body
     assert 'id="include-audio"' in body
     assert 'id="audio-el"' in body

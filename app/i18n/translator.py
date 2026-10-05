@@ -7,13 +7,10 @@ transformers `pipeline("translation", ...)` API, which is what the rest of this 
 already uses everywhere else, at the cost of being a general-purpose model rather than
 one tuned specifically for Indian languages.
 
-Only one language is enabled: Hindi. Not a placeholder gap — a measured one. On this
-CPU-only machine, a single forward translation of a three-sentence explanation took
-40-50 seconds (`eval/translation_eval.py`), on top of whatever the generation stage
-already cost. That number is the same for every language NLLB supports, so "add the
-other three languages" is not more engineering work, it is roughly 4x more waiting per
-non-English request — a product decision, not a code change, and one this build does not
-make silently: see README section 7 (i18n) and the roadmap notes.
+Enabled languages: English, Hindi, Tamil, Telugu, Malayalam. Each non-English request
+pays one CPU forward translation per line (5-15 seconds measured per sentence in
+`eval/translation_eval.py`), and the cost is the same for every language NLLB supports,
+so the dropdown warns that non-English output is slow.
 
 Translation only ever receives the already-validated final text, never raw LLM output —
 translating cannot be a way to bypass the safety checks in app/safety/validator.py.
@@ -40,9 +37,9 @@ MODEL_NAME = os.environ.get("TRANSLATION_MODEL", "facebook/nllb-200-distilled-60
 LANGUAGES: dict[str, tuple[str, str]] = {
     "en": ("English", "eng_Latn"),
     "hi": ("Hindi", "hin_Deva"),
-    # Tamil (tam_Taml), Telugu (tel_Telu), Malayalam (mal_Mlym) are supported by the same
-    # model and code path — enabling them is a one-line addition to this dict — but are
-    # deliberately not turned on: see the module docstring for the measured latency cost.
+    "ta": ("Tamil", "tam_Taml"),
+    "te": ("Telugu", "tel_Telu"),
+    "ml": ("Malayalam", "mal_Mlym"),
 }
 
 SUPPORTED_LANGUAGES = frozenset(LANGUAGES)

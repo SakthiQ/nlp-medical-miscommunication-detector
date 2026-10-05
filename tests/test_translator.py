@@ -15,8 +15,8 @@ def translator():
     return Translator()
 
 
-def test_supported_languages_is_english_and_hindi_only():
-    assert SUPPORTED_LANGUAGES == {"en", "hi"}
+def test_supported_languages_are_english_and_four_indian_languages():
+    assert SUPPORTED_LANGUAGES == {"en", "hi", "ta", "te", "ml"}
 
 
 def test_english_is_a_no_op_and_never_touches_the_model(translator, monkeypatch):
@@ -33,8 +33,8 @@ def test_unsupported_language_raises_without_touching_the_model(translator, monk
         raise AssertionError("an unsupported language must be rejected before calling the model")
 
     monkeypatch.setattr(translator, "_pipe", fail)
-    with pytest.raises(UnsupportedLanguageError, match="ta"):
-        translator.translate("text", "ta")
+    with pytest.raises(UnsupportedLanguageError, match="fr"):
+        translator.translate("text", "fr")
 
 
 def test_unsupported_language_error_names_the_supported_ones():

@@ -5,7 +5,7 @@ every other model in this project. Measured: well under a second per call, since
 network request, not local inference — no latency trade-off to make here the way there
 was for generation and translation.
 
-Supports the same languages as translation (English, Hindi) for the same reason: the
+Supports the same languages as translation (English, Hindi, Tamil, Telugu, Malayalam) for the same reason: the
 audio is synthesized from `final_text`, which is only ever produced in a supported
 language. `final_text` already carries the safety disclaimer (appended in
 `app/safety/validator.py` before translation ever sees it), so the disclaimer is spoken
@@ -29,7 +29,7 @@ IMPLEMENTATION = "real"
 
 # Matches app/i18n/translator.py's SUPPORTED_LANGUAGES: audio is synthesized from
 # final_text, which is only ever produced in a language translation actually supports.
-SUPPORTED_LANGUAGES = frozenset({"en", "hi"})
+SUPPORTED_LANGUAGES = frozenset({"en", "hi", "ta", "te", "ml"})
 
 
 class SpeechUnavailableError(Exception):

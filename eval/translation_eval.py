@@ -180,8 +180,8 @@ def render(result: Result) -> str:
         f"| Back-translation similarity to original (min / median) | {min(similarities):.3f} / "
         f"{sorted(similarities)[len(similarities) // 2]:.3f} |",
         "",
-        "**Only Hindi is enabled in the app.** Telugu and Malayalam are measured here for "
-        "comparison, not built — see app/i18n/translator.py for the latency reasoning.",
+        "Hindi, Tamil, Telugu and Malayalam are enabled in the app; Hindi, Telugu and "
+        "Malayalam are measured here. See app/i18n/translator.py.",
         "",
         "## Every measured pair",
         "",
