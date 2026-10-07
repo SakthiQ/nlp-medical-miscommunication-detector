@@ -11,6 +11,9 @@ language. `final_text` already carries the safety disclaimer (appended in
 `app/safety/validator.py` before translation ever sees it), so the disclaimer is spoken
 too, not just the plain-language explanation — nothing extra needed here to guarantee that.
 
+If `SARVAM_API_KEY` is set, Sarvam AI (bulbul:v3, app/sarvam.py) is tried first for more
+natural Indian-language voices, with gTTS as the fallback if the call fails.
+
 Speech is optional and best-effort: if the request is genuinely for an unsupported
 language, or the network call fails, `synthesize_speech` raises `SpeechUnavailableError`.
 `app/pipeline.py` catches it and returns the rest of the response with no audio rather
@@ -22,6 +25,8 @@ from __future__ import annotations
 
 import io
 import logging
+
+from app import sarvam
 
 logger = logging.getLogger(__name__)
 
@@ -44,6 +49,12 @@ def synthesize_speech(text: str, language: str) -> bytes:
         )
     if not text.strip():
         raise SpeechUnavailableError("Nothing to synthesize: the explanation was empty.")
+
+    if sarvam.is_configured():
+        try:
+            return sarvam.synthesize(text, language)
+        except sarvam.SarvamError as exc:
+            logger.warning("Sarvam TTS failed, falling back to gTTS: %s", exc)
 
     from gtts import gTTS  # heavy-ish import (requests-based); only paid when speech is built
 

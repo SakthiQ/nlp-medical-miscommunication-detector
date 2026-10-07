@@ -27,7 +27,12 @@ of the clinical term. The round trip is not the ground truth.)
 
 from __future__ import annotations
 
+import logging
 import os
+
+from app import sarvam
+
+logger = logging.getLogger(__name__)
 
 IMPLEMENTATION = "real"
 
@@ -53,6 +58,14 @@ class UnsupportedLanguageError(ValueError):
 
 class Translator:
     def __init__(self, model_name: str = MODEL_NAME) -> None:
+        self.model_name = model_name
+        self._pipe = None
+        # With a Sarvam key the local model is loaded lazily, only if Sarvam fails: the
+        # common path then skips the multi-second load and the CPU inference entirely.
+        if not sarvam.is_configured():
+            self._load_local_model()
+
+    def _load_local_model(self) -> None:
         # Heavy imports; only paid when translation is built. Local cache first, same
         # lesson as app/ner/biobert_ner.py and app/retrieval/retriever.py: loading
         # "online" re-checks Hugging Face for newer files on every start even when the
@@ -60,7 +73,7 @@ class Translator:
         # the model genuinely isn't cached yet.
         from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, pipeline
 
-        self.model_name = model_name
+        model_name = self.model_name
         try:
             tokenizer = AutoTokenizer.from_pretrained(model_name, local_files_only=True)
             model = AutoModelForSeq2SeqLM.from_pretrained(model_name, local_files_only=True)
@@ -79,6 +92,14 @@ class Translator:
             return text  # no-op, and skips paying the model for the common case
 
         _, code = LANGUAGES[target_lang]
+        if sarvam.is_configured():
+            try:
+                lines = [line for line in text.splitlines() if line.strip()]
+                return "\n\n".join(sarvam.translate(line, target_lang) for line in lines)
+            except sarvam.SarvamError as exc:
+                logger.warning("Sarvam translation failed, falling back to NLLB: %s", exc)
+        if self._pipe is None:
+            self._load_local_model()
         # Translate line by line, not the whole block as one string: NLLB is trained on
         # sentence/short-passage pairs, and `final_text` is one sentence per line plus a
         # blank-line-separated disclaimer. Sending that as a single string with embedded

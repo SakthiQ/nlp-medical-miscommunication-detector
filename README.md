@@ -306,6 +306,10 @@ the explanation, disclaimer included, read in whichever language was selected.
 - Translation (NLLB, not IndicTrans2 — see section 8) runs only on the already-validated
   `final_text`, never on raw LLM output, so translation can't be a way to bypass the
   safety checks.
+- Optional Sarvam AI: set `SARVAM_API_KEY` (see `.env.example`) and `app/sarvam.py` is
+  used first for translation (`mayura:v1`) and speech (`bulbul:v3`), which avoids the CPU
+  latency below. The report text is then sent to Sarvam's hosted API, so it is opt-in. If
+  a Sarvam call fails, NLLB and gTTS take over.
 - Hindi, Tamil, Telugu and Malayalam are enabled, and all are genuinely slow: 5.6-14.7
   seconds measured per sentence on this CPU, the same cost for every language the model
   supports — see section 8 for the real numbers and why back-translation checking runs
