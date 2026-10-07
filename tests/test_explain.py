@@ -68,7 +68,7 @@ def test_response_reports_which_stages_are_placeholders(client):
     assert body["pipeline"]["terminology"] == "partial"
     assert set(body["timings_ms"]) == {
         "preprocessing", "ner", "terminology", "negation", "retrieval",
-        "generation", "validation", "translation",
+        "generation", "validation", "translation", "speech",
     }
 
 
