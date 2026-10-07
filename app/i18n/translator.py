@@ -7,13 +7,10 @@ transformers `pipeline("translation", ...)` API, which is what the rest of this 
 already uses everywhere else, at the cost of being a general-purpose model rather than
 one tuned specifically for Indian languages.
 
-Only one language is enabled: Hindi. Not a placeholder gap — a measured one. On this
-CPU-only machine, a single forward translation of a three-sentence explanation took
-40-50 seconds (`eval/translation_eval.py`), on top of whatever the generation stage
-already cost. That number is the same for every language NLLB supports, so "add the
-other three languages" is not more engineering work, it is roughly 4x more waiting per
-non-English request — a product decision, not a code change, and one this build does not
-make silently: see README section 7 (i18n) and the roadmap notes.
+Enabled languages: English, Hindi, Tamil, Telugu, Malayalam. Each non-English request
+pays one CPU forward translation per line (5-15 seconds measured per sentence in
+`eval/translation_eval.py`), and the cost is the same for every language NLLB supports,
+so the dropdown warns that non-English output is slow.
 
 Translation only ever receives the already-validated final text, never raw LLM output —
 translating cannot be a way to bypass the safety checks in app/safety/validator.py.
@@ -30,7 +27,12 @@ of the clinical term. The round trip is not the ground truth.)
 
 from __future__ import annotations
 
+import logging
 import os
+
+from app import sarvam
+
+logger = logging.getLogger(__name__)
 
 IMPLEMENTATION = "real"
 
@@ -40,9 +42,9 @@ MODEL_NAME = os.environ.get("TRANSLATION_MODEL", "facebook/nllb-200-distilled-60
 LANGUAGES: dict[str, tuple[str, str]] = {
     "en": ("English", "eng_Latn"),
     "hi": ("Hindi", "hin_Deva"),
-    # Tamil (tam_Taml), Telugu (tel_Telu), Malayalam (mal_Mlym) are supported by the same
-    # model and code path — enabling them is a one-line addition to this dict — but are
-    # deliberately not turned on: see the module docstring for the measured latency cost.
+    "ta": ("Tamil", "tam_Taml"),
+    "te": ("Telugu", "tel_Telu"),
+    "ml": ("Malayalam", "mal_Mlym"),
 }
 
 SUPPORTED_LANGUAGES = frozenset(LANGUAGES)
@@ -56,6 +58,14 @@ class UnsupportedLanguageError(ValueError):
 
 class Translator:
     def __init__(self, model_name: str = MODEL_NAME) -> None:
+        self.model_name = model_name
+        self._pipe = None
+        # With a Sarvam key the local model is loaded lazily, only if Sarvam fails: the
+        # common path then skips the multi-second load and the CPU inference entirely.
+        if not sarvam.is_configured():
+            self._load_local_model()
+
+    def _load_local_model(self) -> None:
         # Heavy imports; only paid when translation is built. Local cache first, same
         # lesson as app/ner/biobert_ner.py and app/retrieval/retriever.py: loading
         # "online" re-checks Hugging Face for newer files on every start even when the
@@ -63,7 +73,7 @@ class Translator:
         # the model genuinely isn't cached yet.
         from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, pipeline
 
-        self.model_name = model_name
+        model_name = self.model_name
         try:
             tokenizer = AutoTokenizer.from_pretrained(model_name, local_files_only=True)
             model = AutoModelForSeq2SeqLM.from_pretrained(model_name, local_files_only=True)
@@ -82,6 +92,14 @@ class Translator:
             return text  # no-op, and skips paying the model for the common case
 
         _, code = LANGUAGES[target_lang]
+        if sarvam.is_configured():
+            try:
+                lines = [line for line in text.splitlines() if line.strip()]
+                return "\n\n".join(sarvam.translate(line, target_lang) for line in lines)
+            except sarvam.SarvamError as exc:
+                logger.warning("Sarvam translation failed, falling back to NLLB: %s", exc)
+        if self._pipe is None:
+            self._load_local_model()
         # Translate line by line, not the whole block as one string: NLLB is trained on
         # sentence/short-passage pairs, and `final_text` is one sentence per line plus a
         # blank-line-separated disclaimer. Sending that as a single string with embedded

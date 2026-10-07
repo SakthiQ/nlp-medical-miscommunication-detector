@@ -61,7 +61,7 @@ because explaining that would be clinical interpretation.
                         │          │             and as fallback if the LLM is unavailable/unsafe) │
                         │  6. Safety ───────── grounding check + blocked phrases + disclaimer      │
                         │          │            fails → deterministic template fallback            │
-                        │  7. Outputs ──────── translation (Hindi) + text-to-speech (gTTS)          │
+                        │  7. Outputs ──────── translation (hi/ta/te/ml) + text-to-speech (gTTS)       │
                         └──────────┼───────────────────────────────────────────────────────────────┘
                                    ▼
             JSON: highlighted terms (with offsets), explanation, citations, validation flags
@@ -86,7 +86,7 @@ Three routes a term can take:
 | 4 | Retrieval (RAG) | `app/retrieval/retriever.py` | sentence-transformers embeddings + FAISS | Built |
 | 5 | Explanation generation | `app/generation/explainer.py` | Llama 3 via Ollama for explained/un-negated terms; deterministic template for negated findings, coverage gaps, and as the fallback | Built |
 | 6 | Safety & validation | `app/safety/validator.py` | Grounding + regex filters + fallback | Partial |
-| 7 | Translation / speech | `app/i18n/`, `app/tts/` | NLLB (Hindi only — measured cost, see section 8); gTTS for speech (English + Hindi) | Built |
+| 7 | Translation / speech | `app/i18n/`, `app/tts/` | NLLB (Hindi, Tamil, Telugu, Malayalam; slow on CPU, see section 8); gTTS for speech (same languages) | Built |
 | – | Orchestration | `app/pipeline.py`, `app/api/` | FastAPI, Pydantic | Built |
 
 Every API response includes a `pipeline` field listing which stages are real, partial,
@@ -297,7 +297,7 @@ error and the patient sees nothing unsafe.
 
 #### Step 7 — Switch language or listen
 
-**Patient experience:** choose Hindi from the dropdown — the label warns up front that
+**Patient experience:** choose Hindi, Tamil, Telugu or Malayalam from the dropdown — the label warns up front that
 it's slower — and get the explanation translated, with a progress message that adjusts
 once the wait passes 30 seconds. Tick "Also read this aloud" for an audio player with
 the explanation, disclaimer included, read in whichever language was selected.
@@ -306,12 +306,15 @@ the explanation, disclaimer included, read in whichever language was selected.
 - Translation (NLLB, not IndicTrans2 — see section 8) runs only on the already-validated
   `final_text`, never on raw LLM output, so translation can't be a way to bypass the
   safety checks.
-- Only Hindi is enabled, and it is genuinely slow: 5.6-14.7 seconds measured per sentence
-  on this CPU. Tamil, Telugu, and Malayalam are measured in `eval/translation_eval.py`
-  but not turned on, because that cost is the same for every language the model supports
-  — see section 8 for the real numbers and why back-translation checking runs offline
-  rather than on every request.
-- Choosing an unsupported language (anything but English or Hindi) returns HTTP 501
+- Optional Sarvam AI: set `SARVAM_API_KEY` (see `.env.example`) and `app/sarvam.py` is
+  used first for translation (`mayura:v1`) and speech (`bulbul:v3`), which avoids the CPU
+  latency below. The report text is then sent to Sarvam's hosted API, so it is opt-in. If
+  a Sarvam call fails, NLLB and gTTS take over.
+- Hindi, Tamil, Telugu and Malayalam are enabled, and all are genuinely slow: 5.6-14.7
+  seconds measured per sentence on this CPU, the same cost for every language the model
+  supports — see section 8 for the real numbers and why back-translation checking runs
+  offline rather than on every request.
+- Choosing an unsupported language (anything but English, Hindi, Tamil, Telugu or Malayalam) returns HTTP 501
   naming the `translation` stage, and the page shows "This language isn't available yet"
   instead of failing silently.
 - Speech (gTTS — a free hosted service, no API key, measured under a second per call —
@@ -343,7 +346,7 @@ directly from them. The same gap list is the curation queue for growing the know
 | Very long report (over 512 model tokens) | Terms highlighted all the way to the end | NER runs in overlapping windows (`stride=128`) and maps hits back to sentences |
 | Generated text contains "you should start metformin" | Only the safe template explanation | Validator flags advice/dosage; fallback replaces it; flags kept |
 | A stage crashes (e.g. model not loaded) | "Something went wrong while explaining your report" | HTTP 500 naming the failed stage; never a half-finished answer |
-| Unsupported language requested (anything but English/Hindi) | "This language isn't available yet" | HTTP 501 naming the `translation` stage |
+| Unsupported language requested (anything but English/Hindi/Tamil/Telugu/Malayalam) | "This language isn't available yet" | HTTP 501 naming the `translation` stage |
 | Audio requested but the network call to gTTS fails | Explanation shows normally, no audio player | `audio_base64: null` — the rest of the response still returns; see app/tts/speech.py |
 
 ### 3.4 UX principles and how the code enforces them
@@ -594,7 +597,7 @@ covers the same languages through the standard `transformers` pipeline API alrea
 everywhere else in this project, at the cost of being general-purpose rather than tuned
 specifically for Indian languages.
 
-**Only Hindi is enabled — a measured decision, not a placeholder gap.** Before wiring
+**Hindi, Tamil, Telugu and Malayalam are enabled; latency is the known cost.** Before wiring
 anything in, I measured real latency on real generated sentences
 (`eval/translation_eval.py`):
 
@@ -606,13 +609,8 @@ anything in, I measured real latency on real generated sentences
 These are **per sentence** — `app/i18n/translator.py` translates `final_text` line by
 line (see its docstring for why), and a real explanation is several lines, so a live
 request's translation stage runs this forward-translation cost once per sentence in the
-response, not once total. That cost is the same for every language NLLB supports. Adding Tamil, Telugu, and
-Malayalam is not more engineering work — the model already covers them, and the code path
-is a one-line addition to a dict in `app/i18n/translator.py` — it is roughly four times
-more waiting per non-English request on this CPU-only machine. That is a product decision
-about acceptable latency, not a code change, so this build makes it explicitly rather than
-quietly shipping four slow languages and calling it done. Full numbers, and the two other
-languages measured for comparison but not enabled, in
+response, not once total. That cost is the same for every language NLLB supports, and the
+dropdown labels each non-English option as slow. Full numbers in
 [eval/translation_results.md](eval/translation_results.md).
 
 **A real translation-quality finding, not just a latency one.** Round-tripping "hepatic
@@ -669,7 +667,7 @@ left to accumulate.
 
 Not a production frontend: no build step, no framework, inline CSS and JS in one file, on
 purpose — this is a demo to show the pipeline working, not a shippable patient product.
-The language dropdown offers English and Hindi, with the Hindi option's label setting
+The language dropdown offers English, Hindi, Tamil, Telugu and Malayalam, with each option's label setting
 latency expectations up front rather than leaving the patient guessing, the progress
 message switches to a longer, translation-specific one after 30 seconds of waiting, and
 an "Also read this aloud" checkbox requests audio without forcing it on every request.
@@ -728,8 +726,8 @@ app/
   safety/validator.py     Grounding and forbidden-content checks (the enforced gate)
   safety/semantic.py      Embedding-similarity advisory check (logged, never enforced)
   safety/provenance.py    Opt-in audit logging (AUDIT_LOG_PATH), off by default
-  i18n/translator.py      NLLB translation (Hindi only — see section 8)
-  tts/speech.py           gTTS speech synthesis (English + Hindi), best-effort
+  i18n/translator.py      NLLB translation (Hindi, Tamil, Telugu, Malayalam — see section 8)
+  tts/speech.py           gTTS speech synthesis (English, Hindi, Tamil, Telugu, Malayalam), best-effort
   static/index.html       The demo page served at / (section 8)
 data/                     Knowledge base, evaluation corpus, common-words stoplist
 eval/ner_eval.py                 Term-detection evaluation → eval/ner_results.md
@@ -839,9 +837,8 @@ python -m eval.translation_eval                  # translation latency/quality �
   readability automatically, which is a triage pass, not a substitute for that review.
 - The LLM's sentences are placed before the template's, not interleaved in report order
   (see section 3, Step 5) — a readability polish item, not a safety one.
-- Only Hindi is translated; Tamil, Telugu, and Malayalam are measured but deliberately not
-  enabled (see section 8) — a genuine scope gap against the original brief, made
-  explicitly for a measured reason (latency) rather than left unstated.
+- Translation to Hindi, Tamil, Telugu and Malayalam is slow on CPU (see section 8), and
+  none of the four has had a fluent-speaker review.
 - Translation quality has not had a human review either. Machine back-translation found
   one real error class on its own (steatosis/stenosis confusion — section 8), but
   back-translation is an imperfect check; a fluent speaker has not reviewed the Hindi
@@ -962,14 +959,10 @@ similarity measures relatedness, not equivalence. So it logs a signal for a huma
 reviewer instead of gating the response, and the structural citation check — which is
 exact, not fuzzy — stays the only thing that can reject an explanation.
 
-**Why is only one language translated, when the brief asked for several?**
-Because I measured the cost of the others before promising them. NLLB translates Tamil,
-Telugu, and Malayalam through the exact same code path as Hindi — turning them on is a
-one-line change — but each one costs the same CPU latency as Hindi does: seconds to tens
-of seconds per sentence, worse for longer text. Shipping all four silently would have
-meant a demo where selecting a language sometimes takes over a minute with no explanation.
-I built one language properly, with the cost measured and disclosed
-(`eval/translation_eval.py`), rather than four languages with an unstated cost.
+**Why is translation slow?**
+NLLB runs on CPU and translates line by line, so each non-English request costs seconds to
+tens of seconds per sentence, the same for every language. The dropdown labels each
+non-English option as slow, and the cost is measured in `eval/translation_eval.py`.
 
 **Walk me through a real bug you found testing your own work.**
 Building the demo page, I put each highlighted term's definition inline in the report

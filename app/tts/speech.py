@@ -5,11 +5,14 @@ every other model in this project. Measured: well under a second per call, since
 network request, not local inference — no latency trade-off to make here the way there
 was for generation and translation.
 
-Supports the same languages as translation (English, Hindi) for the same reason: the
+Supports the same languages as translation (English, Hindi, Tamil, Telugu, Malayalam) for the same reason: the
 audio is synthesized from `final_text`, which is only ever produced in a supported
 language. `final_text` already carries the safety disclaimer (appended in
 `app/safety/validator.py` before translation ever sees it), so the disclaimer is spoken
 too, not just the plain-language explanation — nothing extra needed here to guarantee that.
+
+If `SARVAM_API_KEY` is set, Sarvam AI (bulbul:v3, app/sarvam.py) is tried first for more
+natural Indian-language voices, with gTTS as the fallback if the call fails.
 
 Speech is optional and best-effort: if the request is genuinely for an unsupported
 language, or the network call fails, `synthesize_speech` raises `SpeechUnavailableError`.
@@ -23,13 +26,15 @@ from __future__ import annotations
 import io
 import logging
 
+from app import sarvam
+
 logger = logging.getLogger(__name__)
 
 IMPLEMENTATION = "real"
 
 # Matches app/i18n/translator.py's SUPPORTED_LANGUAGES: audio is synthesized from
 # final_text, which is only ever produced in a language translation actually supports.
-SUPPORTED_LANGUAGES = frozenset({"en", "hi"})
+SUPPORTED_LANGUAGES = frozenset({"en", "hi", "ta", "te", "ml"})
 
 
 class SpeechUnavailableError(Exception):
@@ -44,6 +49,12 @@ def synthesize_speech(text: str, language: str) -> bytes:
         )
     if not text.strip():
         raise SpeechUnavailableError("Nothing to synthesize: the explanation was empty.")
+
+    if sarvam.is_configured():
+        try:
+            return sarvam.synthesize(text, language)
+        except sarvam.SarvamError as exc:
+            logger.warning("Sarvam TTS failed, falling back to gTTS: %s", exc)
 
     from gtts import gTTS  # heavy-ish import (requests-based); only paid when speech is built
 

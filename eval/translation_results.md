@@ -8,7 +8,7 @@ Model `facebook/nllb-200-distilled-600M`, CPU. Real generated sentences from the
 | Round trip, forward + back (min / median / max) | 9.3s / 15.3s / 24.3s |
 | Back-translation similarity to original (min / median) | 0.863 / 0.907 |
 
-**Only Hindi is enabled in the app.** Telugu and Malayalam are measured here for comparison, not built — see app/i18n/translator.py for the latency reasoning.
+Hindi, Tamil, Telugu and Malayalam are enabled in the app; Hindi, Telugu and Malayalam are measured here. See app/i18n/translator.py.
 
 ## Every measured pair
 

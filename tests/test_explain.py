@@ -109,7 +109,7 @@ def test_common_terms_are_not_flagged(client):
 
 
 def test_unsupported_language_is_a_clear_error(client):
-    response = client.post("/explain", json={"report_text": DECK_EXAMPLE, "target_language": "ta"})
+    response = client.post("/explain", json={"report_text": DECK_EXAMPLE, "target_language": "fr"})
     assert response.status_code == 501
     assert response.json()["detail"]["stage"] == "translation"
 
