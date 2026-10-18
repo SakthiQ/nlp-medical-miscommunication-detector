@@ -1,0 +1,60 @@
+# Terms to look up in MedlinePlus for new knowledge-base entries, one per line.
+# `python -m tools.kb_candidates` reads this file plus every coverage gap in
+# data/eval_corpus.json. Terms already in the KB are reported as such and skipped.
+
+# Liver, gallbladder, pancreas
+cirrhosis
+hepatitis
+jaundice
+bilirubin
+pancreatitis
+
+# Kidney and urinary
+kidney cyst
+urinary tract infection
+enlarged prostate
+
+# Heart and blood vessels
+atrial fibrillation
+heart failure
+cardiomyopathy
+atherosclerosis
+aneurysm
+deep vein thrombosis
+pulmonary embolism
+
+# Lungs
+pneumonia
+emphysema
+COPD
+bronchitis
+asthma
+
+# Blood and metabolism
+prediabetes
+hyperglycemia
+hypoglycemia
+iron deficiency
+vitamin D deficiency
+vitamin B12 deficiency
+hyponatremia
+hypokalemia
+gout
+hyperthyroidism
+goiter
+
+# Bones, joints, spine
+osteoarthritis
+scoliosis
+herniated disk
+spinal stenosis
+
+# Digestive
+diverticulosis
+hernia
+hemorrhoids
+colonic polyps
+
+# Women's health
+uterine fibroids
+ovarian cysts
