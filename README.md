@@ -825,10 +825,12 @@ python -m eval.translation_eval                  # translation latency/quality â
 
 ## 13. Known limitations
 
-- Source citations name their source, but `source_url` is empty until each link is
-  verified. Several entries cite the MedlinePlus Medical Encyclopedia, which is licensed
-  from A.D.A.M. and must not be copied; those definitions need re-sourcing from
-  public-domain MedlinePlus Health Topics.
+- 46 of 51 knowledge-base entries cite a public-domain page (MedlinePlus Health Topics
+  or Medical Tests, the NCI Dictionary of Cancer Terms, or NIAMS) with a verified
+  `source_url`. Five still cite the MedlinePlus Medical Encyclopedia, which is licensed
+  from A.D.A.M. and must not be copied, and have no URL yet: cardiomegaly, spondylosis,
+  normal sinus rhythm, incidental finding, unremarkable (see `data/README.md`). The
+  definitions themselves still need a clinician's review.
 - Ambiguous abbreviations (PE, MS) are not handled yet and are left out of the dictionary.
 - The evaluation corpus is small, synthetic and single-annotator.
 - Generated explanations have not had the human faithfulness review the project brief
