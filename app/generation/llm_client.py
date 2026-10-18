@@ -11,9 +11,12 @@ import os
 import requests
 
 OLLAMA_HOST = os.environ.get("OLLAMA_HOST", "http://127.0.0.1:11434")
-MODEL_NAME = os.environ.get("LLM_MODEL", "llama3")
+# Gemma 4 E4B replaced Llama 3 8B after a side-by-side run of eval/generation_eval.py on
+# this CPU (2026-10-18): 17/17 reports passed the safety validator vs 16/17, and mean
+# 17.0s per call vs 22.6s. Set LLM_MODEL=llama3 to go back.
+MODEL_NAME = os.environ.get("LLM_MODEL", "gemma4:e4b")
 
-# Measured: 2 KB entries ~11-20s, 6 entries ~21s on an 8B CPU model. A typical report
+# Measured: ~16s median, 31s worst case per report with Gemma 4 E4B on CPU. A typical report
 # explains a handful of terms, so 120s leaves headroom without hanging indefinitely.
 REQUEST_TIMEOUT_S = float(os.environ.get("LLM_TIMEOUT_S", "120"))
 
@@ -37,6 +40,10 @@ def generate_json(prompt: str, num_predict: int = 800) -> str:
                 "prompt": prompt,
                 "stream": False,
                 "format": "json",
+                # Thinking models (Gemma 4, Qwen 3.5) would otherwise reason before
+                # answering: slower on CPU, and it adds nothing to a grounded rewrite.
+                # Models without a thinking mode (Llama 3) accept and ignore it.
+                "think": False,
                 "options": {"temperature": 0.2, "num_predict": num_predict},
             },
             timeout=REQUEST_TIMEOUT_S,

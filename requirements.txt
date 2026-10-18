@@ -20,7 +20,7 @@ faiss-cpu
 
 # Generation
 # Talks to a local Ollama server (https://ollama.com), not a pip package. Install
-# Ollama separately and `ollama pull llama3`; the app falls back to the deterministic
+# Ollama separately and `ollama pull gemma4:e4b`; the app falls back to the deterministic
 # template if it can't be reached.
 requests
 
