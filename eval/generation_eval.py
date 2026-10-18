@@ -20,7 +20,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from app.generation.explainer import generate_explanation
-from app.generation.llm_client import LLMUnavailableError
+from app.generation.llm_client import MODEL_NAME, LLMUnavailableError
 from app.ner.preprocessing import NegationDetector, preprocess_report
 from app.ner.terminology import DictionaryMatcher, identify_terms
 from app.retrieval.corpus import load_corpus
@@ -151,7 +151,9 @@ def render(result: Result) -> str:
         "LLM-generated explanations for the 18-report evaluation corpus, checked against "
         "the safety validator and a 6th-8th grade Flesch-Kincaid target.",
         "Regenerate with `python -m eval.generation_eval`. Requires Ollama running with "
-        "the model in `LLM_MODEL` (default `llama3`) pulled.",
+        "the model in `LLM_MODEL` (default `gemma4:e4b`) pulled.",
+        "",
+        f"Model for this run: `{MODEL_NAME}`.",
         "",
         "| Metric | Value |",
         "| --- | ---: |",
@@ -192,10 +194,9 @@ def render(result: Result) -> str:
     lines += [
         "## What this does and does not show",
         "",
-        "This confirms the safety net actually fires on real model output — see ev-004 "
-        "below, where the model wrote \"You have been diagnosed with blood pressure...\" "
-        "and the whole explanation was correctly rejected — and gives an automated "
-        "readability proxy. It does **not** check whether a sentence that *passes* is "
+        "Any report marked NO above shows the safety net firing on real model output: "
+        "the whole explanation was rejected and the template used instead. The grade "
+        "column is an automated readability proxy. It does **not** check whether a sentence that *passes* is "
         "faithful in meaning to the source definition — a sentence can cite the right id "
         "and still subtly misstate it. That check needs a human reading the sentences "
         "above against their KB definitions, which is Phase 5's actual acceptance "

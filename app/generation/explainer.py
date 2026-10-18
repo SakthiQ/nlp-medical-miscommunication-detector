@@ -1,4 +1,4 @@
-"""Slide stage 5 — LLM explanation (Llama 3).
+"""Slide stage 5 — LLM explanation (Gemma 4 E4B; Llama 3 before 2026-10).
 
 Only the terms with a clean, positive KB match go to the LLM: `status == "explained"`,
 not negated, one occurrence per KB entry. Negated findings and coverage gaps keep the
@@ -24,6 +24,7 @@ kept separate so it can be iterated on without touching this file.
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 from pydantic import BaseModel, ValidationError
@@ -35,6 +36,10 @@ from app.models import Explanation, ExplanationSentence, FlaggedTerm, RetrievedC
 IMPLEMENTATION = "real"
 
 PROMPT_PATH = Path(__file__).parent / "prompts" / "explain_system_prompt.txt"
+
+# A KB id written into the sentence text, optionally bracketed: "kb-017", "(kb-017)",
+# "[kb-common-001]". Takes the whitespace before it so no gap is left behind.
+_INLINE_KB_ID_RE = re.compile(r"\s*[\[(]?\bkb-[a-z0-9]+(?:-[a-z0-9]+)*\b[\])]?", re.IGNORECASE)
 
 
 class _LLMSentence(BaseModel):
@@ -74,8 +79,11 @@ def _call_llm(original_text: str, evidence: list[RetrievedChunk]) -> list[Explan
         # The model sometimes cites an id we didn't send, or none at all. Keep only the
         # ids it was actually given evidence for; drop a sentence grounded in nothing.
         kb_ids = [kb_id for kb_id in dict.fromkeys(sentence.kb_ids) if kb_id in allowed_ids]
-        if kb_ids and sentence.text.strip():
-            sentences.append(ExplanationSentence(text=sentence.text.strip(), kb_ids=kb_ids, kind="definition"))
+        # Gemma 4 sometimes also writes the citation into the sentence ("...blood
+        # vessels. kb-017"). The id belongs in kb_ids only, never in patient-facing text.
+        text = _INLINE_KB_ID_RE.sub("", sentence.text).strip()
+        if kb_ids and text:
+            sentences.append(ExplanationSentence(text=text, kb_ids=kb_ids, kind="definition"))
 
     if not sentences:
         raise LLMUnavailableError("response contained no groundable sentences")

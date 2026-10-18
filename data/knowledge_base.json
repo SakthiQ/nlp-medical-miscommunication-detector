@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "notes": "See data/README.md for provenance rules. source_url is intentionally null until an exact permalink is verified by a human curator.",
+  "notes": "See data/README.md for provenance rules. Every source_url was checked to resolve and to support its definition on 2026-10-16. source_url stays null where no public-domain source has been found yet.",
   "entries": [
     {
       "id": "kb-001",
@@ -9,8 +9,8 @@
       "label": "DISEASE",
       "plain_definition": "Extra fat has built up inside the liver. This is a common finding and is often picked up by chance on a scan.",
       "clinical_context": "Graded on imaging as mild, moderate, or severe. Frequently reported alongside liver enzyme results.",
-      "source_citation": "MedlinePlus Medical Encyclopedia - 'Fatty liver disease'",
-      "source_url": null,
+      "source_citation": "MedlinePlus Health Topics - 'Steatotic Liver Disease'",
+      "source_url": "https://medlineplus.gov/steatoticliverdisease.html",
       "is_common": false
     },
     {
@@ -20,8 +20,8 @@
       "label": "BIOMARKER",
       "plain_definition": "ALT is an enzyme found mostly in the liver. A blood test measures how much of it is in your blood. Higher than usual levels can be a sign the liver is irritated.",
       "clinical_context": "Reported in a liver function panel, usually next to AST. Reference ranges vary by lab.",
-      "source_citation": "MedlinePlus Medical Tests - 'ALT blood test'",
-      "source_url": null,
+      "source_citation": "MedlinePlus Medical Tests - 'ALT Blood Test'",
+      "source_url": "https://medlineplus.gov/lab-tests/alt-blood-test/",
       "is_common": false
     },
     {
@@ -31,8 +31,8 @@
       "label": "BIOMARKER",
       "plain_definition": "AST is an enzyme found in the liver and also in muscle. A blood test measures how much is in your blood.",
       "clinical_context": "Reported in a liver function panel, usually paired with ALT.",
-      "source_citation": "MedlinePlus Medical Tests - 'AST blood test'",
-      "source_url": null,
+      "source_citation": "MedlinePlus Medical Tests - 'AST Test'",
+      "source_url": "https://medlineplus.gov/lab-tests/ast-test/",
       "is_common": false
     },
     {
@@ -42,8 +42,8 @@
       "label": "BIOMARKER",
       "plain_definition": "A blood test that shows your average blood sugar level over roughly the past three months, rather than just at the moment of the test.",
       "clinical_context": "Reported as a percentage. Used to monitor blood sugar control over time.",
-      "source_citation": "MedlinePlus Medical Tests - 'A1C test'",
-      "source_url": null,
+      "source_citation": "MedlinePlus Medical Tests - 'Hemoglobin A1C (HbA1c) Test'",
+      "source_url": "https://medlineplus.gov/lab-tests/hemoglobin-a1c-hba1c-test/",
       "is_common": false
     },
     {
@@ -53,8 +53,8 @@
       "label": "DISEASE",
       "plain_definition": "Blood pressure that stays higher than the normal range over time.",
       "clinical_context": "Recorded as two numbers, for example 140/90. Often tracked across several visits.",
-      "source_citation": "MedlinePlus Health Topics - 'High blood pressure'",
-      "source_url": null,
+      "source_citation": "MedlinePlus Health Topics - 'High Blood Pressure'",
+      "source_url": "https://medlineplus.gov/highbloodpressure.html",
       "is_common": false
     },
     {
@@ -64,8 +64,8 @@
       "label": "DISEASE",
       "plain_definition": "A hard deposit, like a small stone, that has formed inside the kidney.",
       "clinical_context": "Size and location are usually described on imaging reports.",
-      "source_citation": "MedlinePlus Health Topics - 'Kidney stones'",
-      "source_url": null,
+      "source_citation": "MedlinePlus Health Topics - 'Kidney Stones'",
+      "source_url": "https://medlineplus.gov/kidneystones.html",
       "is_common": false
     },
     {
@@ -76,7 +76,7 @@
       "plain_definition": "One or more hard, stone-like lumps that have formed in the gallbladder.",
       "clinical_context": "Commonly seen on abdominal ultrasound. May or may not cause symptoms.",
       "source_citation": "MedlinePlus Health Topics - 'Gallstones'",
-      "source_url": null,
+      "source_url": "https://medlineplus.gov/gallstones.html",
       "is_common": false
     },
     {
@@ -97,8 +97,8 @@
       "label": "DISEASE",
       "plain_definition": "A part of the lung has not filled with air the way it normally would, so that area looks flattened or closed on a scan.",
       "clinical_context": "Often described by location and extent, for example 'basilar' meaning at the bottom of the lung.",
-      "source_citation": "MedlinePlus Medical Encyclopedia - 'Atelectasis'",
-      "source_url": null,
+      "source_citation": "NCI Dictionary of Cancer Terms - 'atelectasis'",
+      "source_url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/atelectasis",
       "is_common": false
     },
     {
@@ -108,8 +108,8 @@
       "label": "DISEASE",
       "plain_definition": "Extra fluid has collected in the space between the lung and the chest wall.",
       "clinical_context": "Usually described as small, moderate, or large, and on which side.",
-      "source_citation": "MedlinePlus Medical Encyclopedia - 'Pleural effusion'",
-      "source_url": null,
+      "source_citation": "NCI Dictionary of Cancer Terms - 'pleural effusion'",
+      "source_url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/pleural-effusion",
       "is_common": false
     },
     {
@@ -120,7 +120,7 @@
       "plain_definition": "Swelling caused by extra fluid collecting in body tissue, often in the legs, ankles, or feet.",
       "clinical_context": "Sometimes described as 'pitting' if pressing on the skin leaves a dent.",
       "source_citation": "MedlinePlus Health Topics - 'Edema'",
-      "source_url": null,
+      "source_url": "https://medlineplus.gov/edema.html",
       "is_common": false
     },
     {
@@ -130,8 +130,8 @@
       "label": "SYMPTOM",
       "plain_definition": "Difficulty breathing, or the feeling of not being able to get enough air.",
       "clinical_context": "Often noted as happening at rest or only with activity, for example 'on exertion'.",
-      "source_citation": "MedlinePlus Health Topics - 'Breathing problems'",
-      "source_url": null,
+      "source_citation": "MedlinePlus Health Topics - 'Breathing Problems'",
+      "source_url": "https://medlineplus.gov/breathingproblems.html",
       "is_common": false
     },
     {
@@ -141,8 +141,8 @@
       "label": "SYMPTOM",
       "plain_definition": "A heartbeat that is faster than the usual resting rate.",
       "clinical_context": "Measured in beats per minute. Many everyday things, such as exercise or anxiety, can raise heart rate.",
-      "source_citation": "MedlinePlus Medical Encyclopedia - 'Rapid heartbeat'",
-      "source_url": null,
+      "source_citation": "NCI Dictionary of Cancer Terms - 'tachycardia'",
+      "source_url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/tachycardia",
       "is_common": false
     },
     {
@@ -152,8 +152,8 @@
       "label": "SYMPTOM",
       "plain_definition": "A heartbeat that is slower than the usual resting rate.",
       "clinical_context": "Measured in beats per minute. Can be normal in people who are very physically fit.",
-      "source_citation": "MedlinePlus Medical Encyclopedia - 'Slow heart rate'",
-      "source_url": null,
+      "source_citation": "MedlinePlus Health Topics - 'Arrhythmia'",
+      "source_url": "https://medlineplus.gov/arrhythmia.html",
       "is_common": false
     },
     {
@@ -163,8 +163,8 @@
       "label": "BIOMARKER",
       "plain_definition": "A waste product your muscles make every day. The kidneys normally clear it out of the blood, so a blood test for it gives information about how the kidneys are working.",
       "clinical_context": "Reported in a kidney function panel, usually alongside eGFR.",
-      "source_citation": "MedlinePlus Medical Tests - 'Creatinine test'",
-      "source_url": null,
+      "source_citation": "MedlinePlus Medical Tests - 'Creatinine Test'",
+      "source_url": "https://medlineplus.gov/lab-tests/creatinine-test/",
       "is_common": false
     },
     {
@@ -174,8 +174,8 @@
       "label": "BIOMARKER",
       "plain_definition": "A number that estimates how well your kidneys are filtering waste out of your blood. It is calculated from a blood test.",
       "clinical_context": "Usually calculated from creatinine along with age and other factors.",
-      "source_citation": "MedlinePlus Medical Tests - 'Glomerular filtration rate (GFR) test'",
-      "source_url": null,
+      "source_citation": "MedlinePlus Medical Tests - 'Estimated Glomerular Filtration Rate (eGFR) and GFR Tests'",
+      "source_url": "https://medlineplus.gov/lab-tests/estimated-glomerular-filtration-rate-egfr-and-gfr-tests/",
       "is_common": false
     },
     {
@@ -185,8 +185,8 @@
       "label": "BIOMARKER",
       "plain_definition": "One of the types of cholesterol measured in a blood test. It is often called 'bad' cholesterol because higher levels are linked to fatty buildup in blood vessels.",
       "clinical_context": "Reported as part of a lipid panel with HDL and triglycerides.",
-      "source_citation": "MedlinePlus Medical Tests - 'Cholesterol levels'",
-      "source_url": null,
+      "source_citation": "MedlinePlus Medical Tests - 'Cholesterol Levels'",
+      "source_url": "https://medlineplus.gov/lab-tests/cholesterol-levels/",
       "is_common": false
     },
     {
@@ -196,8 +196,8 @@
       "label": "BIOMARKER",
       "plain_definition": "One of the types of cholesterol measured in a blood test. It is often called 'good' cholesterol.",
       "clinical_context": "Reported as part of a lipid panel with LDL and triglycerides.",
-      "source_citation": "MedlinePlus Medical Tests - 'Cholesterol levels'",
-      "source_url": null,
+      "source_citation": "MedlinePlus Medical Tests - 'Cholesterol Levels'",
+      "source_url": "https://medlineplus.gov/lab-tests/cholesterol-levels/",
       "is_common": false
     },
     {
@@ -207,8 +207,8 @@
       "label": "BIOMARKER",
       "plain_definition": "A type of fat carried in your blood, measured by a blood test.",
       "clinical_context": "Reported as part of a lipid panel. Levels can be affected by what you ate before the test.",
-      "source_citation": "MedlinePlus Medical Tests - 'Triglycerides test'",
-      "source_url": null,
+      "source_citation": "MedlinePlus Medical Tests - 'Triglycerides Test'",
+      "source_url": "https://medlineplus.gov/lab-tests/triglycerides-test/",
       "is_common": false
     },
     {
@@ -219,7 +219,7 @@
       "plain_definition": "The fats and cholesterol measured in your blood are outside the usual range.",
       "clinical_context": "Based on the combined results of a lipid panel rather than a single number.",
       "source_citation": "MedlinePlus Health Topics - 'Cholesterol'",
-      "source_url": null,
+      "source_url": "https://medlineplus.gov/cholesterol.html",
       "is_common": false
     },
     {
@@ -230,7 +230,7 @@
       "plain_definition": "Having fewer red blood cells, or less hemoglobin in them, than usual. Red blood cells carry oxygen around your body.",
       "clinical_context": "Identified from a full blood count. There are many different causes.",
       "source_citation": "MedlinePlus Health Topics - 'Anemia'",
-      "source_url": null,
+      "source_url": "https://medlineplus.gov/anemia.html",
       "is_common": false
     },
     {
@@ -240,8 +240,8 @@
       "label": "BIOMARKER",
       "plain_definition": "The part of your red blood cells that carries oxygen. A blood test measures how much of it you have.",
       "clinical_context": "Reported in a complete blood count (CBC). Normal ranges differ by age and sex.",
-      "source_citation": "MedlinePlus Medical Tests - 'Hemoglobin test'",
-      "source_url": null,
+      "source_citation": "MedlinePlus Medical Tests - 'Hemoglobin Test'",
+      "source_url": "https://medlineplus.gov/lab-tests/hemoglobin-test/",
       "is_common": false
     },
     {
@@ -251,8 +251,8 @@
       "label": "DISEASE",
       "plain_definition": "A higher than usual number of white blood cells in your blood. White blood cells are part of how your body fights infection.",
       "clinical_context": "Seen on a complete blood count. Has many possible causes.",
-      "source_citation": "MedlinePlus Medical Encyclopedia - 'WBC count'",
-      "source_url": null,
+      "source_citation": "MedlinePlus Medical Tests - 'White Blood Count (WBC)'",
+      "source_url": "https://medlineplus.gov/lab-tests/white-blood-count-wbc/",
       "is_common": false
     },
     {
@@ -262,8 +262,8 @@
       "label": "DISEASE",
       "plain_definition": "A lower than usual number of platelets in your blood. Platelets are the cell fragments that help your blood clot.",
       "clinical_context": "Seen on a complete blood count.",
-      "source_citation": "MedlinePlus Health Topics - 'Platelet disorders'",
-      "source_url": null,
+      "source_citation": "MedlinePlus Health Topics - 'Platelet Disorders'",
+      "source_url": "https://medlineplus.gov/plateletdisorders.html",
       "is_common": false
     },
     {
@@ -273,8 +273,8 @@
       "label": "DISEASE",
       "plain_definition": "Bone density that is lower than usual, but not low enough to be called osteoporosis.",
       "clinical_context": "Measured with a bone density scan and reported as a T-score.",
-      "source_citation": "MedlinePlus Health Topics - 'Bone density'",
-      "source_url": null,
+      "source_citation": "MedlinePlus Health Topics - 'Bone Density'",
+      "source_url": "https://medlineplus.gov/bonedensity.html",
       "is_common": false
     },
     {
@@ -285,7 +285,7 @@
       "plain_definition": "A condition where bones become thinner and more fragile than usual, which makes them easier to break.",
       "clinical_context": "Measured with a bone density scan and reported as a T-score.",
       "source_citation": "MedlinePlus Health Topics - 'Osteoporosis'",
-      "source_url": null,
+      "source_url": "https://medlineplus.gov/osteoporosis.html",
       "is_common": false
     },
     {
@@ -295,8 +295,8 @@
       "label": "DISEASE",
       "plain_definition": "Everyday wear-and-tear changes in the cushions between the bones of the spine. It is very common as people get older.",
       "clinical_context": "Frequently reported on spine imaging, often as an incidental finding.",
-      "source_citation": "MedlinePlus Medical Encyclopedia - 'Degenerative disc disease'",
-      "source_url": null,
+      "source_citation": "NIAMS (NIH) - 'Back Pain'",
+      "source_url": "https://www.niams.nih.gov/health-topics/back-pain",
       "is_common": false
     },
     {
@@ -317,8 +317,8 @@
       "label": "DESCRIPTOR",
       "plain_definition": "Not cancerous.",
       "clinical_context": "Used to describe growths, lumps, or findings that are not cancer.",
-      "source_citation": "MedlinePlus Medical Encyclopedia - 'Benign'",
-      "source_url": null,
+      "source_citation": "NCI Dictionary of Cancer Terms - 'benign'",
+      "source_url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/benign",
       "is_common": false
     },
     {
@@ -328,8 +328,8 @@
       "label": "DESCRIPTOR",
       "plain_definition": "A general word for an area of tissue that looks different from the tissue around it. It does not by itself say whether something is serious.",
       "clinical_context": "Usually described further by size, location, and appearance.",
-      "source_citation": "MedlinePlus Medical Encyclopedia - 'Lesion'",
-      "source_url": null,
+      "source_citation": "NCI Dictionary of Cancer Terms - 'lesion'",
+      "source_url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/lesion",
       "is_common": false
     },
     {
@@ -339,8 +339,8 @@
       "label": "DESCRIPTOR",
       "plain_definition": "A small rounded lump of tissue. The word describes the shape and size only, not whether it is harmful.",
       "clinical_context": "Reports usually give the size in millimetres and where it is.",
-      "source_citation": "MedlinePlus Medical Encyclopedia - 'Nodule'",
-      "source_url": null,
+      "source_citation": "NCI Dictionary of Cancer Terms - 'nodule'",
+      "source_url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/nodule",
       "is_common": false
     },
     {
@@ -351,7 +351,7 @@
       "plain_definition": "The thyroid gland is making less thyroid hormone than the body usually needs.",
       "clinical_context": "Usually identified from thyroid blood tests including TSH.",
       "source_citation": "MedlinePlus Health Topics - 'Hypothyroidism'",
-      "source_url": null,
+      "source_url": "https://medlineplus.gov/hypothyroidism.html",
       "is_common": false
     },
     {
@@ -361,8 +361,8 @@
       "label": "BIOMARKER",
       "plain_definition": "A hormone measured by a blood test that shows how the thyroid gland is being signalled to work.",
       "clinical_context": "Usually the first thyroid test ordered, sometimes with T3 and T4.",
-      "source_citation": "MedlinePlus Medical Tests - 'TSH test'",
-      "source_url": null,
+      "source_citation": "MedlinePlus Medical Tests - 'TSH (Thyroid-stimulating hormone) Test'",
+      "source_url": "https://medlineplus.gov/lab-tests/tsh-thyroid-stimulating-hormone-test/",
       "is_common": false
     },
     {
@@ -373,7 +373,7 @@
       "plain_definition": "Stomach acid comes back up into the food pipe often enough to cause symptoms such as heartburn.",
       "clinical_context": "Often diagnosed from symptoms; sometimes confirmed with endoscopy.",
       "source_citation": "MedlinePlus Health Topics - 'GERD'",
-      "source_url": null,
+      "source_url": "https://medlineplus.gov/gerd.html",
       "is_common": false
     },
     {
@@ -383,8 +383,8 @@
       "label": "DISEASE",
       "plain_definition": "Irritation or inflammation of the lining of the stomach.",
       "clinical_context": "May be described on an endoscopy report.",
-      "source_citation": "MedlinePlus Health Topics - 'Gastritis'",
-      "source_url": null,
+      "source_citation": "NCI Dictionary of Cancer Terms - 'gastritis'",
+      "source_url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/gastritis",
       "is_common": false
     },
     {
@@ -405,8 +405,8 @@
       "label": "DISEASE",
       "plain_definition": "A heart attack. Blood flow to part of the heart muscle is blocked, so that part of the muscle is damaged.",
       "clinical_context": "May be described as recent or previous. Often referenced in past medical history.",
-      "source_citation": "MedlinePlus Health Topics - 'Heart attack'",
-      "source_url": null,
+      "source_citation": "MedlinePlus Health Topics - 'Heart Attack'",
+      "source_url": "https://medlineplus.gov/heartattack.html",
       "is_common": false
     },
     {
@@ -416,8 +416,8 @@
       "label": "DISEASE",
       "plain_definition": "An area of the body is not getting as much blood flow as it needs.",
       "clinical_context": "Described by the organ involved, for example cardiac or cerebral.",
-      "source_citation": "MedlinePlus Medical Encyclopedia - 'Ischemia'",
-      "source_url": null,
+      "source_citation": "NCI Dictionary of Cancer Terms - 'ischemia'",
+      "source_url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/ischemia",
       "is_common": false
     },
     {
@@ -427,8 +427,8 @@
       "label": "TEST",
       "plain_definition": "Protein is showing up in your urine. Urine does not usually contain much protein.",
       "clinical_context": "Found on a urine test, sometimes as part of checking kidney function.",
-      "source_citation": "MedlinePlus Medical Encyclopedia - 'Protein in urine'",
-      "source_url": null,
+      "source_citation": "NCI Dictionary of Cancer Terms - 'proteinuria'",
+      "source_url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/proteinuria",
       "is_common": false
     },
     {
@@ -438,8 +438,8 @@
       "label": "TEST",
       "plain_definition": "A small amount of a protein called albumin is showing up in your urine, at a level too low to see on a standard urine test.",
       "clinical_context": "Measured with a specific urine albumin test.",
-      "source_citation": "MedlinePlus Medical Tests - 'Albumin in urine'",
-      "source_url": null,
+      "source_citation": "MedlinePlus Medical Tests - 'Microalbumin Creatinine Ratio'",
+      "source_url": "https://medlineplus.gov/lab-tests/microalbumin-creatinine-ratio/",
       "is_common": false
     },
     {
@@ -449,8 +449,8 @@
       "label": "DISEASE",
       "plain_definition": "Urine has backed up and made part of the kidney swell.",
       "clinical_context": "Usually graded as mild, moderate, or severe on imaging.",
-      "source_citation": "MedlinePlus Medical Encyclopedia - 'Hydronephrosis'",
-      "source_url": null,
+      "source_citation": "NCI Dictionary of Cancer Terms - 'hydronephrosis'",
+      "source_url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/hydronephrosis",
       "is_common": false
     },
     {
@@ -460,8 +460,8 @@
       "label": "DISEASE",
       "plain_definition": "The liver is larger than usual.",
       "clinical_context": "Measured on imaging, often reported in centimetres.",
-      "source_citation": "MedlinePlus Medical Encyclopedia - 'Enlarged liver'",
-      "source_url": null,
+      "source_citation": "NCI Dictionary of Cancer Terms - 'hepatomegaly'",
+      "source_url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/hepatomegaly",
       "is_common": false
     },
     {
@@ -471,8 +471,8 @@
       "label": "DISEASE",
       "plain_definition": "The spleen is larger than usual. The spleen is an organ on the left side of your abdomen that helps filter blood.",
       "clinical_context": "Measured on imaging, often reported in centimetres.",
-      "source_citation": "MedlinePlus Medical Encyclopedia - 'Enlarged spleen'",
-      "source_url": null,
+      "source_citation": "NCI Dictionary of Cancer Terms - 'splenomegaly'",
+      "source_url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/splenomegaly",
       "is_common": false
     },
     {
@@ -482,8 +482,8 @@
       "label": "DISEASE",
       "plain_definition": "Lymph nodes are larger than usual. Lymph nodes are small glands that are part of your immune system.",
       "clinical_context": "Described by location and size on imaging or examination.",
-      "source_citation": "MedlinePlus Medical Encyclopedia - 'Swollen lymph nodes'",
-      "source_url": null,
+      "source_citation": "NCI Dictionary of Cancer Terms - 'lymphadenopathy'",
+      "source_url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/lymphadenopathy",
       "is_common": false
     },
     {
@@ -516,7 +516,7 @@
       "plain_definition": "A body temperature that is higher than normal.",
       "clinical_context": "Commonly understood term; not flagged for explanation.",
       "source_citation": "MedlinePlus Health Topics - 'Fever'",
-      "source_url": null,
+      "source_url": "https://medlineplus.gov/fever.html",
       "is_common": true
     },
     {
@@ -527,7 +527,7 @@
       "plain_definition": "Pain in the head.",
       "clinical_context": "Commonly understood term; not flagged for explanation.",
       "source_citation": "MedlinePlus Health Topics - 'Headache'",
-      "source_url": null,
+      "source_url": "https://medlineplus.gov/headache.html",
       "is_common": true
     },
     {
@@ -537,8 +537,8 @@
       "label": "TEST",
       "plain_definition": "A measure of the force of blood pushing against the walls of your blood vessels.",
       "clinical_context": "Commonly understood term; not flagged for explanation.",
-      "source_citation": "MedlinePlus Health Topics - 'Blood pressure'",
-      "source_url": null,
+      "source_citation": "MedlinePlus Health Topics - 'Vital Signs'",
+      "source_url": "https://medlineplus.gov/vitalsigns.html",
       "is_common": true
     },
     {
@@ -549,7 +549,7 @@
       "plain_definition": "A sudden forceful release of air from the lungs.",
       "clinical_context": "Commonly understood term; not flagged for explanation.",
       "source_citation": "MedlinePlus Health Topics - 'Cough'",
-      "source_url": null,
+      "source_url": "https://medlineplus.gov/cough.html",
       "is_common": true
     },
     {
@@ -559,8 +559,8 @@
       "label": "SYMPTOM",
       "plain_definition": "Feeling sick to your stomach, as if you might vomit.",
       "clinical_context": "Commonly understood term; not flagged for explanation.",
-      "source_citation": "MedlinePlus Health Topics - 'Nausea and vomiting'",
-      "source_url": null,
+      "source_citation": "MedlinePlus Health Topics - 'Nausea and Vomiting'",
+      "source_url": "https://medlineplus.gov/nauseaandvomiting.html",
       "is_common": true
     }
   ]

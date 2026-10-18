@@ -26,7 +26,7 @@ One entry per term the system is allowed to explain.
 | `plain_definition` | Patient-facing text, 6th–8th grade reading level. This is the only text the generator may draw a claim from. |
 | `clinical_context` | Non-interpretive framing (how the term is usually reported). Never a diagnosis. |
 | `source_citation` | Human-readable source. Required and non-empty — enforced by test. |
-| `source_url` | **Currently `null` by design.** Fill with verified permalinks before any demo or writeup; do not invent URLs. |
+| `source_url` | Verified permalink to the cited page: it resolves and supports the definition. `null` only where no public-domain source has been found yet. Do not invent URLs. |
 | `is_common` | `true` = matched but never flagged for explanation. This replaces a separate difficulty classifier. |
 
 ### Curation rules
@@ -35,7 +35,7 @@ One entry per term the system is allowed to explain.
 2. **Aliases must be globally unambiguous.** One alias may map to exactly one entry; the loader raises `KnowledgeBaseError` otherwise.
 3. **Every entry needs a real citation.** If you cannot source it, it does not go in.
 4. **Adding an entry means adding corpus coverage for it**, or it is untested.
-5. **Do not copy MedlinePlus Medical Encyclopedia text.** It is licensed from A.D.A.M., not public domain. Write definitions in your own words, or source from MedlinePlus Health Topics, which NLM publishes as public domain. Several current entries cite the Encyclopedia and should be re-sourced.
+5. **Do not copy MedlinePlus Medical Encyclopedia text.** It is licensed from A.D.A.M., not public domain. Write definitions in your own words, and cite public-domain sources: MedlinePlus Health Topics and Medical Tests (NLM), the NCI Dictionary of Cancer Terms, or other NIH institute pages. Five entries still cite the Encyclopedia because no public-domain page supporting them has been found yet: `kb-008` cardiomegaly, `kb-028` spondylosis, `kb-036` normal sinus rhythm, `kb-045` incidental finding, `kb-046` unremarkable.
 
 ## `eval_corpus.json`
 

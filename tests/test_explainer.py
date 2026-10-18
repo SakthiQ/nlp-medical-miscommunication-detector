@@ -5,6 +5,8 @@ stub client so it runs fast and every time.
 
 from __future__ import annotations
 
+import json
+
 import pytest
 
 from app.generation.explainer import _selectable, generate_explanation
@@ -135,6 +137,25 @@ def test_llm_response_citing_an_unretrieved_id_is_dropped(kb, monkeypatch):
 
     with pytest.raises(LLMUnavailableError, match="no groundable sentences"):
         _call_llm("...", [_chunk(kb, "kb-001")])
+
+
+def test_kb_ids_written_into_sentence_text_are_stripped(kb, monkeypatch):
+    # Seen from Gemma 4 E4B on ev-005: the citation repeated at the end of the sentence.
+    monkeypatch.setattr(
+        "app.generation.explainer.generate_json",
+        lambda prompt: json.dumps({"sentences": [
+            {"text": "Extra fat has built up inside the liver. kb-001", "kb_ids": ["kb-001"]},
+            {"text": "Extra fat (kb-001) is in the liver [kb-common-001].", "kb_ids": ["kb-001"]},
+        ]}),
+    )
+    from app.generation.explainer import _call_llm
+
+    sentences = _call_llm("...", [_chunk(kb, "kb-001")])
+    assert [s.text for s in sentences] == [
+        "Extra fat has built up inside the liver.",
+        "Extra fat is in the liver.",
+    ]
+    assert all(s.kb_ids == ["kb-001"] for s in sentences)
 
 
 # --- pipeline-level fallback on LLM unavailability -------------------------------------

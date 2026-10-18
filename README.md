@@ -57,7 +57,7 @@ because explaining that would be clinical interpretation.
                         │  4. Retrieval ────── fetch KB definitions (FAISS planned)                │
                         │          │                                                               │
                         │  5. Generation ───── LLM writes explanation from retrieved text only     │
-                        │          │            (Llama 3 via Ollama; template for gaps/negation,   │
+                        │          │            (Gemma 4 via Ollama; template for gaps/negation,   │
                         │          │             and as fallback if the LLM is unavailable/unsafe) │
                         │  6. Safety ───────── grounding check + blocked phrases + disclaimer      │
                         │          │            fails → deterministic template fallback            │
@@ -84,7 +84,7 @@ Three routes a term can take:
 | 3 | Terminology identification | `app/ner/terminology.py` | Regex dictionary matcher over KB aliases | Built (partial) |
 | 3b | Negation detection | `app/ner/preprocessing.py` | negspacy (NegEx, clinical termset) | Built |
 | 4 | Retrieval (RAG) | `app/retrieval/retriever.py` | sentence-transformers embeddings + FAISS | Built |
-| 5 | Explanation generation | `app/generation/explainer.py` | Llama 3 via Ollama for explained/un-negated terms; deterministic template for negated findings, coverage gaps, and as the fallback | Built |
+| 5 | Explanation generation | `app/generation/explainer.py` | Gemma 4 E4B via Ollama for explained/un-negated terms; deterministic template for negated findings, coverage gaps, and as the fallback | Built |
 | 6 | Safety & validation | `app/safety/validator.py` | Grounding + regex filters + fallback | Partial |
 | 7 | Translation / speech | `app/i18n/`, `app/tts/` | NLLB (Hindi, Tamil, Telugu, Malayalam; slow on CPU, see section 8); gTTS for speech (same languages) | Built |
 | – | Orchestration | `app/pipeline.py`, `app/api/` | FastAPI, Pydantic | Built |
@@ -251,11 +251,11 @@ doctor about it.*
 >
 > This explains findings already in your report. Please discuss any questions with your doctor.
 
-This is the actual output of a live run, from Llama 3 via Ollama, and it passed the
-safety validator unchanged.
+This is the actual output of a live run, from Llama 3 via Ollama (the model before the
+switch to Gemma 4 E4B), and it passed the safety validator unchanged.
 
 **Technical:**
-- Two generators cooperate. Llama 3 (`generation/explainer.py`) writes the sentences for
+- Two generators cooperate. The LLM (`generation/explainer.py`) writes the sentences for
   terms that are `explained` and not negated — here, *Cholelithiasis* and *osteopenia*
   (it phrased both in its own words rather than repeating the term). Everything else —
   the negated *hydronephrosis*, and the three coverage gaps — keeps the deterministic
@@ -268,7 +268,7 @@ safety validator unchanged.
 - Every sentence is an `ExplanationSentence` with a `kind` (`definition`, `gap` or
   `notice`) and the `kb_ids` it draws from — model-authored sentences included, since the
   model is prompted to return that tagging itself. That is what the safety layer checks.
-- **Known ordering limitation:** Llama 3's sentences are placed first, then the template's,
+- **Known ordering limitation:** the LLM's sentences are placed first, then the template's,
   rather than interleaved in report order. In this example the *Bone density scan* gap
   ends up after *hydronephrosis* instead of next to *osteopenia*. Noted here rather than
   hidden; fixing it is a small ordering pass, not a design change.
@@ -482,15 +482,29 @@ Other measured results:
 - Retrieval (`python -m eval.retrieval_eval`): on 12 lay-language paraphrases, Recall@1
   83.3%, Recall@3 100%, mean reciprocal rank 0.917. Full results, including why no
   similarity threshold is safe, in [eval/retrieval_results.md](eval/retrieval_results.md).
-- Generation (`python -m eval.generation_eval`, Llama 3 via Ollama on the 18-report
-  corpus): every one of 43 generated sentences cited a retrieved KB id — no ungrounded
-  claims. **14 of 17 reports' explanations passed every safety check as generated; 3
-  fell back to the template**, all for the same reason: `forbidden_diagnosis` firing on
-  benign "you have [finding]" phrasing (e.g. "You have extra fat built up inside your
-  liver" — a safe rephrasing of the KB definition, not a diagnosis, but the regex can't
-  tell the difference from "you have diabetes"). Mean readability 7.9th grade; 23 of 43
-  sentences at or below the 8.5 target. Full per-sentence output in
-  [eval/generation_results.md](eval/generation_results.md).
+- Generation (`python -m eval.generation_eval`, Gemma 4 E4B via Ollama on the 18-report
+  corpus): every one of 44 generated sentences cited a retrieved KB id, and **all 17
+  reports' explanations passed every safety check as generated**. Mean readability grade
+  9.2; 18 of 44 sentences at or below the 8.5 target. Gemma tends to name the term
+  ("Hepatic steatosis means…"), and long medical words raise the Flesch-Kincaid score.
+  Full per-sentence output in [eval/generation_results.md](eval/generation_results.md).
+- Model comparison (same eval, same machine, 2026-10-18):
+
+  | | Llama 3 8B | Gemma 4 E4B |
+  | --- | ---: | ---: |
+  | Reports passing every safety check | 16 / 17 | 17 / 17 |
+  | Mean / max seconds per LLM call | 22.6 / 43.0 | 17.0 / 31.0 |
+  | Mean readability grade | 8.1 | 9.1 |
+
+  Reading the sentences, Gemma was also more careful: it kept "likely benign" where
+  Llama 3 wrote "is not cancerous", and cited the AST entry for AST where Llama 3 cited
+  ALT's. An earlier Llama 3 run failed 3 of 17 on `forbidden_diagnosis` for benign
+  "you have [finding]" phrasing — the regex can't tell that from a real diagnosis.
+- **Known citation gap (ev-007):** "4 mm calculus in the right renal pelvis" is a kidney
+  stone, but the KB has no `calculus` alias, so the kidney-stone entry is never
+  retrieved. Gemma still describes the stone and cites a different retrieved id
+  (gallstones, or incidental finding). The validator only checks that a cited id was
+  retrieved, not that it matches the claim, so this passes.
 - Latency: about 15–60 ms per request when no LLM call is needed (NER is the largest
   single stage, 10–40 ms); 10–20 s when it is, dominated entirely by CPU generation.
   Around 12 s startup once models are cached locally, more on the very first run.
@@ -722,7 +736,7 @@ app/
   ner/biobert_ner.py      Transformer NER (coverage detection)
   ner/terminology.py      Dictionary matcher + merge logic
   retrieval/              Knowledge base loader, corpus loader, retriever
-  generation/             Llama 3 explainer (via Ollama) + deterministic template/fallback
+  generation/             Gemma 4 explainer (via Ollama) + deterministic template/fallback
   safety/validator.py     Grounding and forbidden-content checks (the enforced gate)
   safety/semantic.py      Embedding-similarity advisory check (logged, never enforced)
   safety/provenance.py    Opt-in audit logging (AUDIT_LOG_PATH), off by default
@@ -751,14 +765,15 @@ tests/                    Unit and end-to-end tests (real-LLM tests marked `llm`
 | 2 | Medical NER for coverage detection, with evaluation | Done |
 | 3 | Terminology: finalise merging and labels | Mostly done |
 | 4 | RAG: sentence-transformer embeddings + FAISS, Recall@3 | Done |
-| 5 | Llama 3 via Ollama, prompted to use only retrieved text and cite KB ids | Done |
+| 5 | Local LLM via Ollama (Gemma 4 E4B; was Llama 3), prompted to use only retrieved text and cite KB ids | Done |
 | 6 | Safety: semantic grounding checks, provenance/audit logging | Done — semantic check is advisory by design (measured, not enforced; see section 7); audit logging is opt-in |
 | 7 | Translation (one Indian language first), speech, demo web page | Done |
 | 8 | Full evaluation report with readability scores and human review | NER, retrieval, generation, and translation all measured; human faithfulness review still needed |
 
 Planning notes:
-- **Llama 3 on this machine, measured:** 31.5 GB RAM, no NVIDIA GPU, Llama 3 8B (Q4_0)
-  via Ollama. CPU generation runs 10-20 s for one or two findings, longer for more —
+- **LLM on this machine, measured:** 31.5 GB RAM, no NVIDIA GPU, Gemma 4 E4B via Ollama
+  with thinking mode off. CPU generation takes about 16 s median per report (31 s worst
+  case), against 21 s for the previous Llama 3 8B (Q4_0) —
   see [eval/generation_results.md](eval/generation_results.md) for the per-report numbers
   and the README's own measured examples in section 3. The LLM sits behind one interface
   (`app/generation/llm_client.py`) so a smaller model or a hosted API can be swapped in by
@@ -793,7 +808,7 @@ Generation also needs [Ollama](https://ollama.com) running locally with the mode
 pulled:
 
 ```bash
-ollama pull llama3
+ollama pull gemma4:e4b
 ```
 
 If Ollama isn't running, `/explain` still works — it falls back to the deterministic
@@ -825,10 +840,12 @@ python -m eval.translation_eval                  # translation latency/quality �
 
 ## 13. Known limitations
 
-- Source citations name their source, but `source_url` is empty until each link is
-  verified. Several entries cite the MedlinePlus Medical Encyclopedia, which is licensed
-  from A.D.A.M. and must not be copied; those definitions need re-sourcing from
-  public-domain MedlinePlus Health Topics.
+- 46 of 51 knowledge-base entries cite a public-domain page (MedlinePlus Health Topics
+  or Medical Tests, the NCI Dictionary of Cancer Terms, or NIAMS) with a verified
+  `source_url`. Five still cite the MedlinePlus Medical Encyclopedia, which is licensed
+  from A.D.A.M. and must not be copied, and have no URL yet: cardiomegaly, spondylosis,
+  normal sinus rhythm, incidental finding, unremarkable (see `data/README.md`). The
+  definitions themselves still need a clinician's review.
 - Ambiguous abbreviations (PE, MS) are not handled yet and are left out of the dictionary.
 - The evaluation corpus is small, synthetic and single-annotator.
 - Generated explanations have not had the human faithfulness review the project brief
@@ -852,7 +869,7 @@ python -m eval.translation_eval                  # translation latency/quality �
   a self-hosted TTS engine or an explicit, disclosed exception to "nothing leaves this
   server," not the silent one this prototype currently has.
 - This is a prototype, not a clinical product: it is not HIPAA-compliant and stores
-  nothing by default. Generation already runs on a local Llama 3 rather than a hosted
+  nothing by default. Generation already runs on a local Gemma 4 rather than a hosted
   API, which avoids sending report text to a third party — but Ollama itself has no
   authentication or encryption on its default local port, so a real deployment still
   needs the network-level protections a production system would add regardless.
@@ -884,7 +901,7 @@ explanation is validated before it's shown. Terms the system can't vouch for bec
 list of questions for the doctor instead of guesses. (Section 3 has the full walkthrough.)
 
 **How do you prevent hallucination?**
-Four layers: the generator (Llama 3, via Ollama) only sees retrieved KB text; it must tag
+Four layers: the generator (Gemma 4, via Ollama) only sees retrieved KB text; it must tag
 each sentence with the KB id it used, and the validator checks those ids against what was
 actually retrieved; the model is kept out of the two cases that most need to be exactly
 right — negated findings and coverage gaps — which stay on fixed, tested wording instead;
@@ -988,7 +1005,7 @@ only reporting the speed.
 **What would production need?**
 HTTPS, no persistent storage of raw reports by default (this build already defaults to
 that; audit logging is opt-in but has no access control, retention limit, or encryption
-at rest yet), an on-premises LLM (already true here — Llama 3 via local Ollama), GPU
+at rest yet), an on-premises LLM (already true here — Gemma 4 via local Ollama), GPU
 acceleration for translation (CPU latency is workable for a demo, not for a real product),
 a self-hosted TTS engine instead of a third-party API call for speech, clinician review of
 the KB and of the Hindi translation output, authentication and rate limiting on the demo
