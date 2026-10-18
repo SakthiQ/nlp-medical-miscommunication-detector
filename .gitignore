@@ -7,3 +7,7 @@ __pycache__/
 *.pyc
 .pytest_cache/
 .env
+
+# Downloaded source data (MedlinePlus XML, ~30 MB, refreshed daily). Re-fetch with
+# `python -m tools.kb_candidates --download`.
+data/raw/
