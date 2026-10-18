@@ -58,3 +58,38 @@ colonic polyps
 # Women's health
 uterine fibroids
 ovarian cysts
+
+# Lab tests (matched against MedlinePlus Medical Tests first)
+complete blood count
+WBC
+red blood cell count
+platelets
+hematocrit
+mean corpuscular volume
+erythrocyte sedimentation rate
+liver function tests
+albumin
+alkaline phosphatase
+gamma-glutamyl transferase
+blood urea nitrogen
+uric acid
+sodium
+potassium
+chloride
+T3
+T4
+ferritin
+iron
+vitamin B12
+folate
+C-reactive protein
+troponin
+brain natriuretic peptide
+prostate-specific antigen
+fasting blood sugar
+urine culture
+
+# Report wording
+# "calculus" (a stone) needs its own entry: as an alias of kidney stones it would also
+# catch "calculus in the gallbladder".
+calculus

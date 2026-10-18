@@ -40,14 +40,16 @@ One entry per term the system is allowed to explain.
 ### Adding entries from MedlinePlus
 
 ```bash
-python -m tools.kb_candidates --download   # newest MedlinePlus Health Topics XML -> data/raw/ (not committed)
+python -m tools.kb_candidates --download   # newest Health Topics XML + Medical Tests index -> data/raw/ (not committed)
 python -m tools.kb_candidates              # -> data/kb_candidates.json, one draft per wanted term
 python -m tools.kb_candidates --promote    # approved drafts -> knowledge_base.json
 ```
 
-Wanted terms are every coverage gap in `eval_corpus.json` plus `kb_wishlist.txt`. Each
-draft has the citation, URL and suggested aliases filled in from the matching MedlinePlus
-topic, and the topic's own text alongside as reference. The tool never writes a
+Wanted terms are every coverage gap in `eval_corpus.json` plus `kb_wishlist.txt`. They
+are looked up first in MedlinePlus Medical Tests (so "sodium" means the blood test, not
+the dietary-sodium topic), then in Health Topics. Each draft has the citation, URL and
+suggested aliases filled in from the matching page, and that page's own text alongside
+as reference. The tool never writes a
 definition. A reviewer writes `plain_definition` and `clinical_context`, picks `label`,
 removes any alias that isn't the same thing as the term, and sets `"approved": true`.
 

@@ -11,7 +11,7 @@ import json
 import pytest
 
 from app.retrieval.knowledge_base import DEFAULT_KB_PATH, KnowledgeBaseError, load_knowledge_base
-from tools.kb_candidates import build_candidates, dump_kb, parse_topics, promote
+from tools.kb_candidates import build_candidates, dump_kb, parse_lab_tests, parse_topics, promote
 
 XML = """<?xml version="1.0" encoding="UTF-8"?>
 <health-topics total="4">
@@ -101,6 +101,45 @@ def test_rebuild_keeps_reviewed_candidates(xml_path, wishlist):
     _by_term(first)["urinary tract infection"]["entry"]["plain_definition"] = "Reviewer text."
     second = build_candidates(xml_path, existing=first, wishlist_path=wishlist)
     assert _by_term(second)["urinary tract infection"]["entry"]["plain_definition"] == "Reviewer text."
+
+
+# --- Medical Tests --------------------------------------------------------------------
+
+LAB_INDEX = """
+<a href="https://medlineplus.gov/lab-tests/potassium-blood-test/">Potassium Blood Test</a>
+<a href="https://medlineplus.gov/lab-tests/white-blood-cell-wbc-in-stool/">White Blood Cell (WBC) in Stool</a>
+<a href="https://medlineplus.gov/lab-tests/white-blood-count-wbc/">White Blood Count (WBC)</a>
+<a href="https://medlineplus.gov/some-other-page/">Not a lab test</a>
+"""
+
+
+def test_parse_lab_tests_derives_bare_and_abbreviated_names():
+    tests = {t.title: t for t in parse_lab_tests(LAB_INDEX)}
+    assert set(tests) == {"Potassium Blood Test", "White Blood Cell (WBC) in Stool", "White Blood Count (WBC)"}
+    assert tests["Potassium Blood Test"].also_called == ["Potassium"]
+    assert tests["White Blood Count (WBC)"].also_called == ["White Blood Count", "WBC"]
+    assert tests["White Blood Count (WBC)"].source == "MedlinePlus Medical Tests"
+
+
+def test_lab_tests_take_precedence_and_cite_medical_tests(xml_path, tmp_path):
+    # "potassium" is also a Health Topic (the mineral); in a report it is a test result.
+    wishlist = tmp_path / "w.txt"
+    wishlist.write_text("potassium\nWBC\n", encoding="utf-8")
+    fetched = []
+
+    def fake_fetch(topic):
+        fetched.append(topic.title)
+        topic.meta_desc = f"About {topic.title}."
+
+    candidates = _by_term(build_candidates(xml_path, wishlist_path=wishlist,
+                                           lab_tests=parse_lab_tests(LAB_INDEX), fetch_details=fake_fetch))
+    potassium = candidates["potassium"]
+    assert potassium["entry"]["source_citation"] == "MedlinePlus Medical Tests - 'Potassium Blood Test'"
+    assert potassium["reference"]["meta_desc"] == "About Potassium Blood Test."
+    # Two tests are abbreviated WBC: the general one (shorter title) is chosen.
+    assert candidates["WBC"]["entry"]["source_url"] == "https://medlineplus.gov/lab-tests/white-blood-count-wbc/"
+    assert candidates["WBC"]["suggestions"][0]["title"] == "White Blood Cell (WBC) in Stool"
+    assert fetched == ["Potassium Blood Test", "White Blood Count (WBC)"]
 
 
 # --- promotion ------------------------------------------------------------------------
