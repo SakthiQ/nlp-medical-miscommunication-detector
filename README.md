@@ -2,7 +2,7 @@
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/framework-FastAPI-009688)](https://fastapi.tiangolo.com/)
-[![Tests: pytest](https://img.shields.io/badge/tests-pytest-0A9EDC)](tests/)
+[![Tests: pytest](https://img.shields.io/badge/tests-pytest-0A9EDC)](backend/tests/)
 [![Status: prototype](https://img.shields.io/badge/status-prototype-orange)](#13-known-limitations)
 [![Repo](https://img.shields.io/badge/GitHub-nlp--medical--miscommunication--detector-181717?logo=github)](https://github.com/SakthiQ/nlp-medical-miscommunication-detector)
 
@@ -40,6 +40,10 @@ because explaining that would be clinical interpretation.
 ---
 
 ## 2. Architecture
+
+![System architecture: input, backend stages 1-6, knowledge and retrieval layer, patient-friendly outputs](docs/architecture.webp)
+
+Each box maps to a folder (see section 10). The pipeline as built:
 
 ```
                         ┌───────────────────────── FastAPI  POST /explain ─────────────────────────┐
@@ -79,15 +83,15 @@ Three routes a term can take:
 
 | # | Stage | Module | Technology | Status |
 |---|---|---|---|---|
-| 1 | Preprocessing | `app/ner/preprocessing.py` | pysbd + clinical-abbreviation fix | Built |
-| 2 | Medical NER | `app/ner/biobert_ner.py` | `d4data/biomedical-ner-all` (HuggingFace) | Built |
-| 3 | Terminology identification | `app/ner/terminology.py` | Regex dictionary matcher over KB aliases | Built (partial) |
-| 3b | Negation detection | `app/ner/preprocessing.py` | negspacy (NegEx, clinical termset) | Built |
-| 4 | Retrieval (RAG) | `app/retrieval/retriever.py` | sentence-transformers embeddings + FAISS | Built |
-| 5 | Explanation generation | `app/generation/explainer.py` | Gemma 4 E4B via Ollama for explained/un-negated terms; deterministic template for negated findings, coverage gaps, and as the fallback | Built |
-| 6 | Safety & validation | `app/safety/validator.py` | Grounding + regex filters + fallback | Partial |
-| 7 | Translation / speech | `app/i18n/`, `app/tts/` | NLLB (Hindi, Tamil, Telugu, Malayalam; slow on CPU, see section 8); gTTS for speech (same languages) | Built |
-| – | Orchestration | `app/pipeline.py`, `app/api/` | FastAPI, Pydantic | Built |
+| 1 | Preprocessing | `backend/app/preprocessing/preprocessing.py` | pysbd + clinical-abbreviation fix | Built |
+| 2 | Medical NER | `backend/app/ner/biobert_ner.py` | `d4data/biomedical-ner-all` (HuggingFace) | Built |
+| 3 | Terminology identification | `backend/app/terminology/terminology.py` | Regex dictionary matcher over KB aliases | Built (partial) |
+| 3b | Negation detection | `backend/app/preprocessing/preprocessing.py` | negspacy (NegEx, clinical termset) | Built |
+| 4 | Retrieval (RAG) | `backend/app/retrieval/retriever.py` | sentence-transformers embeddings + FAISS | Built |
+| 5 | Explanation generation | `backend/app/generation/explainer.py` | Gemma 4 E4B via Ollama for explained/un-negated terms; deterministic template for negated findings, coverage gaps, and as the fallback | Built |
+| 6 | Safety & validation | `backend/app/safety/validator.py` | Grounding + regex filters + fallback | Partial |
+| 7 | Translation / speech | `backend/app/translation/`, `backend/app/speech/` | NLLB (Hindi, Tamil, Telugu, Malayalam; slow on CPU, see section 8); gTTS for speech (same languages) | Built |
+| – | Orchestration | `backend/app/pipeline.py`, `backend/app/api/` | FastAPI, Pydantic | Built |
 
 Every API response includes a `pipeline` field listing which stages are real, partial,
 or placeholders, so a demo can never overstate what is built.
@@ -143,7 +147,7 @@ need a progress message for that case (not yet built).
 - All heavy components (the NER model, the negation model, the retriever, the knowledge
   base and its alias index) were loaded once when the server started, so the request
   pays none of that cost.
-- `app/pipeline.py` runs the stages in order and times each one. Two real, current
+- `backend/app/pipeline.py` runs the stages in order and times each one. Two real, current
   measurements, because the two paths are very different:
 
   | Stage | This report (LLM needed) | "No evidence of ischemia. Fever, headache." (no LLM call) |
@@ -306,7 +310,7 @@ the explanation, disclaimer included, read in whichever language was selected.
 - Translation (NLLB, not IndicTrans2 — see section 8) runs only on the already-validated
   `final_text`, never on raw LLM output, so translation can't be a way to bypass the
   safety checks.
-- Optional Sarvam AI: set `SARVAM_API_KEY` (see `.env.example`) and `app/sarvam.py` is
+- Optional Sarvam AI: set `SARVAM_API_KEY` (see `.env.example`) and `backend/app/sarvam.py` is
   used first for translation (`mayura:v1`) and speech (`bulbul:v3`), which avoids the CPU
   latency below. The report text is then sent to Sarvam's hosted API, so it is opt-in. If
   a Sarvam call fails, NLLB and gTTS take over.
@@ -347,7 +351,7 @@ directly from them. The same gap list is the curation queue for growing the know
 | Generated text contains "you should start metformin" | Only the safe template explanation | Validator flags advice/dosage; fallback replaces it; flags kept |
 | A stage crashes (e.g. model not loaded) | "Something went wrong while explaining your report" | HTTP 500 naming the failed stage; never a half-finished answer |
 | Unsupported language requested (anything but English/Hindi/Tamil/Telugu/Malayalam) | "This language isn't available yet" | HTTP 501 naming the `translation` stage |
-| Audio requested but the network call to gTTS fails | Explanation shows normally, no audio player | `audio_base64: null` — the rest of the response still returns; see app/tts/speech.py |
+| Audio requested but the network call to gTTS fails | Explanation shows normally, no audio player | `audio_base64: null` — the rest of the response still returns; see backend/app/speech/speech.py |
 
 ### 3.4 UX principles and how the code enforces them
 
@@ -453,10 +457,10 @@ These are the choices that shaped the system.
 
 | File | Contents |
 |---|---|
-| `data/knowledge_base.json` | 51 entries: 46 explainable terms + 5 commonly understood. Each has an id, canonical term, aliases (ALT/SGPT, anemia/anaemia), label, plain-language definition (6th–8th grade), non-interpretive context, and source citation. |
-| `data/eval_corpus.json` | 18 synthetic, non-PHI report snippets across 16 report types, with 55 hand-labelled terms: 48 covered by the KB and 7 deliberate gaps (consolidation, renal, canal stenosis, Mediastinal, femoral neck, antral, Afebrile). |
-| `data/common_words.txt` | Everyday words the NER model flags but patients already know. |
-| `data/retrieval_queries.json` | 12 lay-language paraphrases with their correct KB entry, plus 10 unrelated medical terms, for retrieval evaluation. |
+| `knowledge_base/knowledge_base.json` | 51 entries: 46 explainable terms + 5 commonly understood. Each has an id, canonical term, aliases (ALT/SGPT, anemia/anaemia), label, plain-language definition (6th–8th grade), non-interpretive context, and source citation. |
+| `evaluation/datasets/eval_corpus.json` | 18 synthetic, non-PHI report snippets across 16 report types, with 55 hand-labelled terms: 48 covered by the KB and 7 deliberate gaps (consolidation, renal, canal stenosis, Mediastinal, femoral neck, antral, Afebrile). |
+| `knowledge_base/common_words.txt` | Everyday words the NER model flags but patients already know. |
+| `evaluation/datasets/retrieval_queries.json` | 12 lay-language paraphrases with their correct KB entry, plus 10 unrelated medical terms, for retrieval evaluation. |
 
 The loader enforces that aliases are unambiguous (one alias → one entry), because an
 ambiguous dictionary match silently explains the wrong term. Tests cross-check the two
@@ -467,7 +471,7 @@ is genuinely absent from the KB.
 
 ## 6. Results (measured)
 
-Term detection on the 18-report corpus (`python -m eval.ner_eval`):
+Term detection on the 18-report corpus (`python -m evaluation.ner_eval`):
 
 | View | Gold terms | Recall | Exact-span recall | Precision | F1 |
 |---|---:|---:|---:|---:|---:|
@@ -479,15 +483,15 @@ Other measured results:
 - Dictionary matcher: finds exactly the labelled KB terms on all 18 reports, with no
   false matches (e.g. "last" never matches AST, "mIU" never matches MI).
 - Negation: marks exactly the 4 negated findings in the corpus, and nothing else.
-- Retrieval (`python -m eval.retrieval_eval`): on 12 lay-language paraphrases, Recall@1
+- Retrieval (`python -m evaluation.retrieval_eval`): on 12 lay-language paraphrases, Recall@1
   83.3%, Recall@3 100%, mean reciprocal rank 0.917. Full results, including why no
-  similarity threshold is safe, in [eval/retrieval_results.md](eval/retrieval_results.md).
-- Generation (`python -m eval.generation_eval`, Gemma 4 E4B via Ollama on the 18-report
+  similarity threshold is safe, in [evaluation/retrieval_results.md](evaluation/retrieval_results.md).
+- Generation (`python -m evaluation.generation_eval`, Gemma 4 E4B via Ollama on the 18-report
   corpus): every one of 44 generated sentences cited a retrieved KB id, and **all 17
   reports' explanations passed every safety check as generated**. Mean readability grade
   9.2; 18 of 44 sentences at or below the 8.5 target. Gemma tends to name the term
   ("Hepatic steatosis means…"), and long medical words raise the Flesch-Kincaid score.
-  Full per-sentence output in [eval/generation_results.md](eval/generation_results.md).
+  Full per-sentence output in [evaluation/generation_results.md](evaluation/generation_results.md).
 - Model comparison (same eval, same machine, 2026-10-18):
 
   | | Llama 3 8B | Gemma 4 E4B |
@@ -556,7 +560,7 @@ concrete argument for the smarter, structure-aware check step 6 was supposed to 
 The natural next step looked like: embed each generated sentence, compare it to its
 cited definition, and reject the explanation if the similarity is too low — a "does this
 sentence actually match what it claims to be based on" check, stronger than "does it cite
-a valid id." Measured first, built second (`eval/semantic_grounding_eval.py`, real LLM
+a valid id." Measured first, built second (`evaluation/semantic_grounding_eval.py`, real LLM
 output over the 18-report corpus):
 
 | Set | Similarity range |
@@ -571,7 +575,7 @@ equivalence. A threshold tight enough to catch the worst mismatched sentences wo
 reject a meaningful share of genuinely faithful ones; a threshold loose enough to spare
 faithful sentences misses the more plausible-sounding wrong ones entirely.
 
-So `app/safety/semantic.py` implements the check, but **advisory only**: it never sets
+So `backend/app/safety/semantic.py` implements the check, but **advisory only**: it never sets
 `validation.passed` to false and never triggers the template fallback by itself. It adds
 a `semantic_advisory: ...` flag to the audit trail when a sentence scores below 0.25 (just
 under the measured faithful floor), for a human reviewer to glance at — not to gate the
@@ -579,12 +583,12 @@ response on. The structural citation check above remains the sole gate, exactly 
 original project brief itself recommended ("structured output... far stronger than
 post-hoc similarity"). Full numbers, including the specific sentences that would have been
 false positives or false negatives under an enforced cutoff, in
-[eval/semantic_grounding_results.md](eval/semantic_grounding_results.md).
+[evaluation/semantic_grounding_results.md](evaluation/semantic_grounding_results.md).
 
 ### Provenance / audit logging
 
 Per the project brief: *"Log every validation event with a provenance record... for
-clinician auditability."* `app/safety/provenance.py` implements this as **opt-in, off by
+clinician auditability."* `backend/app/safety/provenance.py` implements this as **opt-in, off by
 default** — set `AUDIT_LOG_PATH` to a file path to enable it. When enabled, every request
 appends one JSON line recording the original report text, the terms found, the retrieved
 KB ids, the LLM's raw output, the final text shown, every validation flag (structural,
@@ -613,19 +617,19 @@ specifically for Indian languages.
 
 **Hindi, Tamil, Telugu and Malayalam are enabled; latency is the known cost.** Before wiring
 anything in, I measured real latency on real generated sentences
-(`eval/translation_eval.py`):
+(`evaluation/translation_eval.py`):
 
 | Metric | Value |
 |---|---:|
 | Forward translation (min / median / max) | 5.6s / 8.5s / 14.7s |
 | Round trip, forward + back (min / median / max) | 9.3s / 15.3s / 24.3s |
 
-These are **per sentence** — `app/i18n/translator.py` translates `final_text` line by
+These are **per sentence** — `backend/app/translation/translator.py` translates `final_text` line by
 line (see its docstring for why), and a real explanation is several lines, so a live
 request's translation stage runs this forward-translation cost once per sentence in the
 response, not once total. That cost is the same for every language NLLB supports, and the
 dropdown labels each non-English option as slow. Full numbers in
-[eval/translation_results.md](eval/translation_results.md).
+[evaluation/translation_results.md](evaluation/translation_results.md).
 
 **A real translation-quality finding, not just a latency one.** Round-tripping "hepatic
 steatosis" through Telugu or Malayalam and back came out as "hepatic **stenosis**" — a
@@ -634,12 +638,12 @@ the forward translation, read as a script, is a reasonable phonetic rendering of
 clinical term. This is exactly why back-translation does not run on every request: it
 would cost roughly double the latency above for a QA signal that can itself be
 unreliable, and it is never shown to the patient anyway. It stays an offline check in
-`eval/translation_eval.py`, with that specific finding documented rather than smoothed
+`evaluation/translation_eval.py`, with that specific finding documented rather than smoothed
 over — the same "advisory, not a live gate" reasoning as the semantic grounding check in
 section 7.
 
 Translation only ever receives the already-validated `final_text`, never raw LLM output —
-translating cannot be a way to route around the checks in `app/safety/validator.py`.
+translating cannot be a way to route around the checks in `backend/app/safety/validator.py`.
 
 ### Speech
 
@@ -655,14 +659,14 @@ the trim list the roadmap planned for it, even though the original plan expected
 would. The cost that *is* real here is different: an external network dependency at
 request time, and (like the LLM and translation) a failure mode the code has to handle
 rather than assume away. `synthesize_speech` raises `SpeechUnavailableError` for an
-unsupported language or a failed network call; `app/pipeline.py` catches it and returns
+unsupported language or a failed network call; `backend/app/pipeline.py` catches it and returns
 the rest of the response with `audio_base64: null` rather than failing the request over
 an optional add-on — the same "don't let a secondary feature take down the primary one"
 pattern already used for provenance logging (see above).
 
 ### Demo page
 
-A single self-contained page (`app/static/index.html`, served at `/`) matching the
+A single self-contained page (`frontend/index.html`, served at `/`) matching the
 walkthrough in section 3: paste a report, submit, see it highlighted three ways, click a
 term for its definition, read the plain-language explanation, see the sources. Built and
 checked against the running app — not just described. One real bug found that way and
@@ -726,31 +730,52 @@ unbuilt feature (e.g. Tamil, audio), `500` stage failure naming the stage.
 
 ## 10. Project structure
 
+The folders follow the architecture diagram ([docs/architecture.webp](docs/architecture.webp)):
+input on the **frontend**, the six pipeline stages in the **backend**, the curated
+**knowledge base** the retrieval layer reads, and the **evaluation** that measures each
+stage. Every command runs from the repo root.
+
 ```
-app/
-  main.py                 FastAPI app; builds the pipeline once at startup
-  pipeline.py             Runs the stages in order, times them, handles failures and fallback
-  models.py               Data passed between stages (Sentence, Entity, FlaggedTerm, …)
-  api/                    Route and request/response schemas
-  ner/preprocessing.py    Sentence splitting + negation detection
-  ner/biobert_ner.py      Transformer NER (coverage detection)
-  ner/terminology.py      Dictionary matcher + merge logic
-  retrieval/              Knowledge base loader, corpus loader, retriever
-  generation/             Gemma 4 explainer (via Ollama) + deterministic template/fallback
-  safety/validator.py     Grounding and forbidden-content checks (the enforced gate)
-  safety/semantic.py      Embedding-similarity advisory check (logged, never enforced)
-  safety/provenance.py    Opt-in audit logging (AUDIT_LOG_PATH), off by default
-  i18n/translator.py      NLLB translation (Hindi, Tamil, Telugu, Malayalam — see section 8)
-  tts/speech.py           gTTS speech synthesis (English, Hindi, Tamil, Telugu, Malayalam), best-effort
-  static/index.html       The demo page served at / (section 8)
-data/                     Knowledge base, evaluation corpus, common-words stoplist
-eval/ner_eval.py                 Term-detection evaluation → eval/ner_results.md
-eval/retrieval_eval.py           Retrieval evaluation → eval/retrieval_results.md
-eval/generation_eval.py          Generation grounding/readability check → eval/generation_results.md
-eval/semantic_grounding_eval.py  Semantic-check calibration → eval/semantic_grounding_results.md
-eval/translation_eval.py         Translation latency/quality → eval/translation_results.md
-tests/                    Unit and end-to-end tests (real-LLM tests marked `llm`,
-                          real-translation tests marked `i18n`, both slow)
+frontend/
+  index.html                The demo page, served by the backend at / (section 8)
+
+backend/
+  requirements.txt
+  app/
+    main.py                 FastAPI app; builds the pipeline once at startup
+    pipeline.py             Runs the stages in order, times them, handles failures and fallback
+    models.py               Data passed between stages (Sentence, Entity, FlaggedTerm, …)
+    api/                    Route and request/response schemas
+    preprocessing/          1. Text preprocessing: sentence splitting + negation detection
+    ner/                    2. Medical NER: transformer model (coverage detection)
+    terminology/            3. Terminology identification: dictionary matcher + merge logic
+    retrieval/              4. RAG: knowledge base loader, embedding retriever, corpus loader
+    generation/             5. LLM: Gemma 4 explainer (via Ollama) + deterministic template/fallback
+    safety/                 6. Safety: validator (enforced gate), semantic check (advisory),
+                               provenance (opt-in audit log, AUDIT_LOG_PATH)
+    translation/            Output: NLLB translation (Hindi, Tamil, Telugu, Malayalam)
+    speech/                 Output: gTTS speech synthesis, best-effort
+    sarvam.py               Optional Sarvam AI client, used by translation and speech
+  tests/                    Unit and end-to-end tests (real-LLM tests marked `llm`,
+                            real-translation tests marked `i18n`, both slow)
+  tools/kb_candidates.py    Drafts new KB entries from MedlinePlus for human review
+
+knowledge_base/
+  knowledge_base.json       The curated KB: the only text the explainer may draw from
+  common_words.txt          Everyday words the NER flags but patients already know
+  README.md                 Curation rules and how to add entries
+  curation/                 Review queue: kb_wishlist.txt, kb_candidates.json,
+                            raw/ (downloaded MedlinePlus files, not committed)
+
+evaluation/
+  datasets/                 eval_corpus.json (18 annotated reports), retrieval_queries.json
+  ner_eval.py               Term detection              → ner_results.md
+  retrieval_eval.py         Retrieval                   → retrieval_results.md
+  generation_eval.py        Generation grounding        → generation_results.md
+  semantic_grounding_eval.py  Semantic-check calibration → semantic_grounding_results.md
+  translation_eval.py       Translation latency/quality → translation_results.md
+
+docs/                       Project report (.docx), architecture diagram
 ```
 
 ---
@@ -774,9 +799,9 @@ Planning notes:
 - **LLM on this machine, measured:** 31.5 GB RAM, no NVIDIA GPU, Gemma 4 E4B via Ollama
   with thinking mode off. CPU generation takes about 16 s median per report (31 s worst
   case), against 21 s for the previous Llama 3 8B (Q4_0) —
-  see [eval/generation_results.md](eval/generation_results.md) for the per-report numbers
+  see [evaluation/generation_results.md](evaluation/generation_results.md) for the per-report numbers
   and the README's own measured examples in section 3. The LLM sits behind one interface
-  (`app/generation/llm_client.py`) so a smaller model or a hosted API can be swapped in by
+  (`backend/app/generation/llm_client.py`) so a smaller model or a hosted API can be swapped in by
   changing `LLM_MODEL`/`OLLAMA_HOST`, without touching the prompt or parsing logic.
 - **Knowledge base growth:** seed from MedlinePlus Health Topics (public domain), UMLS
   synonyms and the Consumer Health Vocabulary; prioritise by term frequency; use an LLM to
@@ -787,7 +812,7 @@ Planning notes:
   the plan in an informative way: speech turned out cheap enough to keep — gTTS is a
   hosted call, measured under a second, nothing like NLLB's local-CPU cost — so it shipped
   after all. The extra-language cut is the one that held, and for exactly the reason
-  anticipated: that cost is real CPU latency (eval/translation_eval.py), not a guess that
+  anticipated: that cost is real CPU latency (evaluation/translation_eval.py), not a guess that
   turned out to be avoidable.
 
 ---
@@ -795,9 +820,12 @@ Planning notes:
 ## 12. Setup
 
 ```bash
-pip install -r requirements.txt
-uvicorn app.main:app --reload
+pip install -r backend/requirements.txt
+python -m uvicorn app.main:app --app-dir backend --reload
 ```
+
+Run every command from the repo root. `--app-dir backend` tells uvicorn where the `app`
+package lives; `pytest.ini` does the same for the tests.
 
 The first start downloads the NER model (`d4data/biomedical-ner-all`, ~260 MB), the
 embedding model (`all-MiniLM-L6-v2`, ~90 MB), and the translation model
@@ -820,7 +848,7 @@ that call fails.
 Audit logging is off by default. To enable it (see section 7):
 
 ```bash
-export AUDIT_LOG_PATH=data/audit_log.jsonl   # PowerShell: $env:AUDIT_LOG_PATH = "data/audit_log.jsonl"
+export AUDIT_LOG_PATH=audit_log.jsonl   # PowerShell: $env:AUDIT_LOG_PATH = "audit_log.jsonl"
 ```
 
 The demo page (section 3) is served at `/` once the server is running.
@@ -829,11 +857,11 @@ The demo page (section 3) is served at `/` once the server is running.
 curl -X POST http://127.0.0.1:8000/explain -H "Content-Type: application/json" -d "{\"report_text\": \"Mild hepatic steatosis with elevated ALT.\"}"
 python -m pytest                                 # everything: real Ollama + NLLB + gTTS calls included (~4-5 min)
 python -m pytest -m "not llm and not i18n"       # fast lane: no Ollama/NLLB calls, still builds those models once (~80-90s cold, faster once the OS file cache is warm)
-python -m eval.ner_eval                          # NER evaluation → eval/ner_results.md
-python -m eval.retrieval_eval                    # retrieval evaluation → eval/retrieval_results.md
-python -m eval.generation_eval                   # generation evaluation → eval/generation_results.md
-python -m eval.semantic_grounding_eval           # semantic-check calibration → eval/semantic_grounding_results.md
-python -m eval.translation_eval                  # translation latency/quality → eval/translation_results.md
+python -m evaluation.ner_eval                          # NER evaluation → evaluation/ner_results.md
+python -m evaluation.retrieval_eval                    # retrieval evaluation → evaluation/retrieval_results.md
+python -m evaluation.generation_eval                   # generation evaluation → evaluation/generation_results.md
+python -m evaluation.semantic_grounding_eval           # semantic-check calibration → evaluation/semantic_grounding_results.md
+python -m evaluation.translation_eval                  # translation latency/quality → evaluation/translation_results.md
 ```
 
 ---
@@ -844,13 +872,13 @@ python -m eval.translation_eval                  # translation latency/quality �
   or Medical Tests, the NCI Dictionary of Cancer Terms, or NIAMS) with a verified
   `source_url`. Five still cite the MedlinePlus Medical Encyclopedia, which is licensed
   from A.D.A.M. and must not be copied, and have no URL yet: cardiomegaly, spondylosis,
-  normal sinus rhythm, incidental finding, unremarkable (see `data/README.md`). The
+  normal sinus rhythm, incidental finding, unremarkable (see `knowledge_base/README.md`). The
   definitions themselves still need a clinician's review.
 - Ambiguous abbreviations (PE, MS) are not handled yet and are left out of the dictionary.
 - The evaluation corpus is small, synthetic and single-annotator.
 - Generated explanations have not had the human faithfulness review the project brief
   calls for (Phase 5's acceptance criteria: reading 10 explanations by hand to confirm
-  every claim traces to its source). `eval/generation_eval.py` checks grounding and
+  every claim traces to its source). `evaluation/generation_eval.py` checks grounding and
   readability automatically, which is a triage pass, not a substitute for that review.
 - The LLM's sentences are placed before the template's, not interleaved in report order
   (see section 3, Step 5) — a readability polish item, not a safety one.
@@ -935,7 +963,7 @@ link; semantic neighbours become suggestions for a human curator instead.
 
 **How would you evaluate it properly?**
 Real NER and retrieval metrics (done), grounding and readability checks on generated
-explanations (done — `eval/generation_eval.py`), a human faithfulness review of those
+explanations (done — `evaluation/generation_eval.py`), a human faithfulness review of those
 explanations (not yet done — this is different from grounding: a sentence can cite the
 right source and still subtly misstate it), and ideally a before/after comprehension test
 with volunteers, reporting measured and projected results separately.
@@ -979,7 +1007,7 @@ exact, not fuzzy — stays the only thing that can reject an explanation.
 **Why is translation slow?**
 NLLB runs on CPU and translates line by line, so each non-English request costs seconds to
 tens of seconds per sentence, the same for every language. The dropdown labels each
-non-English option as slow, and the cost is measured in `eval/translation_eval.py`.
+non-English option as slow, and the cost is measured in `evaluation/translation_eval.py`.
 
 **Walk me through a real bug you found testing your own work.**
 Building the demo page, I put each highlighted term's definition inline in the report

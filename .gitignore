@@ -1,7 +1,7 @@
 # Runtime-generated, never source. Audit logs can contain full report text — must
 # never be committed even though this project's own data is synthetic.
 audit_log.jsonl
-data/audit_log*.jsonl
+**/audit_log*.jsonl
 
 __pycache__/
 *.pyc
@@ -9,5 +9,5 @@ __pycache__/
 .env
 
 # Downloaded source data (MedlinePlus XML, ~30 MB, refreshed daily). Re-fetch with
-# `python -m tools.kb_candidates --download`.
-data/raw/
+# `python -m backend.tools.kb_candidates --download`.
+knowledge_base/curation/raw/

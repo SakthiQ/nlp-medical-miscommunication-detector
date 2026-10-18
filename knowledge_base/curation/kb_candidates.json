@@ -1,0 +1,2592 @@
+{
+  "source": "MedlinePlus Health Topics XML (mplus_topics_2026-10-17.xml) and Medical Tests index, public domain",
+  "generated": "2026-10-18",
+  "instructions": "For each 'matched' or 'related_topic' candidate: check that the cited topic really covers the term ('related_topic' means it was only cross-referenced), remove any alias that is not the same thing as the term, write entry.plain_definition (1-2 plain sentences, own words, no interpretation) and entry.clinical_context, pick entry.label from ['ANATOMY', 'BIOMARKER', 'DESCRIPTOR', 'DISEASE', 'DRUG', 'SYMPTOM', 'TEST'], check the aliases, then set approved to true and run `python -m backend.tools.kb_candidates --promote`.",
+  "candidates": [
+    {
+      "wanted": "consolidation",
+      "requested_by": [
+        "corpus gap: ev-003"
+      ],
+      "status": "not_found",
+      "approved": false,
+      "entry": null,
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": ""
+    },
+    {
+      "wanted": "renal",
+      "requested_by": [
+        "corpus gap: ev-007"
+      ],
+      "status": "partial",
+      "approved": false,
+      "entry": null,
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [
+        {
+          "title": "Dialysis",
+          "url": "https://medlineplus.gov/dialysis.html"
+        },
+        {
+          "title": "Kidney Cancer",
+          "url": "https://medlineplus.gov/kidneycancer.html"
+        },
+        {
+          "title": "Kidney Diseases",
+          "url": "https://medlineplus.gov/kidneydiseases.html"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "wanted": "canal stenosis",
+      "requested_by": [
+        "corpus gap: ev-008"
+      ],
+      "status": "not_found",
+      "approved": false,
+      "entry": null,
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": ""
+    },
+    {
+      "wanted": "Mediastinal",
+      "requested_by": [
+        "corpus gap: ev-013"
+      ],
+      "status": "not_found",
+      "approved": false,
+      "entry": null,
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": ""
+    },
+    {
+      "wanted": "femoral neck",
+      "requested_by": [
+        "corpus gap: ev-014"
+      ],
+      "status": "not_found",
+      "approved": false,
+      "entry": null,
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": ""
+    },
+    {
+      "wanted": "antral",
+      "requested_by": [
+        "corpus gap: ev-015"
+      ],
+      "status": "not_found",
+      "approved": false,
+      "entry": null,
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": ""
+    },
+    {
+      "wanted": "Afebrile",
+      "requested_by": [
+        "corpus gap: ev-016"
+      ],
+      "status": "not_found",
+      "approved": false,
+      "entry": null,
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": ""
+    },
+    {
+      "wanted": "cirrhosis",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "cirrhosis",
+        "aliases": [
+          "cirrhosis",
+          "Hepatic fibrosis"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "Scarring of the liver. The scar tissue takes the place of healthy liver tissue and cannot do the liver's usual work.",
+        "clinical_context": "Usually described on imaging or a liver biopsy, often alongside liver blood test results.",
+        "source_citation": "MedlinePlus Health Topics - 'Cirrhosis'",
+        "source_url": "https://medlineplus.gov/cirrhosis.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Cirrhosis is caused when scar tissue replaces healthy tissue in the liver because of chronic injury. Learn how cirrhosis is diagnosed and treated.",
+        "summary_excerpt": "Cirrhosis is scarring of the liver. Scar tissue forms because of injury or long-term disease. Scar tissue cannot do what healthy liver tissue does - make protein, help fight infections, clean the blood, help digest food and store energy. Cirrhosis can lead to : Easy bruising or bleeding, or nosebleeds Swelling of the abdomen or legs Extra sensitivity to medicines High blood pressure in the vein entering the liver Enlarged veins called varices in the esophagus and stomach. Varices can bleed suddenly. Kidney failure Jaundice Severe itching Gallstones A small number of people with cirrhosis get liver cancer . Your doctor will diagnose cirrhosis with blood tests, imaging tests, or a biopsy. Cirr",
+        "groups": [
+          "Digestive System"
+        ],
+        "mesh": [
+          "Liver Cirrhosis"
+        ],
+        "primary_institute": "National Institute of Diabetes and Digestive and Kidney Diseases",
+        "see_also_not_aliases": [
+          "Liver Cirrhosis"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "hepatitis",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "hepatitis",
+        "aliases": [
+          "hepatitis"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "The liver is swollen and irritated (inflamed). This has several possible causes, including viruses.",
+        "clinical_context": "Often named by type or cause, for example hepatitis B or hepatitis C. Liver blood tests are usually reported alongside.",
+        "source_citation": "MedlinePlus Health Topics - 'Hepatitis'",
+        "source_url": "https://medlineplus.gov/hepatitis.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "The word \"hepatitis\" means inflammation of the liver. There are five main hepatitis viruses (A, B, C, D or E). Learn about the different types here.",
+        "summary_excerpt": "What is hepatitis? Hepatitis is inflammation of the liver . Inflammation is swelling that happens when tissues of the body are injured or infected. It can damage your liver. This swelling and damage can affect how well your liver functions. Hepatitis can be an acute (short-term) infection or a chronic (long-term) infection. Some types of hepatitis cause only acute infections. Other types can cause both acute and chronic infections. What causes hepatitis? There are different types of hepatitis, with different causes: Viral hepatitis is the most common type. It is caused by one of several viruses -- hepatitis viruses A , B , C , D, and E. In the United States, A, B, and C are the most common. ",
+        "groups": [
+          "Digestive System",
+          "Infections"
+        ],
+        "mesh": [
+          "Hepatitis"
+        ],
+        "primary_institute": "National Institute of Diabetes and Digestive and Kidney Diseases",
+        "see_also_not_aliases": [
+          "Viral Hepatitis"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "jaundice",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "jaundice",
+        "aliases": [
+          "jaundice",
+          "Icterus"
+        ],
+        "label": "SYMPTOM",
+        "plain_definition": "A yellow color of the skin or the whites of the eyes. It happens when a yellow substance called bilirubin builds up in the body.",
+        "clinical_context": "Noted on examination, often reported with a bilirubin blood test result.",
+        "source_citation": "MedlinePlus Health Topics - 'Jaundice'",
+        "source_url": "https://medlineplus.gov/jaundice.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Jaundice is a yellow coloring of the skin or eyes caused by too much bilirubin in the body. Jaundice can happen for many reasons. Learn about it here.",
+        "summary_excerpt": "Jaundice causes your skin and the whites of your eyes to turn yellow. Too much bilirubin causes jaundice. Bilirubin is a yellow chemical in hemoglobin, the substance that carries oxygen in your red blood cells. As red blood cells break down, your body builds new cells to replace them. The old ones are processed by the liver. If the liver cannot handle the blood cells as they break down, bilirubin builds up in the body and your skin may look yellow. Many healthy babies have some jaundice during the first week of life. It usually goes away. However, jaundice can happen at any age and may be a sign of a problem. Jaundice can happen for many reasons, such as: Blood diseases Genetic syndromes Liv",
+        "groups": [
+          "Digestive System",
+          "Symptoms"
+        ],
+        "mesh": [
+          "Hyperbilirubinemia"
+        ],
+        "primary_institute": "National Institute of Diabetes and Digestive and Kidney Diseases",
+        "see_also_not_aliases": [
+          "Icterus",
+          "Kernicterus"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "bilirubin",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "bilirubin",
+        "aliases": [
+          "bilirubin",
+          "Bilirubin Blood Test",
+          "total bilirubin"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "Bilirubin is a yellow substance made when the body breaks down old red blood cells. The liver normally clears it from the body.",
+        "clinical_context": "Reported in a liver function panel, sometimes as total and direct bilirubin. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Bilirubin Blood Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/bilirubin-blood-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A bilirubin blood test can check the health of you or your newborn. High bilirubin levels may be a sign of liver, bile duct, or other health problems.",
+        "summary_excerpt": "What is a bilirubin blood test? A bilirubin blood test measures the levels of bilirubin in your blood. Bilirubin is a yellowish substance made during your body's normal process of breaking down old red blood cells. Bilirubin is found in bile, a fluid your liver makes to help you digest food. If your liver is healthy, it will remove most of the bilirubin from your body through your bile ducts (the tubes that carry bile from your liver). If your liver is damaged or your bile ducts are blocked, bilirubin can leak out of your liver and into your blood. When too much bilirubin gets into the bloodstream, it can cause jaundice , a condition that causes your skin and eyes to turn yellow. If you have",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "pancreatitis",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "pancreatitis",
+        "aliases": [
+          "pancreatitis"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "The pancreas is swollen and irritated (inflamed). The pancreas is a gland behind the stomach that helps digest food and control blood sugar.",
+        "clinical_context": "Described as acute (sudden) or chronic (long-term). Often reported with lipase or amylase blood test results.",
+        "source_citation": "MedlinePlus Health Topics - 'Pancreatitis'",
+        "source_url": "https://medlineplus.gov/pancreatitis.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Pancreatitis is inflammation of the pancreas. Pancreatitis can be acute or chronic. Learn about pancreatitis symptoms and treatment.",
+        "summary_excerpt": "The pancreas is a large gland behind the stomach and close to the first part of the small intestine. It secretes digestive juices into the small intestine through a tube called the pancreatic duct. The pancreas also releases the hormones insulin and glucagon into the bloodstream. Pancreatitis is inflammation of the pancreas. It happens when digestive enzymes start digesting the pancreas itself. Pancreatitis can be acute or chronic. Either form is serious and can lead to complications. Acute pancreatitis occurs suddenly and usually goes away in a few days with treatment. It is often caused by gallstones . Common symptoms are severe pain in the upper abdomen, nausea, and vomiting. Treatment is",
+        "groups": [
+          "Digestive System"
+        ],
+        "mesh": [
+          "Pancreatitis"
+        ],
+        "primary_institute": "National Institute of Diabetes and Digestive and Kidney Diseases",
+        "see_also_not_aliases": [
+          "Acute Pancreatitis",
+          "Chronic Pancreatitis",
+          "Necrotizing Pancreatitis"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "kidney cyst",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "kidney cyst",
+        "aliases": [
+          "kidney cyst",
+          "Kidney Cysts"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "A small sac filled with fluid in the kidney. Simple kidney cysts are common as people get older.",
+        "clinical_context": "Seen on ultrasound, CT or MRI. Reports often describe a cyst as simple or complex and give its size.",
+        "source_citation": "MedlinePlus Health Topics - 'Kidney Cysts'",
+        "source_url": "https://medlineplus.gov/kidneycysts.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Polycystic kidney disease (PKD) are kidney cysts that enlarge kidneys and make them work poorly, leading to kidney failure. Learn about PKD symptoms",
+        "summary_excerpt": "A cyst is a fluid-filled sac. You may get simple kidney cysts as you age; they are usually harmless. There are also some diseases which cause kidney cysts. One type is polycystic kidney disease (PKD). It runs in families. In PKD, many cysts grow in the kidneys. This can enlarge the kidneys and make them work poorly. About half of people with the most common type of PKD end up with kidney failure . PKD also causes cysts in other parts of the body, such as the liver. Often, there are no symptoms at first. Later, symptoms include: Pain in the back and lower sides Headaches Blood in the urine Doctors diagnose PKD with imaging tests and family history. There is no cure. Treatments can help with s",
+        "groups": [
+          "Kidneys and Urinary System"
+        ],
+        "mesh": [
+          "Kidney Diseases, Cystic"
+        ],
+        "primary_institute": "National Institute of Diabetes and Digestive and Kidney Diseases",
+        "see_also_not_aliases": [
+          "Cystic Kidney Diseases",
+          "Polycystic Kidney Disease"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval. The MedlinePlus topic is mostly about polycystic kidney disease; check it supports a simple-cyst definition."
+    },
+    {
+      "wanted": "urinary tract infection",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "urinary tract infection",
+        "aliases": [
+          "urinary tract infection",
+          "Urinary Tract Infections",
+          "UTI"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "An infection in the parts of the body that make and carry urine, such as the bladder or the kidneys.",
+        "clinical_context": "Usually found with a urine test or a urine culture.",
+        "source_citation": "MedlinePlus Health Topics - 'Urinary Tract Infections'",
+        "source_url": "https://medlineplus.gov/urinarytractinfections.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "You may have a urinary tract infection (UTI) if you feel a burn while urinating or suffer from lower body pressure. Uncover a list of UTI symptoms",
+        "summary_excerpt": "The urinary system is the body's drainage system for removing wastes and extra water. It includes two kidneys, two ureters, a bladder, and a urethra. Urinary tract infections (UTIs) are the second most common type of infection in the body. You may have a UTI if you notice: Pain or burning when you urinate Fever, tiredness, or shakiness An urge to urinate often Pressure in your lower belly Urine that smells bad or looks cloudy or reddish Pain in your back or side below the ribs People of any age or sex can get UTIs. But about four times as many women get UTIs as men. You're also at higher risk if you have diabetes, need a tube to drain your bladder, or have a spinal cord injury. If you think ",
+        "groups": [
+          "Kidneys and Urinary System",
+          "Infections"
+        ],
+        "mesh": [
+          "Urinary Tract Infections"
+        ],
+        "primary_institute": "National Institute of Diabetes and Digestive and Kidney Diseases",
+        "see_also_not_aliases": [
+          "Bladder Infections",
+          "Infections, Bladder",
+          "Kidney Infections",
+          "Pyelonephritis",
+          "UTI"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "enlarged prostate",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "partial",
+      "approved": false,
+      "entry": null,
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [
+        {
+          "title": "Enlarged Prostate (BPH)",
+          "url": "https://medlineplus.gov/enlargedprostatebph.html"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "wanted": "atrial fibrillation",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "atrial fibrillation",
+        "aliases": [
+          "atrial fibrillation",
+          "AF",
+          "AFib"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "A type of irregular heartbeat. The upper chambers of the heart beat out of step with the lower chambers, often faster than usual.",
+        "clinical_context": "Seen on an ECG (also written EKG). Often shortened to AF or AFib.",
+        "source_citation": "MedlinePlus Health Topics - 'Atrial Fibrillation'",
+        "source_url": "https://medlineplus.gov/atrialfibrillation.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Atrial fibrillation (AF or AFib) is the most common type of arrhythmia (irregular heartbeat). Read about symptoms and treatment.",
+        "summary_excerpt": "What is atrial fibrillation (AFib)? Atrial fibrillation, also known as AFib or AF, is one of the most common types of arrhythmias . Arrhythmias are problems with the rate or rhythm of your heartbeat. They can cause your heart to beat too slowly, too fast, or in an irregular way. If you have AFib, your heart beats irregularly and sometimes much faster than normal. Also, your heart's upper and lower chambers do not work together as they should. When this happens, the lower chambers do not fill completely or pump enough blood to your lungs and body. This can cause symptoms such as dizziness , fatigue , and a pounding heartbeat. AFib may happen in brief episodes, or it may be a permanent conditi",
+        "groups": [
+          "Blood, Heart and Circulation"
+        ],
+        "mesh": [
+          "Atrial Fibrillation"
+        ],
+        "primary_institute": "National Heart, Lung, and Blood Institute",
+        "see_also_not_aliases": [
+          "AF"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [
+        "'AF' is very short; it may match unrelated text"
+      ],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval. Alias 'AF' is only two letters; keep it only if the dictionary matcher handles it safely."
+    },
+    {
+      "wanted": "heart failure",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "heart failure",
+        "aliases": [
+          "heart failure",
+          "CHF",
+          "Cardiac failure",
+          "Congestive heart failure",
+          "Left-sided heart failure",
+          "Right-sided heart failure"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "The heart cannot pump enough blood to meet the body's needs. It does not mean the heart has stopped.",
+        "clinical_context": "May be described as left-sided or right-sided. Often reported alongside an echocardiogram result such as ejection fraction.",
+        "source_citation": "MedlinePlus Health Topics - 'Heart Failure'",
+        "source_url": "https://medlineplus.gov/heartfailure.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Heart failure, or congestive heart failure (CHF), means the heart can't pump enough blood. Learn about the signs, symptoms, and causes.",
+        "summary_excerpt": "What is heart failure? Heart failure means that your heart can't pump enough oxygen-rich blood to meet your body's needs. Heart failure doesn't mean that your heart has stopped or is about to stop beating. But without enough blood flow, your organs may not work well, which can cause serious problems. Heart failure can affect one or both sides of your heart: With right-sided heart failure , your heart is too weak to pump enough blood to your lungs to get oxygen. With left-sided heart failure , your heart can't pump enough oxygen-rich blood out to your body. This happens when the left side of your heart becomes either: Too weak to pump enough blood. Too thick or stiff to relax and fill with en",
+        "groups": [
+          "Older Adults",
+          "Blood, Heart and Circulation"
+        ],
+        "mesh": [
+          "Heart Failure"
+        ],
+        "primary_institute": "National Heart, Lung, and Blood Institute",
+        "see_also_not_aliases": [
+          "CHF",
+          "Cardiac Failure",
+          "Congestive Heart Failure",
+          "Low Cardiac Output"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval. Aliases 'Left-sided heart failure' and 'Right-sided heart failure' would map to this general definition; keep only if intended."
+    },
+    {
+      "wanted": "cardiomyopathy",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "cardiomyopathy",
+        "aliases": [
+          "cardiomyopathy",
+          "Arrhythmogenic right ventricular cardiomyopathy",
+          "Dilated cardiomyopathy",
+          "Hypertrophic cardiomyopathy",
+          "Myocardiopathy",
+          "Restrictive cardiomyopathy"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "A disease of the heart muscle that makes it larger, thicker, or stiffer than usual.",
+        "clinical_context": "Usually named by type, for example dilated or hypertrophic. Often seen on an echocardiogram.",
+        "source_citation": "MedlinePlus Health Topics - 'Cardiomyopathy'",
+        "source_url": "https://medlineplus.gov/cardiomyopathy.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Cardiomyopathy is a disease that causes the heart to become enlarged, thick, or stiff. Read about the different types, their symptoms, and treatments.",
+        "summary_excerpt": "Cardiomyopathy is the name for diseases of the heart muscle. These diseases enlarge your heart muscle or make it thicker and more rigid than normal. In rare cases, scar tissue replaces the muscle tissue. Some people live long, healthy lives with cardiomyopathy. Some people don't even realize they have it. In others, however, it can make the heart less able to pump blood through the body. This can cause serious complications, including: Heart failure Abnormal heart rhythms Heart valve problems Sudden cardiac arrest (SCA) Heart attacks , high blood pressure , infections, and other diseases can all cause cardiomyopathy. Some types of cardiomyopathy run in families. In many people, however, the ",
+        "groups": [
+          "Blood, Heart and Circulation"
+        ],
+        "mesh": [
+          "Cardiomyopathies"
+        ],
+        "primary_institute": "National Heart, Lung, and Blood Institute",
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval. The four subtype aliases (dilated, hypertrophic, restrictive, arrhythmogenic) would map to this general definition; keep only if intended."
+    },
+    {
+      "wanted": "atherosclerosis",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "atherosclerosis",
+        "aliases": [
+          "atherosclerosis"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "A sticky substance called plaque builds up inside the arteries and makes them narrower.",
+        "clinical_context": "Often seen on imaging as plaque or calcium in the walls of blood vessels.",
+        "source_citation": "MedlinePlus Health Topics - 'Atherosclerosis'",
+        "source_url": "https://medlineplus.gov/atherosclerosis.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Atherosclerosis is hardening and narrowing of the arteries caused by the buildup of a fatty substance called plaque. Learn about the risks and prevention.",
+        "summary_excerpt": "What is atherosclerosis? Atherosclerosis is a condition in which plaque builds up inside your arteries. Plaque is a sticky substance made up of cholesterol , fat, blood cells, calcium, and other substances found in the blood. Over time, plaque hardens and causes your arteries to narrow. That limits the flow of oxygen-rich blood to your body. Some people may confuse atherosclerosis and arteriosclerosis, but they are not the same thing: Arteriosclerosis is hardening of the arteries, which means that the arteries thicken and become less flexible. It can have several different causes. Atherosclerosis , which develops from plaque buildup, is a common type of arteriosclerosis. Atherosclerosis can ",
+        "groups": [
+          "Blood, Heart and Circulation"
+        ],
+        "mesh": [
+          "Atherosclerosis"
+        ],
+        "primary_institute": "National Heart, Lung, and Blood Institute",
+        "see_also_not_aliases": [
+          "Arteriosclerosis",
+          "Hardening of the Arteries",
+          "Plaque, Atherosclerotic"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval. Removed alias 'Arteriosclerosis': the MedlinePlus summary itself says the two are not the same thing."
+    },
+    {
+      "wanted": "aneurysm",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "aneurysm",
+        "aliases": [
+          "aneurysm",
+          "Aneurysms"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "A bulge or ballooning in the wall of a blood vessel (artery).",
+        "clinical_context": "Described by location, such as the aorta or the brain, and by size.",
+        "source_citation": "MedlinePlus Health Topics - 'Aneurysms'",
+        "source_url": "https://medlineplus.gov/aneurysms.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "An aneurysm is a bulge in the wall of an artery. It can develop and grow for years without causing any symptoms. Learn about tests and treatment.",
+        "summary_excerpt": "An aneurysm is a bulge or \"ballooning\" in the wall of an artery. Arteries are blood vessels that carry oxygen-rich blood from the heart to other parts of the body. If an aneurysm grows large, it can burst and cause dangerous bleeding or even death. Most aneurysms occur in the aorta , the main artery that runs from the heart through the chest and abdomen. Aneurysms also can happen in arteries in the brain, heart and other parts of the body. If an aneurysm in the brain bursts, it causes a stroke . Aneurysms can develop and become large before causing any symptoms. Often doctors can stop aneurysms from bursting if they find and treat them early. They use imaging tests to find aneurysms. Often a",
+        "groups": [
+          "Blood, Heart and Circulation"
+        ],
+        "mesh": [
+          "Aneurysm"
+        ],
+        "primary_institute": "National Heart, Lung, and Blood Institute",
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "deep vein thrombosis",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "deep vein thrombosis",
+        "aliases": [
+          "deep vein thrombosis",
+          "DVT"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "A blood clot in a vein deep inside the body, most often in the leg.",
+        "clinical_context": "Usually found with an ultrasound scan of the leg veins. Often shortened to DVT.",
+        "source_citation": "MedlinePlus Health Topics - 'Deep Vein Thrombosis'",
+        "source_url": "https://medlineplus.gov/deepveinthrombosis.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Deep vein thrombosis (DVT), is a blood clot that forms in a vein deep in the body, often in the leg. Learn about the causes, symptoms, and treatments.",
+        "summary_excerpt": "Deep vein thrombosis, or DVT, is a blood clot that forms in a vein deep in the body. Most deep vein clots occur in the lower leg or thigh. If the vein swells, the condition is called thrombophlebitis. A deep vein thrombosis can break loose and cause a serious problem in the lung, called a pulmonary embolism . Sitting still for a long time can make you more likely to get a DVT. Some medicines and disorders that increase your risk for blood clots can also lead to DVTs. Common symptoms are : Warmth and tenderness over the vein Pain or swelling in the part of the body affected Skin redness Treatment includes medicines to ease pain and inflammation, break up clots and keep new clots from forming.",
+        "groups": [
+          "Blood, Heart and Circulation"
+        ],
+        "mesh": [
+          "Venous Thrombosis"
+        ],
+        "primary_institute": "National Heart, Lung, and Blood Institute",
+        "see_also_not_aliases": [
+          "DVT",
+          "Venous Thrombosis"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "pulmonary embolism",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "pulmonary embolism",
+        "aliases": [
+          "pulmonary embolism",
+          "Blood clots in the lung"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "A blockage in a blood vessel in the lungs, usually caused by a blood clot that has travelled there.",
+        "clinical_context": "Usually found on a CT scan of the chest. Often shortened to PE.",
+        "source_citation": "MedlinePlus Health Topics - 'Pulmonary Embolism'",
+        "source_url": "https://medlineplus.gov/pulmonaryembolism.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A pulmonary embolism is a sudden blockage in a lung artery. The cause is usually a blood clot in the leg called deep vein thrombosis. Learn more.",
+        "summary_excerpt": "What is a pulmonary embolism (PE)? A pulmonary embolism (PE) is a sudden blockage in a lung artery. It usually happens when a blood clot breaks loose and travels through the bloodstream to the lungs. PE is a serious condition that can cause: Permanent damage to the lungs Low oxygen levels in your blood Damage to other organs in your body from not getting enough oxygen PE can be life-threatening, especially if a clot is large, or if there are many clots. What causes a pulmonary embolism (PE)? The cause is usually a blood clot that breaks loose and travels through the bloodstream to the lungs. The clot is usually a deep vein thrombosis (DVT), a clot in the leg. In rare cases, material such as ",
+        "groups": [
+          "Lungs and Breathing"
+        ],
+        "mesh": [
+          "Pulmonary Embolism"
+        ],
+        "primary_institute": "National Heart, Lung, and Blood Institute",
+        "see_also_not_aliases": [
+          "Blood Clots in the Lung"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "pneumonia",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "pneumonia",
+        "aliases": [
+          "pneumonia",
+          "Bronchopneumonia"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "An infection in one or both lungs that makes the tiny air sacs fill with fluid or pus.",
+        "clinical_context": "Often seen on a chest X-ray and described by the part of the lung involved.",
+        "source_citation": "MedlinePlus Health Topics - 'Pneumonia'",
+        "source_url": "https://medlineplus.gov/pneumonia.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Pneumonia is an infection in one or both of the lungs. Symptoms of pneumonia vary to mild to severe. Read about the signs of pneumonia.",
+        "summary_excerpt": "What is pneumonia? Pneumonia is an infection in one or both of the lungs. It causes the air sacs of the lungs to fill up with fluid or pus. It can range from mild to severe, depending on the type of germ causing the infection, your age, and your overall health. What causes pneumonia? Bacterial , viral , and fungal infections can cause pneumonia. Bacteria are the most common cause. Bacterial pneumonia can occur on its own. It can also develop after you've had certain viral infections such as a cold or the flu . Several different types of bacteria can cause pneumonia, including: Streptococcus pneumoniae Legionella pneumophila; this pneumonia is often called Legionnaires' disease Mycoplasma pne",
+        "groups": [
+          "Infections",
+          "Lungs and Breathing"
+        ],
+        "mesh": [
+          "Pneumonia"
+        ],
+        "primary_institute": "National Heart, Lung, and Blood Institute",
+        "see_also_not_aliases": [
+          "Bronchopneumonia",
+          "Walking Pneumonia"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "emphysema",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "emphysema",
+        "aliases": [
+          "emphysema",
+          "Pulmonary emphysema"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "Damage to the tiny air sacs in the lungs, so they do not stretch and empty the way they normally would. It is one type of COPD.",
+        "clinical_context": "Often described on a chest CT scan, sometimes as mild, moderate, or severe.",
+        "source_citation": "MedlinePlus Health Topics - 'Emphysema'",
+        "source_url": "https://medlineplus.gov/emphysema.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Emphysema is a type of COPD. COPD makes it hard to breathe. The most common cause of Emphysema is smoking. Learn about symptoms and treatment.",
+        "summary_excerpt": "What is emphysema? Emphysema is a type of COPD (chronic obstructive pulmonary disease). COPD is a group of lung diseases that make it hard to breathe and get worse over time. The other main type of COPD is chronic bronchitis . Most people with COPD have both emphysema and chronic bronchitis, but how severe each type is can be different from person to person. Emphysema affects the air sacs in your lungs. Normally, these sacs are elastic or stretchy. When you breathe in, each air sac fills up with air, like a small balloon. When you breathe out, the air sacs deflate, and the air goes out. In emphysema, the walls between many of the air sacs in the lungs are damaged. This causes the air sacs to",
+        "groups": [
+          "Lungs and Breathing"
+        ],
+        "mesh": [
+          "Pulmonary Emphysema",
+          "Emphysema"
+        ],
+        "primary_institute": "National Heart, Lung, and Blood Institute",
+        "see_also_not_aliases": [
+          "Pulmonary Emphysema"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "COPD",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "COPD",
+        "aliases": [
+          "COPD"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "A group of long-term lung diseases that make it hard to breathe air in and out. Emphysema and chronic bronchitis are two kinds.",
+        "clinical_context": "Short for chronic obstructive pulmonary disease. Usually measured with breathing tests (spirometry).",
+        "source_citation": "MedlinePlus Health Topics - 'COPD'",
+        "source_url": "https://medlineplus.gov/copd.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "COPD (chronic obstructive pulmonary disease) makes it hard for you to breathe. At first symptoms are mild, but they usually become more severe. Learn more.",
+        "summary_excerpt": "What is COPD? COPD (chronic obstructive pulmonary disease) is a group of lung diseases that make it hard to breathe and get worse over time. Normally, the airways and air sacs in your lungs are elastic or stretchy. When you breathe in, the airways bring air to the air sacs. The air sacs fill up with air, like a small balloon. When you breathe out, the air sacs deflate, and the air goes out. If you have COPD, less air flows in and out of your airways because of one or more problems: The airways and air sacs in your lungs become less elastic The walls between many of the air sacs are destroyed The walls of the airways become thick and inflamed The airways make more mucus than usual and can bec",
+        "groups": [
+          "Older Adults",
+          "Lungs and Breathing"
+        ],
+        "mesh": [
+          "Pulmonary Disease, Chronic Obstructive"
+        ],
+        "primary_institute": "National Heart, Lung, and Blood Institute",
+        "see_also_not_aliases": [
+          "Chronic Obstructive Pulmonary Disease"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "bronchitis",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "related_topic",
+      "approved": false,
+      "entry": {
+        "term": "bronchitis",
+        "aliases": [
+          "bronchitis"
+        ],
+        "label": "",
+        "plain_definition": "",
+        "clinical_context": "",
+        "source_citation": "MedlinePlus Health Topics - 'Acute Bronchitis'",
+        "source_url": "https://medlineplus.gov/acutebronchitis.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Bronchitis is an inflammation of the airways that carry air to your lungs. Learn about acute bronchitis symptoms, causes, and treatment.",
+        "summary_excerpt": "Bronchitis is an inflammation of the bronchial tubes, the airways that carry air to your lungs. It causes a cough that often brings up mucus. It can also cause shortness of breath, wheezing, a low fever, and chest tightness. There are two main types of bronchitis: acute and chronic . Most cases of acute bronchitis get better within several days. But your cough can last for several weeks after the infection is gone. The same viruses that cause colds and the flu often cause acute bronchitis. These viruses spread through the air when people cough, or through physical contact (for example, on unwashed hands). Being exposed to tobacco smoke, air pollution, dust, vapors, and fumes can also cause a",
+        "groups": [
+          "Infections",
+          "Lungs and Breathing"
+        ],
+        "mesh": [
+          "Bronchitis"
+        ],
+        "primary_institute": "National Heart, Lung, and Blood Institute",
+        "see_also_not_aliases": [
+          "Bronchitis",
+          "Chest Cold"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [
+        {
+          "title": "Chronic Bronchitis",
+          "url": "https://medlineplus.gov/chronicbronchitis.html"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "wanted": "asthma",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "asthma",
+        "aliases": [
+          "asthma"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "A long-term lung condition. The airways can swell and get narrow, which makes it harder to breathe at times.",
+        "clinical_context": "Usually noted in the medical history. Breathing test results may be reported alongside.",
+        "source_citation": "MedlinePlus Health Topics - 'Asthma'",
+        "source_url": "https://medlineplus.gov/asthma.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Asthma causes one's airways to become sore and swollen. An attack means a person's lungs are getting less air. Learn about two types of treatment.",
+        "summary_excerpt": "What is asthma? Asthma is a chronic (long-term) lung disease. It affects your airways, the tubes that carry air in and out of your lungs. When you have asthma, your airways can become inflamed and narrowed. This can cause wheezing, coughing , and tightness in your chest. When these symptoms get worse than usual, it is called an asthma attack or flare-up. What causes asthma? The exact cause of asthma is unknown. Genetics and your environment likely play a role in who gets asthma. An asthma attack can happen when you are exposed to an asthma trigger. An asthma trigger is something that can set off or worsen your asthma symptoms. Different triggers can cause different types of asthma: Allergic ",
+        "groups": [
+          "Lungs and Breathing",
+          "Immune System"
+        ],
+        "mesh": [
+          "Asthma"
+        ],
+        "primary_institute": "National Heart, Lung, and Blood Institute",
+        "see_also_not_aliases": [
+          "Bronchial Asthma"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "prediabetes",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "prediabetes",
+        "aliases": [
+          "prediabetes"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "Blood sugar levels that are higher than usual, but not high enough to be called diabetes.",
+        "clinical_context": "Based on blood tests such as HbA1c or fasting blood sugar.",
+        "source_citation": "MedlinePlus Health Topics - 'Prediabetes'",
+        "source_url": "https://medlineplus.gov/prediabetes.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Prediabetes happens when your blood sugar levels are higher than normal but not high enough to be called diabetes.",
+        "summary_excerpt": "What is prediabetes? Prediabetes means that your blood glucose, or blood sugar , levels are higher than normal but not high enough to be called diabetes . Glucose comes from the foods you eat. Too much glucose in your blood can damage your body over time. If you have prediabetes, you are more likely to develop type 2 diabetes , heart disease , and stroke . But if you make some lifestyle changes now, you may be able to delay or prevent type 2 diabetes. What causes prediabetes? Prediabetes usually happens when your body has a problem with insulin. Insulin is a hormone that helps the glucose get into your cells to give them energy. A problem with insulin could be: Insulin resistance, a conditio",
+        "groups": [
+          "Endocrine System",
+          "Diabetes Mellitus"
+        ],
+        "mesh": [
+          "Prediabetic State"
+        ],
+        "primary_institute": "National Institute of Diabetes and Digestive and Kidney Diseases",
+        "see_also_not_aliases": [
+          "Insulin Resistance"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval. Alias 'Insulin Resistance' is related but not the same thing; consider removing it."
+    },
+    {
+      "wanted": "hyperglycemia",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "hyperglycemia",
+        "aliases": [
+          "hyperglycemia",
+          "High blood glucose",
+          "High blood sugar"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "A higher than usual level of sugar (glucose) in the blood.",
+        "clinical_context": "Seen on a blood glucose test.",
+        "source_citation": "MedlinePlus Health Topics - 'Hyperglycemia'",
+        "source_url": "https://medlineplus.gov/hyperglycemia.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Hyperglycemia means high blood sugar or glucose. Hyperglycemia happens when your body doesn't make enough insulin or can't use it the right way.",
+        "summary_excerpt": "What is blood glucose? Blood glucose , or blood sugar, is the main sugar found in your blood. It is your body's primary source of energy. It comes from the food you eat. Your body breaks down most of that food into glucose and releases it into your bloodstream. When your blood glucose goes up, it signals your pancreas to release insulin. Insulin is a hormone that helps the glucose get into your cells to be used for energy. For people with diabetes , your body doesn't make enough insulin, can't use it as well as it should, or both. Too much glucose stays in your blood and doesn't reach your cells. What is hyperglycemia? Hyperglycemia means high blood glucose. It most often affects people who ",
+        "groups": [
+          "Endocrine System",
+          "Metabolic Problems",
+          "Diabetes Mellitus"
+        ],
+        "mesh": [
+          "Hyperglycemia"
+        ],
+        "primary_institute": "National Institute of Diabetes and Digestive and Kidney Diseases",
+        "see_also_not_aliases": [
+          "High Blood Glucose",
+          "High Blood Sugar"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "hypoglycemia",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "hypoglycemia",
+        "aliases": [
+          "hypoglycemia",
+          "Low blood sugar"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "A lower than usual level of sugar (glucose) in the blood.",
+        "clinical_context": "Seen on a blood glucose test.",
+        "source_citation": "MedlinePlus Health Topics - 'Hypoglycemia'",
+        "source_url": "https://medlineplus.gov/hypoglycemia.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Read about the causes and symptoms related to hypoglycemia, a condition that generally affects people with low blood sugar levels.",
+        "summary_excerpt": "What is blood glucose? Blood glucose , or blood sugar, is the main sugar found in your blood. It is your body's primary source of energy. It comes from the food you eat. Your body breaks down most of that food into glucose and releases it into your bloodstream. When your blood glucose goes up, it signals your pancreas to release insulin. Insulin is a hormone that helps the glucose get into your cells to be used for energy. For people with diabetes , your body doesn't make enough insulin, can't use it as well as it should, or both. Too much glucose stays in your blood and doesn't reach your cells. What is hypoglycemia? Hypoglycemia means low glucose. It happens when the level of glucose in yo",
+        "groups": [
+          "Metabolic Problems"
+        ],
+        "mesh": [
+          "Hypoglycemia"
+        ],
+        "primary_institute": "National Institute of Diabetes and Digestive and Kidney Diseases",
+        "see_also_not_aliases": [
+          "Low Blood Sugar"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "iron deficiency",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "not_found",
+      "approved": false,
+      "entry": null,
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": ""
+    },
+    {
+      "wanted": "vitamin D deficiency",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "vitamin D deficiency",
+        "aliases": [
+          "vitamin D deficiency",
+          "Hypovitaminosis D",
+          "Low Vitamin D"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "The body does not have enough vitamin D. Vitamin D helps the body take in calcium, which keeps bones strong.",
+        "clinical_context": "Measured with a vitamin D blood test, often reported as 25-hydroxy vitamin D.",
+        "source_citation": "MedlinePlus Health Topics - 'Vitamin D Deficiency'",
+        "source_url": "https://medlineplus.gov/vitaminddeficiency.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A lack of vitamin D (deficiency) can affect your bones and overall health. Learn who is at risk, how much vitamin D you need, and how to get enough.",
+        "summary_excerpt": "What is vitamin D deficiency? Vitamin D deficiency means that your body is not getting enough vitamin D to stay healthy. Why do I need vitamin D and how do I get it? Vitamin D helps your body absorb calcium . Calcium is one of the main building blocks of bone. Vitamin D also has a role in your nervous, muscle, and immune systems. You can get vitamin D in three ways: through your skin, from your diet, and from supplements. Your body forms vitamin D naturally after exposure to sunlight. But too much sun exposure can lead to skin aging and skin cancer, so many people try to get their vitamin D from other sources. How much vitamin D do I need? The amount of vitamin D you need each day depends on",
+        "groups": [
+          "Food and Nutrition"
+        ],
+        "mesh": [
+          "Vitamin D Deficiency"
+        ],
+        "primary_institute": "NIH Office of Dietary Supplements",
+        "see_also_not_aliases": [
+          "Osteomalacia"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "vitamin B12 deficiency",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "not_found",
+      "approved": false,
+      "entry": null,
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": ""
+    },
+    {
+      "wanted": "hyponatremia",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "related_topic",
+      "approved": false,
+      "entry": {
+        "term": "hyponatremia",
+        "aliases": [
+          "hyponatremia"
+        ],
+        "label": "",
+        "plain_definition": "",
+        "clinical_context": "",
+        "source_citation": "MedlinePlus Health Topics - 'Sodium'",
+        "source_url": "https://medlineplus.gov/sodium.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Did you know that most Americans get more sodium than they need? Read about what you can do to manage your sodium intake",
+        "summary_excerpt": "Table salt is a combination of two minerals - sodium and chloride Your body needs some sodium to work properly. It helps with the function of nerves and muscles. It also helps to keep the right balance of fluids in your body. Your kidneys control how much sodium is in your body. If you have too much and your kidneys can't get rid it, sodium builds up in your blood. This can lead to high blood pressure . High blood pressure can lead to other health problems. Most people in the U.S. get more sodium in their diets than they need. A key to healthy eating is choosing foods low in sodium. The Dietary Guidelines recommend that most adults eat less than 2.3 grams per day. That equals about 1 teaspoo",
+        "groups": [
+          "Food and Nutrition"
+        ],
+        "mesh": [
+          "Sodium Chloride, Dietary",
+          "Sodium, Dietary"
+        ],
+        "primary_institute": "NIH Office of Dietary Supplements",
+        "see_also_not_aliases": [
+          "Dietary Sodium",
+          "Hyponatremia",
+          "Salt"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": ""
+    },
+    {
+      "wanted": "hypokalemia",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "related_topic",
+      "approved": false,
+      "entry": {
+        "term": "hypokalemia",
+        "aliases": [
+          "hypokalemia"
+        ],
+        "label": "",
+        "plain_definition": "",
+        "clinical_context": "",
+        "source_citation": "MedlinePlus Health Topics - 'Potassium'",
+        "source_url": "https://medlineplus.gov/potassium.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Potassium is an essential mineral your body needs for healthy cells, muscles, nerves, and heart function. Learn the best food sources and how much you need.",
+        "summary_excerpt": "Potassium is a mineral that your body needs to work properly. It is a type of electrolyte . It helps your nerves to function and muscles to contract. It helps your heartbeat stay regular. It also helps move nutrients into cells and waste products out of cells. A diet rich in potassium helps to offset some of sodium's harmful effects on blood pressure. Many people get all the potassium they need from what they eat and drink. Sources of potassium in the diet include: Leafy greens, such as spinach and collards Fruit from vines, such as grapes and blackberries Root vegetables, such as carrots and potatoes Citrus fruits, such as oranges and grapefruit Your kidneys help to keep the right amount of",
+        "groups": [
+          "Food and Nutrition"
+        ],
+        "mesh": [
+          "Potassium, Dietary",
+          "Potassium"
+        ],
+        "primary_institute": "NIH Office of Dietary Supplements",
+        "see_also_not_aliases": [
+          "Hyperkalemia",
+          "Hypokalemia"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": ""
+    },
+    {
+      "wanted": "gout",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "gout",
+        "aliases": [
+          "gout",
+          "Gouty arthritis"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "A type of arthritis caused by too much uric acid building up in the body. It can make joints painful, swollen, and red.",
+        "clinical_context": "Often reported with a uric acid blood test. It commonly affects the big toe.",
+        "source_citation": "MedlinePlus Health Topics - 'Gout'",
+        "source_url": "https://medlineplus.gov/gout.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Gout or gouty arthritis causes swollen, red, stiff joints. Gout is common but can be hard to diagnose. Get the facts on gout symptoms and treatment.  ",
+        "summary_excerpt": "What is gout? Gout is a common type of inflammatory arthritis . It causes pain, swelling, and redness in one or more joints. It usually happens as a flare, which can last for a week or two and then gets better. The flares often begin in your big toe or a lower limb. What causes gout? Gout happens when too much uric acid (urate) builds up in your body over a long time. Uric acid is a waste product your body makes when it breaks down purines. Purines are substances that are in your body's tissues and in many foods. When your body breaks down old cells or digests foods that contain purine, most of the uric acid that's made dissolves in your blood. Your kidneys filter the uric acid out of your b",
+        "groups": [
+          "Bones, Joints and Muscles"
+        ],
+        "mesh": [
+          "Gout"
+        ],
+        "primary_institute": "National Institute of Arthritis and Musculoskeletal and Skin Diseases",
+        "see_also_not_aliases": [
+          "Chondrocalcinosis",
+          "Hyperuricemia",
+          "Pseudogout"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "hyperthyroidism",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "hyperthyroidism",
+        "aliases": [
+          "hyperthyroidism",
+          "Overactive thyroid"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "The thyroid gland makes more thyroid hormone than the body needs. Also called an overactive thyroid.",
+        "clinical_context": "Usually found with thyroid blood tests such as TSH and T4.",
+        "source_citation": "MedlinePlus Health Topics - 'Hyperthyroidism'",
+        "source_url": "https://medlineplus.gov/hyperthyroidism.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Thyroid hormones control the rate of many activities in your body. Hyperthyroidism means the thyroid makes more thyroid hormones than the body needs.",
+        "summary_excerpt": "What is hyperthyroidism? Hyperthyroidism, or overactive thyroid, happens when your thyroid gland makes more thyroid hormones than your body needs. Your thyroid is a small, butterfly-shaped gland in the front of your neck. It makes hormones that control the way the body uses energy. These hormones affect nearly every organ in your body and control many of your body's most important functions. For example, they affect your breathing, heart rate, weight, digestion, and moods. If not treated, hyperthyroidism can cause serious problems with your heart, bones, muscles, menstrual cycle, and fertility. But there are treatments that can help. What causes hyperthyroidism? Hyperthyroidism has several c",
+        "groups": [
+          "Endocrine System"
+        ],
+        "mesh": [
+          "Hyperthyroidism"
+        ],
+        "primary_institute": "National Institute of Diabetes and Digestive and Kidney Diseases",
+        "see_also_not_aliases": [
+          "Basedow's Disease",
+          "Graves' Disease",
+          "Overactive Thyroid",
+          "Thyrotoxicosis"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "goiter",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "related_topic",
+      "approved": false,
+      "entry": {
+        "term": "goiter",
+        "aliases": [
+          "goiter"
+        ],
+        "label": "",
+        "plain_definition": "",
+        "clinical_context": "",
+        "source_citation": "MedlinePlus Health Topics - 'Thyroid Diseases'",
+        "source_url": "https://medlineplus.gov/thyroiddiseases.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "The thyroid is a gland in the neck. The thyroid gland creates hormones that affect metabolism. Learn about thyroid diseases, such as hypothyroidism.",
+        "summary_excerpt": "Your thyroid is a small, butterfly-shaped gland in the front of your neck. It makes hormones that control the way the body uses energy. These hormones affect nearly every organ in your body and control many of your body's most important functions. For example, they affect your breathing, heart rate, weight, digestion, and moods. Thyroid diseases cause your thyroid to make either too much or too little of the hormones. Some of the different thyroid diseases include: Goiter, an enlargement of the thyroid gland Hyperthyroidism , which happens when your thyroid gland makes more thyroid hormones than your body needs Hypothyroidism , which happens when your thyroid gland does not make enough thyro",
+        "groups": [
+          "Endocrine System"
+        ],
+        "mesh": [
+          "Thyroid Diseases"
+        ],
+        "primary_institute": "National Institute of Diabetes and Digestive and Kidney Diseases",
+        "see_also_not_aliases": [
+          "Goiter"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": ""
+    },
+    {
+      "wanted": "osteoarthritis",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "osteoarthritis",
+        "aliases": [
+          "osteoarthritis",
+          "Degenerative joint disease",
+          "OA",
+          "Osteoarthrosis"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "Wear-and-tear arthritis. The smooth tissue (cartilage) that covers the ends of the bones in a joint breaks down.",
+        "clinical_context": "Often seen on X-rays of the knees, hips, hands, or spine.",
+        "source_citation": "MedlinePlus Health Topics - 'Osteoarthritis'",
+        "source_url": "https://medlineplus.gov/osteoarthritis.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Osteoarthritis is the most common form of arthritis. It usually affects your hands, knees, hips, or spine. Learn about treatment and management.",
+        "summary_excerpt": "What is osteoarthritis? Osteoarthritis, sometimes called OA, is a type of arthritis that only affects the joints, usually in the hands, knees, hips, neck, and lower back. It's the most common type of arthritis. In a healthy joint, the ends of the bones are covered with a smooth, slippery tissue called cartilage. The cartilage pads the bones and helps them glide easily when you move the joint. With osteoarthritis, the cartilage breaks down and becomes rough. Sometimes, all the cartilage wears away and the bones rub together. Bumps of extra bone called bone spurs may grow in the joint area. There is no cure for osteoarthritis. It usually gets worse slowly. But there's a lot you can do to manag",
+        "groups": [
+          "Older Adults",
+          "Bones, Joints and Muscles"
+        ],
+        "mesh": [
+          "Osteoarthritis"
+        ],
+        "primary_institute": "National Institute of Arthritis and Musculoskeletal and Skin Diseases",
+        "see_also_not_aliases": [
+          "Degenerative Joint Disease"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [
+        "'OA' is very short; it may match unrelated text"
+      ],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval. Alias 'OA' is only two letters; keep it only if the dictionary matcher handles it safely."
+    },
+    {
+      "wanted": "scoliosis",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "scoliosis",
+        "aliases": [
+          "scoliosis"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "A sideways curve of the spine.",
+        "clinical_context": "Measured on an X-ray as an angle in degrees.",
+        "source_citation": "MedlinePlus Health Topics - 'Scoliosis'",
+        "source_url": "https://medlineplus.gov/scoliosis.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Scoliosis causes a sideways curve of your backbone, or spine. It is most common in late childhood and early teens. Find out more.",
+        "summary_excerpt": "Scoliosis causes a sideways curve of your backbone, or spine. These curves are often S- or C-shaped. Scoliosis is most common in late childhood and the early teens, when children grow fast. Girls are more likely to have it than boys. It can run in families. Symptoms include leaning to one side and having uneven shoulders and hips. Sometimes it is easy to notice, but not always. Children may get screening for scoliosis at school or during a checkup . If it looks like there is a problem, your doctor will use your medical and family history, a physical exam, and imaging tests to make a diagnosis. Treatment depends on your age, how much more you're likely to grow, how much curving there is, and ",
+        "groups": [
+          "Bones, Joints and Muscles"
+        ],
+        "mesh": [
+          "Scoliosis"
+        ],
+        "primary_institute": "National Institute of Arthritis and Musculoskeletal and Skin Diseases",
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "herniated disk",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "herniated disk",
+        "aliases": [
+          "herniated disk",
+          "Compressed disk",
+          "Herniated intervertebral disk",
+          "Herniated nucleus pulposus",
+          "Prolapsed disk",
+          "Ruptured disk",
+          "Slipped disk"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "One of the soft cushions between the bones of the spine has pushed out of its usual place.",
+        "clinical_context": "Seen on MRI or CT and described by its level in the spine, for example L4-L5.",
+        "source_citation": "MedlinePlus Health Topics - 'Herniated Disk'",
+        "source_url": "https://medlineplus.gov/herniateddisk.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A herniated or slipped disc means that one of the soft cushions or discs between your vertebrae or spinal bones pushes out. Find out about it here.",
+        "summary_excerpt": "Your backbone, or spine, is made up of 26 bones called vertebrae. In between them are soft disks filled with a jelly-like substance. These disks cushion the vertebrae and keep them in place. As you age, the disks break down or degenerate. As they do, they lose their cushioning ability. This can lead to pain if the back is stressed. A herniated disk is a disk that ruptures. This allows the jelly-like center of the disk to leak, irritating the nearby nerves. This can cause sciatica or back pain . Your doctor will diagnose a herniated disk with a physical exam and, sometimes, imaging tests. With treatment, most people recover. Treatments include rest, pain and anti-inflammatory medicines, physi",
+        "groups": [
+          "Bones, Joints and Muscles"
+        ],
+        "mesh": [
+          "Intervertebral Disc Displacement"
+        ],
+        "primary_institute": "National Institute of Arthritis and Musculoskeletal and Skin Diseases",
+        "see_also_not_aliases": [
+          "Ruptured Disk",
+          "Slipped Disk"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval. Removed alias 'Bulging disk': radiology reports use 'bulge' and 'herniation' for different findings. 'Compressed disk' may need the same check."
+    },
+    {
+      "wanted": "spinal stenosis",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "spinal stenosis",
+        "aliases": [
+          "spinal stenosis"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "Narrowing of the space inside the spine, which can press on the nerves or the spinal cord.",
+        "clinical_context": "Seen on MRI or CT, described by its level in the spine and as mild, moderate, or severe.",
+        "source_citation": "MedlinePlus Health Topics - 'Spinal Stenosis'",
+        "source_url": "https://medlineplus.gov/spinalstenosis.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Spinal stenosis causes narrowing in your spine which puts pressure on your nerves and spinal chord. It can cause pain, numbness, and foot problems.",
+        "summary_excerpt": "Your spine, or backbone, protects your spinal cord and allows you to stand and bend. Spinal stenosis causes narrowing in your spine. The narrowing puts pressure on your nerves and spinal cord and can cause pain. Spinal stenosis occurs mostly in people older than 50. Younger people with a spine injury or a narrow spinal canal are also at risk. Diseases such as arthritis and scoliosis can cause spinal stenosis, too. Symptoms might appear gradually or not at all. They include: Pain in your neck or back Numbness, weakness, cramping, or pain in your arms or legs Pain going down the leg Foot problems Doctors diagnose spinal stenosis with a physical exam and imaging tests. Treatments include medica",
+        "groups": [
+          "Bones, Joints and Muscles"
+        ],
+        "mesh": [
+          "Spinal Stenosis"
+        ],
+        "primary_institute": "National Institute of Arthritis and Musculoskeletal and Skin Diseases",
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "diverticulosis",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "partial",
+      "approved": false,
+      "entry": null,
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [
+        {
+          "title": "Diverticulosis and Diverticulitis",
+          "url": "https://medlineplus.gov/diverticulosisanddiverticulitis.html"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "wanted": "hernia",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "hernia",
+        "aliases": [
+          "hernia"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "Part of an organ or tissue bulges through a weak spot in a muscle wall, most often in the belly or groin.",
+        "clinical_context": "Usually named by location, for example inguinal (groin) or umbilical (belly button).",
+        "source_citation": "MedlinePlus Health Topics - 'Hernia'",
+        "source_url": "https://medlineplus.gov/hernia.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Hernias can happen to anyone. They're caused by a combination of muscle weakness and strain. Learn about several types and therapies available.",
+        "summary_excerpt": "A hernia happens when part of an internal organ or tissue bulges through a weak area of muscle. Most hernias are in the abdomen. There are several types of hernias, including: Inguinal, in the groin. This is the the most common type. Umbilical, around the belly button Incisional, through a scar Hiatal , a small opening in the diaphragm that allows the upper part of the stomach to move up into the chest. Congenital diaphragmatic, a birth defect that needs surgery Hernias are common. They can affect men, women, and children. A combination of muscle weakness and straining, such as with heavy lifting, might contribute. Some people are born with weak abdominal muscles and may be more likely to ge",
+        "groups": [
+          "Digestive System"
+        ],
+        "mesh": [
+          "Hernia"
+        ],
+        "primary_institute": "National Institute of Diabetes and Digestive and Kidney Diseases",
+        "see_also_not_aliases": [
+          "Congenital Diaphragmatic Hernia",
+          "Diaphragmatic Hernia",
+          "Enterocele",
+          "Inguinal Hernia",
+          "Umbilical Hernia"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval. Removed alias 'Enterocele': it is one specific type of hernia, not a synonym."
+    },
+    {
+      "wanted": "hemorrhoids",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "hemorrhoids",
+        "aliases": [
+          "hemorrhoids",
+          "Piles"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "Swollen veins around the anus or in the lower part of the rectum.",
+        "clinical_context": "Noted on examination or during a colonoscopy. Also called piles.",
+        "source_citation": "MedlinePlus Health Topics - 'Hemorrhoids'",
+        "source_url": "https://medlineplus.gov/hemorrhoids.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Hemorrhoids (piles) are swollen veins that sometimes protrude from the anus. Read these tips to find relief from uncomfortable symptoms. ",
+        "summary_excerpt": "What are hemorrhoids? Hemorrhoids are swollen, inflamed veins around your anus or the lower part of your rectum . There are two types: External hemorrhoids, which form under the skin around your anus Internal hemorrhoids, which form in the lining of your anus and lower rectum What causes hemorrhoids? Hemorrhoids happen when there is too much pressure on the veins around the anus. This can be caused by: Straining during bowel movements . Sitting on the toilet for long periods of time. Chronic constipation or diarrhea . A low- fiber diet. Weakening of the supporting tissues in your anus and rectum. This can happen with aging and pregnancy . Frequently lifting heavy objects. What are the sympto",
+        "groups": [
+          "Digestive System"
+        ],
+        "mesh": [
+          "Hemorrhoids"
+        ],
+        "primary_institute": "National Institute of Diabetes and Digestive and Kidney Diseases",
+        "see_also_not_aliases": [
+          "Hemorrhoidectomy",
+          "Piles"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "colonic polyps",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "colonic polyps",
+        "aliases": [
+          "colonic polyps",
+          "Colon polyps"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "Small extra growths of tissue on the inside wall of the large intestine (colon).",
+        "clinical_context": "Found during a colonoscopy. Reports give the number and size, and removed polyps are usually sent to a lab for testing.",
+        "source_citation": "MedlinePlus Health Topics - 'Colonic Polyps'",
+        "source_url": "https://medlineplus.gov/colonicpolyps.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Colorectal polyps are extra clumps of tissue that grow in the colon. Some polyps can become cancerous but most are not. Details on several types here.",
+        "summary_excerpt": "A polyp is an extra piece of tissue that grows inside your body. Colonic polyps grow in the large intestine, or colon. Most polyps are not dangerous. However, some polyps may turn into cancer or already be cancer. To be safe, doctors remove polyps and test them. Polyps can be removed when a doctor examines the inside of the large intestine during a colonoscopy . Anyone can get polyps, but certain people are more likely than others. You may have a greater chance of getting polyps if you : Are over age 50 Have had polyps before Have a family member with polyps Have a family history of colon cancer Most colon polyps do not cause symptoms. If you have symptoms, they may include blood on your und",
+        "groups": [
+          "Cancers",
+          "Digestive System"
+        ],
+        "mesh": [
+          "Colonic Polyps"
+        ],
+        "primary_institute": "National Institute of Diabetes and Digestive and Kidney Diseases",
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "uterine fibroids",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "uterine fibroids",
+        "aliases": [
+          "uterine fibroids",
+          "Fibroids",
+          "Uterine leiomyomata"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "Growths made of muscle and other tissue in or around the wall of the uterus (womb). They are almost always not cancer.",
+        "clinical_context": "Seen on ultrasound or MRI, with the number and size described.",
+        "source_citation": "MedlinePlus Health Topics - 'Uterine Fibroids'",
+        "source_url": "https://medlineplus.gov/uterinefibroids.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Uterine fibroids are almost always non-cancerous. Symptoms may include heavy bleeding or frequent urination. Here's what you should know about fibroids.",
+        "summary_excerpt": "What are uterine fibroids? Uterine fibroids are the most common noncancerous (benign) tumors in women of childbearing age. You may have uterine fibroids and not even know it since they often don't cause any symptoms. Fibroids are made of muscle cells and other tissues that grow in and around the wall of the uterus, or womb. They can vary in number and size and grow as one tumor or in clusters. Many women with fibroids can get pregnant with no problems. However, some uterine fibroids could cause infertility (not being able to get pregnant), pregnancy loss , or problems with fetal development or delivery . Who is more likely to get uterine fibroids? If you're a female and the age when you're u",
+        "groups": [
+          "Women",
+          "Female Reproductive System"
+        ],
+        "mesh": [
+          "Uterine Neoplasms",
+          "Leiomyoma",
+          "Uterine Myomectomy"
+        ],
+        "primary_institute": "Eunice Kennedy Shriver National Institute of Child Health and Human Development",
+        "see_also_not_aliases": [
+          "Fibroids",
+          "Uterine Leiomyomata"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "ovarian cysts",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "ovarian cysts",
+        "aliases": [
+          "ovarian cysts"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "Fluid-filled sacs in or on an ovary. They are common and often form as part of the normal monthly cycle.",
+        "clinical_context": "Usually seen on a pelvic ultrasound, with the size given.",
+        "source_citation": "MedlinePlus Health Topics - 'Ovarian Cysts'",
+        "source_url": "https://medlineplus.gov/ovariancysts.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "An ovarian cyst is a fluid-filled sac in or on the ovary. Most women have them sometime in their lives. Cysts are rarely cancerous in women under 50.",
+        "summary_excerpt": "The ovaries are part of the female reproductive system. They produce a woman's eggs and make female hormones . Ovarian cysts are fluid-filled sacs in or on an ovary. They usually form during ovulation, when the ovary releases an egg. They are usually harmless and go away by themselves. Most women have them sometime during their lives. Most ovarian cysts are small and don't cause symptoms. Women may not find out that they have them until they have a pelvic exam. If there are symptoms, they may include: Pressure Bloating Swelling Pain in the lower abdomen, on the side where the cyst is If your health care provider finds a cyst, you may be able to wait to see if it gets bigger. You may need sur",
+        "groups": [
+          "Women",
+          "Endocrine System",
+          "Female Reproductive System"
+        ],
+        "mesh": [
+          "Ovarian Cysts"
+        ],
+        "primary_institute": "Eunice Kennedy Shriver National Institute of Child Health and Human Development",
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "complete blood count",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "complete blood count",
+        "aliases": [
+          "complete blood count",
+          "Complete Blood Count (CBC)",
+          "CBC"
+        ],
+        "label": "TEST",
+        "plain_definition": "A group of blood tests that count the different cells in the blood: red blood cells, white blood cells, and platelets.",
+        "clinical_context": "One of the most common blood tests. Results list each cell type with its own reference range.",
+        "source_citation": "MedlinePlus Medical Tests - 'Complete Blood Count (CBC)'",
+        "source_url": "https://medlineplus.gov/lab-tests/complete-blood-count-cbc/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A complete blood count measures the number and type of cells in your blood. It may be done as part of a routine exam or to monitor or diagnose health conditions.",
+        "summary_excerpt": "What is a Complete Blood Count? A complete blood count, or CBC, is a group of blood tests that measure the number and size of the different cells in your blood. A CBC measures: Red blood cells , which carry oxygen from your lungs to the rest of your body. White blood cells , which fight infections and other diseases. There are five major types of white blood cells. A CBC test measures the total number of white cells in your blood. A different test called a CBC with differential measures the number of each type of these white blood cells. Platelets , which stop bleeding by helping your blood to clot. Hemoglobin , an iron-rich protein in red blood cells that carries oxygen from your lungs to t",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "WBC",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "WBC",
+        "aliases": [
+          "WBC",
+          "White Blood Count (WBC)",
+          "White Blood Count",
+          "white blood cell count",
+          "WBC count"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "The number of white blood cells in the blood. White blood cells are part of the body's defense against infection.",
+        "clinical_context": "Reported in a complete blood count (CBC). Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'White Blood Count (WBC)'",
+        "source_url": "https://medlineplus.gov/lab-tests/white-blood-count-wbc/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A white blood count measures the number of white cells in your blood. Too few or too many white blood cells may be a sign of a health condition. Learn more.",
+        "summary_excerpt": "What is a white blood count (WBC)? A white blood count measures the number of white blood cells (WBCs) in your blood. White blood cells, also called leukocytes, are part of your immune system . They are a type of blood cell made in your bone marrow and found in your blood and lymph tissue (part of your immune system). If you are injured or get sick, the white blood cells will travel through your bloodstream and tissues to where they are needed. There, they will help your body fight off infections and other diseases. When you get sick, your body makes more white blood cells to fight the bacteria , viruses , or other foreign substances causing your illness. This increases your white blood coun",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [
+        {
+          "title": "White Blood Cell (WBC) in Stool",
+          "url": "https://medlineplus.gov/lab-tests/white-blood-cell-wbc-in-stool/"
+        }
+      ],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval. 'WBC' is also the abbreviation for a stool test; this draft cites the blood count. kb-023 (leukocytosis) covers a high count."
+    },
+    {
+      "wanted": "red blood cell count",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "red blood cell count",
+        "aliases": [
+          "red blood cell count",
+          "Red Blood Cell (RBC) Count",
+          "RBC",
+          "RBC count"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "The number of red blood cells in the blood. Red blood cells carry oxygen from the lungs to the rest of the body.",
+        "clinical_context": "Reported in a complete blood count (CBC). Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Red Blood Cell (RBC) Count'",
+        "source_url": "https://medlineplus.gov/lab-tests/red-blood-cell-rbc-count/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A red blood cell (RBC) count measures the number of red blood cells in your blood. Too few or too many may be a sign of a health condition. Learn more.",
+        "summary_excerpt": "What is a red blood cell (RBC) count? A red blood cell (RBC) count measures the number of red blood cells, also known as erythrocytes, in your blood. Red blood cells are made in your bone marrow, the spongy tissue inside your large bones. They contain hemoglobin, an iron-rich protein that carries oxygen from your lungs to every cell in your body. Your cells need oxygen to grow, reproduce, and make energy for you to function. An RBC count that is higher or lower than normal is often the first sign of an illness. So, the test may allow you to get treatment even before you have symptoms. Other names: erythrocyte count, red count, RBC Count",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "platelets",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "platelets",
+        "aliases": [
+          "platelets",
+          "Platelet Tests",
+          "Platelet",
+          "platelet count"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "Small blood cells that help the blood clot and stop bleeding. A blood test counts how many are in the blood.",
+        "clinical_context": "Reported in a complete blood count (CBC) as the platelet count. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Platelet Tests'",
+        "source_url": "https://medlineplus.gov/lab-tests/platelet-tests/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Platelet tests check for conditions that cause too much bleeding or blood clotting. They include a platelet count test and platelet function tests. Learn more.",
+        "summary_excerpt": "What are platelet tests? Platelets, also known as thrombocytes, are small blood cells. They form in your bone marrow, the sponge-like tissue in your bones. Platelets are essential for blood clotting . A blood clot is a mass of blood that forms when platelets, proteins, and cells in the blood stick together. When you get hurt, your body forms a blood clot to stop the bleeding. There are two types of platelet tests: a platelet count test and platelet function tests. A platelet count test measures the number of platelets in your blood: A lower-than-normal platelet count is called thrombocytopenia. This condition can cause you to bleed too much after a cut or other injury that causes bleeding. A",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval. kb-024 (thrombocytopenia) covers a low count."
+    },
+    {
+      "wanted": "hematocrit",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "hematocrit",
+        "aliases": [
+          "hematocrit",
+          "Hematocrit Test",
+          "Hct",
+          "haematocrit"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "The share of the blood that is made up of red blood cells, given as a percentage.",
+        "clinical_context": "Reported in a complete blood count (CBC), often shortened to Hct. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Hematocrit Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/hematocrit-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A hematocrit test measures the percentage of red blood cells in your blood. This blood test can help diagnose anemia and other blood disorders. Learn more.",
+        "summary_excerpt": "What is a hematocrit test? A hematocrit test is a blood test that measures the amount (percent) of your blood that is made up of red blood cells. Red blood cells carry oxygen from your lungs to the rest of your body. The other parts of your blood include white blood cells (to help fight infection and other diseases), platelets (to help make blood clots to stop bleeding ), and a liquid called plasma. Hematocrit levels that are too high or too low can be a sign of a blood disorder , dehydration , or other medical conditions that affect your blood. Other names: HCT, packed cell volume, PCV, Crit; H and H (Hemoglobin and Hematocrit)",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "mean corpuscular volume",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "mean corpuscular volume",
+        "aliases": [
+          "mean corpuscular volume",
+          "MCV (Mean Corpuscular Volume)",
+          "MCV"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "The average size of the red blood cells.",
+        "clinical_context": "Reported in a complete blood count (CBC). Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'MCV (Mean Corpuscular Volume)'",
+        "source_url": "https://medlineplus.gov/lab-tests/mcv-mean-corpuscular-volume/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "An MCV blood test measures the size of your red blood cells. If red blood cells are too small or too large, it may be a sign of a blood disorder. Learn more.",
+        "summary_excerpt": "What is an MCV blood test? MCV stands for mean corpuscular volume. An MCV blood test measures the average size of your red blood cells. Red blood cells carry oxygen from your lungs to every cell in your body. Your cells need oxygen to grow, reproduce, and make energy. If your red blood cells are too small or too large, it could be a sign of a blood disorder such as anemia , a lack of certain vitamins, or other medical conditions. Other names: CBC with differential, Mean Cell Volume, Mean Corpuscular Volume",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "erythrocyte sedimentation rate",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "erythrocyte sedimentation rate",
+        "aliases": [
+          "erythrocyte sedimentation rate",
+          "Erythrocyte Sedimentation Rate (ESR)",
+          "ESR",
+          "sed rate"
+        ],
+        "label": "TEST",
+        "plain_definition": "A blood test that measures how quickly red blood cells settle to the bottom of a tube. It is a general check for inflammation in the body.",
+        "clinical_context": "Reported in millimetres per hour (mm/hr). Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Erythrocyte Sedimentation Rate (ESR)'",
+        "source_url": "https://medlineplus.gov/lab-tests/erythrocyte-sedimentation-rate-esr/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "An erythrocyte sedimentation rate (ESR) blood test checks for inflammation in your body. It may help monitor or diagnose inflammatory conditions. Learn more.",
+        "summary_excerpt": "What is an erythrocyte sedimentation rate (ESR)? Erythrocytes are red blood cells. The sedimentation rate is the time it takes for your red blood cells to settle at the bottom of a test tube. An erythrocyte sedimentation rate (ESR) is a blood test that can show if you have inflammation in your body. Inflammation is your immune system's response to injury, infection, and many other conditions, including immune system disorders , certain cancers , and blood disorders . To do an ESR test, a sample of your blood is sent to a lab. A health care professional places the sample in a tall, thin test tube and measures how quickly your red blood cells settle or sink to the bottom of the tube. Typically",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "liver function tests",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "liver function tests",
+        "aliases": [
+          "liver function tests",
+          "LFT",
+          "LFTs",
+          "liver panel"
+        ],
+        "label": "TEST",
+        "plain_definition": "A group of blood tests that measure substances made or handled by the liver, such as albumin, bilirubin, and liver enzymes.",
+        "clinical_context": "Also called a liver panel. Each result has its own reference range.",
+        "source_citation": "MedlinePlus Medical Tests - 'Liver Function Tests'",
+        "source_url": "https://medlineplus.gov/lab-tests/liver-function-tests/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Liver function tests are blood tests that measure different substances made by your liver. The tests can show how well your liver is working. Learn more.",
+        "summary_excerpt": "What are liver function tests? Liver function tests (also called a liver panel) use a sample of your blood to measure several substances made by your liver. The most common liver function tests measure: Albumin , a protein made in the liver. Total protein . This test measures the total amount of protein in your blood, which includes albumin and globulins. These proteins are mainly made in your liver. ALP (alkaline phosphatase), ALT (alanine transaminase), AST (aspartate aminotransferase), and GGT (gamma-glutamyl transferase). These are enzymes that are mainly made in your liver. Enzymes are proteins that speed up certain chemical reactions in your body. Bilirubin , a waste product your body ",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval. Removed alias 'Liver Function': as a bare phrase it would also match ordinary sentences."
+    },
+    {
+      "wanted": "albumin",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "albumin",
+        "aliases": [
+          "albumin",
+          "Albumin Blood Test",
+          "serum albumin"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "A protein made by the liver. It helps keep fluid inside the blood vessels.",
+        "clinical_context": "Reported in a liver function panel. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Albumin Blood Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/albumin-blood-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "An albumin blood test measures the level of albumin in your blood. Low albumin levels can be a sign of a disorder of your liver or kidneys. Learn more.",
+        "summary_excerpt": "What is an albumin blood test? An albumin blood test measures the amount of albumin in your blood. Albumin is a protein made by your liver. Low albumin levels can be a sign of liver or kidney disease or another medical condition. High levels may be a sign of dehydration . Blood is made of fluid and blood cells. Albumin keeps the fluid part of your blood from leaking out of your blood vessels (the tubes your blood flows through) and into other tissues. If you don't have enough albumin, fluid can leak out of your blood and build up in your lungs, abdomen (belly), or other parts of your body. Albumin also helps carry important substances throughout your body. These include hormones , vitamins ,",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval. Check this does not compete with kb-040 (microalbuminuria), which covers albumin in urine."
+    },
+    {
+      "wanted": "alkaline phosphatase",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "alkaline phosphatase",
+        "aliases": [
+          "alkaline phosphatase",
+          "ALP"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "An enzyme found in many parts of the body, mostly in the liver, bile ducts, and bones. A blood test measures how much is in the blood.",
+        "clinical_context": "Reported in a liver function panel, often shortened to ALP. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Alkaline Phosphatase'",
+        "source_url": "https://medlineplus.gov/lab-tests/alkaline-phosphatase/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "An alkaline phosphatase (ALP) test measures the amount of ALP in your blood. It is commonly used to diagnose liver damage or bone disorders. Learn more.",
+        "summary_excerpt": "What is an alkaline phosphatase test? An alkaline phosphatase (ALP) test measures the amount of ALP in your blood. ALP is an enzyme, a protein that speeds up certain chemical reactions in your body. ALP is found in all your body tissues, but higher amounts can be found in your liver, bile ducts, and bones. Each part of your body makes a different type of ALP. Abnormal levels of ALP in your blood may be a sign of a wide range of health conditions, including liver disease , bone disorders , and chronic kidney disease . The amount of ALP released into your blood can be affected by liver damage, conditions that affect bone growth, and certain gastrointestinal diseases. But an alkaline phosphatas",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "gamma-glutamyl transferase",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "gamma-glutamyl transferase",
+        "aliases": [
+          "gamma-glutamyl transferase",
+          "Gamma-glutamyl Transferase (GGT) Test",
+          "Gamma-glutamyl Transferase Test",
+          "GGT"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "An enzyme found mainly in the liver. A blood test measures how much is in the blood.",
+        "clinical_context": "Reported in a liver function panel, often shortened to GGT. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Gamma-glutamyl Transferase (GGT) Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/gamma-glutamyl-transferase-ggt-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A gamma-glutamyl transferase (GGT) test measures the amount of the enzyme GGT in your blood. High levels of GGT may be a sign of liver damage. Learn more.",
+        "summary_excerpt": "What is a gamma-glutamyl transferase (GGT) test? A gamma-glutamyl transferase (GGT) test measures the amount of GGT in your blood GGT is an enzyme. Enzymes are proteins that speed up certain chemical reactions in your body. Thousands of enzymes play an important role in all of your body functions. The GGT enzyme is found throughout your body, but it is mainly found in your liver. If your liver or bile duct is damaged, GGT may leak into your bloodstream. So high levels of GGT in your blood may be a sign of liver disease or damage to the bile ducts . Bile ducts are tubes that carry bile in and out of the liver. Bile is a fluid made by the liver that is important for digestion. A GGT test can't",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "blood urea nitrogen",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "blood urea nitrogen",
+        "aliases": [
+          "blood urea nitrogen",
+          "BUN (Blood Urea Nitrogen)",
+          "BUN",
+          "urea"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "Urea nitrogen is a waste product made when the body breaks down protein. The kidneys remove it from the blood.",
+        "clinical_context": "Reported in a kidney function or metabolic panel, often shortened to BUN. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'BUN (Blood Urea Nitrogen)'",
+        "source_url": "https://medlineplus.gov/lab-tests/bun-blood-urea-nitrogen/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A BUN (blood urea nitrogen) test measures urea nitrogen, a waste product, in your blood. It can provide information about your kidney function. Learn more.",
+        "summary_excerpt": "What is a BUN (Blood Urea Nitrogen) Test? A BUN, or blood urea nitrogen test, measures the amount of urea nitrogen in your blood. Urea nitrogen is a waste product that forms as your body breaks down proteins. It's carried in your blood and then removed by your kidneys when you urinate (pee). Having a small amount of urea nitrogen in your blood is normal. But higher-than-normal BUN levels may be a sign that your kidneys aren't working well. If you have kidney disease , this waste material can build up in your blood and may lead to serious health problems, including high blood pressure , anemia , and heart disease . People with early kidney disease may not have any symptoms. A BUN test can hel",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval. Alias 'urea' added because many labs report urea rather than BUN; confirm it should share this entry."
+    },
+    {
+      "wanted": "uric acid",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "uric acid",
+        "aliases": [
+          "uric acid",
+          "Uric Acid Test",
+          "serum uric acid"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "A waste product the body makes when it breaks down substances called purines. The kidneys normally remove it in urine.",
+        "clinical_context": "Measured in blood or urine. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Uric Acid Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/uric-acid-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A uric acid test measures how much uric acid is in a sample of your blood or urine. High levels can cause gout, kidney disease, and other problems. Learn more.",
+        "summary_excerpt": "What is a uric acid test? A uric acid test measures the amount of uric acid in a sample of your blood or urine (pee). Uric acid is a normal waste product that your body makes when it breaks down chemicals called purines. These chemicals come from your cells when they die and can be found in certain foods and beverages. Normally, uric acid dissolves in your blood and is filtered out by the kidneys. It then exits your body through your urine. But if your body makes too much uric acid or your kidneys don't remove enough of it, uric acid can build up in your blood. When that happens, it can form needle-shaped crystals in and around your joints. This condition is called gout . Gout is a type of a",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "sodium",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "sodium",
+        "aliases": [
+          "sodium",
+          "Sodium Blood Test"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "A mineral in the blood (an electrolyte) that helps control the amount of fluid in the body.",
+        "clinical_context": "Reported in an electrolyte or metabolic panel, often shortened to Na. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Sodium Blood Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/sodium-blood-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A sodium blood test measures the level of sodium in your blood. Abnormal sodium levels may be a sign of a kidney problem or other medical condition. Learn more.",
+        "summary_excerpt": "What is a sodium blood test? A sodium blood test measures the amount of sodium in your blood. Sodium is a type of electrolyte . Electrolytes are minerals that have an electrical charge when they are dissolved in water or body fluids. You have electrolytes in your blood, urine (pee), tissues, and other body fluids. They help control the amount of fluid and the balance of acids and bases (pH balance) in your body. Sodium also helps your nerves and muscles work properly. You get most of the sodium you need in your diet. If you take in too much, your kidneys get rid of the extra sodium in your urine (pee). Normally, your body keeps your sodium levels in a very narrow range. If your sodium blood ",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "potassium",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "potassium",
+        "aliases": [
+          "potassium",
+          "Potassium Blood Test"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "A mineral in the blood (an electrolyte) that helps the muscles and nerves, including the heart, work properly.",
+        "clinical_context": "Reported in an electrolyte or metabolic panel, often shortened to K. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Potassium Blood Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/potassium-blood-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A potassium blood test measures the potassium levels in your blood. Too much or too little potassium may be a sign of a serious medical condition. Learn more.",
+        "summary_excerpt": "What is a potassium blood test? A potassium blood test measures the amount of potassium in your blood. Potassium is a type of electrolyte . Electrolytes are electrically charged minerals that help control the amount of fluids and the balance of acids and bases (pH balance) in your body. They also help control muscle and nerve activity and perform other important functions. Your cells, nerves, heart, and muscles need potassium to work properly. You can usually get most of the potassium that you need from the foods that you eat. Almost all of your body's potassium is inside your cells, but a small amount is in your blood. Your kidneys remove potassium in your urine (pee) to help keep the right",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "chloride",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "chloride",
+        "aliases": [
+          "chloride",
+          "Chloride Blood Test"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "A mineral in the blood (an electrolyte) that helps control the amount of fluid and the balance of acids in the body.",
+        "clinical_context": "Reported in an electrolyte or metabolic panel, often shortened to Cl. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Chloride Blood Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/chloride-blood-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A chloride test measures chloride in your blood. It may be used to check for or monitor conditions that affect your body's acid-base balance. Learn more.",
+        "summary_excerpt": "What is a chloride blood test? A chloride blood test measures the amount of chloride in your blood. Chloride is a type of electrolyte. Electrolytes are electrically charged minerals that help control the amount of fluids and the balance of acids and bases (pH balance) in your body. You have electrolytes in your blood, urine, tissues, and other body fluids. You get chloride through the food you eat. It is mainly found in salt. Your body gets rid of the extra chloride in your urine (pee). Chloride helps control the amount of fluid in your body. In addition, it helps maintain healthy blood volume and blood pressure. Many diseases and other factors can cause abnormal chloride levels. Chloride is",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "T3",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "T3",
+        "aliases": [
+          "T3",
+          "Triiodothyronine (T3) Tests",
+          "Triiodothyronine Tests",
+          "Triiodothyronine",
+          "free T3"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "One of the two main hormones made by the thyroid gland. A blood test measures how much is in the blood.",
+        "clinical_context": "Reported in a thyroid panel, sometimes as free T3. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Triiodothyronine (T3) Tests'",
+        "source_url": "https://medlineplus.gov/lab-tests/triiodothyronine-t3-tests/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "This test measures triiodothyronine (T3) in your blood. Your thyroid gland makes T3. The test is mainly used to diagnose hyperthyroidism. Learn more.",
+        "summary_excerpt": "What is a triiodothyronine (T3) test? A triiodothyronine (T3) test measures the level of T3 in a sample of your blood. It's used to help diagnose thyroid disease . Your thyroid is a small, butterfly-shaped gland at the base of your throat. It makes two hormones , T3 and T4 (thyroxine). Hormones are chemical messengers in your bloodstream that control the actions of certain cells or organs. Thyroid hormones work together to control the way your body uses energy. They affect your weight, heart, body temperature, muscle strength, and even your mood. In children, thyroid hormones affect growth, too. There are two forms of T3 in your blood: Free T3 is the active form that enters your tissues wher",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [
+        "'T3' is very short; it may match unrelated text"
+      ],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "T4",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "T4",
+        "aliases": [
+          "T4",
+          "Thyroxine (T4) Test",
+          "Thyroxine Test",
+          "Thyroxine",
+          "free T4"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "The main hormone made by the thyroid gland, also called thyroxine. A blood test measures how much is in the blood.",
+        "clinical_context": "Reported in a thyroid panel, often as free T4. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Thyroxine (T4) Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/thyroxine-t4-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A thyroxine test measures the level of thyroxine (T4) in your blood. Too much or too little T4 can be a sign of thyroid disease. Learn more.",
+        "summary_excerpt": "What is a thyroxine (T4) test? Thyroxine is also called T4. T4 is a hormone that your thyroid gland makes. A T4 test measures the level of T4 in a sample of your blood. Too much or too little T4 may be a sign of a thyroid problem . Your thyroid is a small, butterfly-shaped gland in the front of your neck. It makes hormones that control the way your body uses energy. These hormones affect nearly every organ in your body and control many of your body's most important functions. For example, they affect your breathing, heart rate, weight, digestion, and mood. In children, thyroid hormones affect growth, too. T4 is the main hormone that your thyroid makes. There are two forms of it in your blood",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [
+        "'T4' is very short; it may match unrelated text"
+      ],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "ferritin",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "ferritin",
+        "aliases": [
+          "ferritin",
+          "Ferritin Blood Test",
+          "serum ferritin"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "A protein that stores iron in the body. A blood test measures it to check how much iron the body has stored.",
+        "clinical_context": "Often reported with other iron tests. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Ferritin Blood Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/ferritin-blood-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Ferritin is a protein that stores iron in your cells. A ferritin blood test can tell whether you are getting too much or too little iron. Learn more.",
+        "summary_excerpt": "What is a ferritin blood test? A ferritin blood test measures the level of ferritin in your blood. Ferritin is a protein that binds to iron and stores it in your body. You need iron to make healthy red blood cells. Red blood cells carry oxygen from your lungs to the rest of your body. Iron is also important for healthy muscles, bone marrow, and organs, including brain development in children. You get iron from eating food or taking supplements. There are iron-only supplements, but many multivitamin/mineral supplements also contain iron. Too little or too much iron in your body can cause serious health problems if not treated. A ferritin blood test can show how much iron you have stored in yo",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "iron",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "iron",
+        "aliases": [
+          "iron",
+          "Iron Tests",
+          "serum iron"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "A mineral the body needs to make hemoglobin, the part of red blood cells that carries oxygen. Iron tests measure how much is in the blood.",
+        "clinical_context": "Often reported with ferritin and other iron tests. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Iron Tests'",
+        "source_url": "https://medlineplus.gov/lab-tests/iron-tests/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Iron tests measure the iron levels in your body. If your iron level is too low or too high, it may be a sign of anemia or other health conditions. Learn more.",
+        "summary_excerpt": "What are iron tests? Iron tests measure different substances in the blood to check iron levels in your body. Iron is a mineral that your body needs for growth and development. Your body uses iron to make hemoglobin, a protein in red blood cells. It carries oxygen from the lungs to all parts of the body, Iron is also important for healthy muscles, bone marrow, and organ function. Your body also needs iron to make some hormones . You get iron from eating food or taking supplements. There are iron-only supplements, but many multivitamin/mineral supplements also contain iron. Most people in the United States get enough iron. However, certain people may be more likely to have trouble getting enou",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "vitamin B12",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "not_found",
+      "approved": false,
+      "entry": null,
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": ""
+    },
+    {
+      "wanted": "folate",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "folate",
+        "aliases": [
+          "folate",
+          "Folic Acid",
+          "Folacin",
+          "Pteroylglutamic acid",
+          "Vitamin B9"
+        ],
+        "label": "",
+        "plain_definition": "",
+        "clinical_context": "",
+        "source_citation": "MedlinePlus Health Topics - 'Folic Acid'",
+        "source_url": "https://medlineplus.gov/folicacid.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "If you are pregnant, your doctor has probably talked to you about folic acid. This important B vitamin is also important for everyone. Learn more.",
+        "summary_excerpt": "Folic acid is a B vitamin . It helps the body make healthy new cells. Everyone needs folic acid. For women who may get pregnant, it is really important. Getting enough folic acid before and during pregnancy can prevent major birth defects of her baby's brain or spine. Foods with folic acid in them include: Leafy green vegetables Fruits Dried beans, peas, and nuts Enriched breads, cereals and other grain products If you don't get enough folic acid from the foods you eat, you can also take it as a dietary supplement . NIH: National Institutes of Health Office of Dietary Supplements",
+        "groups": [
+          "Food and Nutrition"
+        ],
+        "mesh": [
+          "Folic Acid Deficiency",
+          "Folic Acid"
+        ],
+        "primary_institute": "NIH Office of Dietary Supplements",
+        "see_also_not_aliases": [
+          "Folate"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": ""
+    },
+    {
+      "wanted": "C-reactive protein",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "C-reactive protein",
+        "aliases": [
+          "C-reactive protein",
+          "C-Reactive Protein (CRP) Test",
+          "C-Reactive Protein Test",
+          "CRP"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "A protein made by the liver when there is inflammation in the body. A blood test measures how much is in the blood.",
+        "clinical_context": "Often shortened to CRP. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'C-Reactive Protein (CRP) Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/c-reactive-protein-crp-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A c-reactive protein blood test checks for inflammation in your body. Inflammation can be caused by infection, injury, or chronic disease. Learn more.",
+        "summary_excerpt": "What is a c-reactive (CRP) protein test? A c-reactive protein test measures the level of c-reactive protein (CRP) in a sample of your blood. Your liver makes CRP in response to inflammation. Inflammation is your body's way of protecting your tissues and helping them heal from an injury , infection , or other disease. When it's acute (sudden) and for a short time, inflammation is helpful. For example, when you get a cut on your skin, the area around the cut may turn red and swell. These are signs that inflammation is working to stop infection. Inflammation acts in a similar way when responding to germs or harmful substances (toxins) inside your body. If inflammation lasts too long, however, i",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "troponin",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "troponin",
+        "aliases": [
+          "troponin",
+          "Troponin Test"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "A protein found in heart muscle cells. A blood test measures how much is in the blood.",
+        "clinical_context": "Often measured more than once, a few hours apart. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Troponin Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/troponin-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A troponin test measures the level of troponin in your blood. High troponin levels may be a sign of a heart attack. Learn more.",
+        "summary_excerpt": "What is a troponin test? A troponin test measures the level of troponin in a sample of your blood. Troponin is a protein that's found in the cells of your heart muscle. Normally, troponin levels in blood are so low that only the most sensitive types of tests can measure them. But if your heart muscle is damaged, troponin leaks into your bloodstream, and your troponin blood levels will rise. Troponin testing is mainly used to help diagnose heart attacks . Heart attacks damage the heart by suddenly blocking the blood flow that brings oxygen to part of the heart muscle. Without oxygen from blood, heart muscle cells die and release troponin. Troponin test results can confirm damage to the heart ",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "brain natriuretic peptide",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "not_found",
+      "approved": false,
+      "entry": null,
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": ""
+    },
+    {
+      "wanted": "prostate-specific antigen",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "prostate-specific antigen",
+        "aliases": [
+          "prostate-specific antigen",
+          "Prostate-Specific Antigen (PSA) Test",
+          "Prostate-Specific Antigen Test",
+          "PSA"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "A protein made by the prostate, a gland in the male body. A blood test measures how much is in the blood.",
+        "clinical_context": "Often shortened to PSA. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Prostate-Specific Antigen (PSA) Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/prostate-specific-antigen-psa-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A PSA test is a blood test that screens for prostate cancer. PSA is made by your prostate. High levels may mean cancer or other prostate conditions. Learn more.",
+        "summary_excerpt": "What is a prostate-specific antigen (PSA) test? A prostate-specific antigen (PSA) test is a blood test that measures the level of PSA in a sample of your blood. PSA is a protein made by your prostate. The prostate is a gland in the male reproductive system. It lies just below the bladder. It makes the fluid part of semen. It's normal to have a low level of PSA in your blood. A high PSA level may be caused by: Prostate cancer An enlarged prostate (also called benign prostatic hyperplasia or BPH) Prostatitis, inflammation (swelling and pain) in the prostate gland Other common prostate problems Urinary tract infections (UTIs) Taking certain medicines A PSA test can't show what is causing abnorm",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "fasting blood sugar",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "not_found",
+      "approved": false,
+      "entry": null,
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": ""
+    },
+    {
+      "wanted": "urine culture",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "not_found",
+      "approved": false,
+      "entry": null,
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": ""
+    },
+    {
+      "wanted": "calculus",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "not_found",
+      "approved": false,
+      "entry": null,
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": ""
+    }
+  ]
+}
