@@ -1,5 +1,5 @@
 {
-  "source": "MedlinePlus Health Topics XML (mplus_topics_2026-10-17.xml), public domain",
+  "source": "MedlinePlus Health Topics XML (mplus_topics_2026-10-17.xml) and Medical Tests index, public domain",
   "generated": "2026-10-18",
   "instructions": "For each 'matched' or 'related_topic' candidate: check that the cited topic really covers the term ('related_topic' means it was only cross-referenced), remove any alias that is not the same thing as the term, write entry.plain_definition (1-2 plain sentences, own words, no interpretation) and entry.clinical_context, pick entry.label from ['ANATOMY', 'BIOMARKER', 'DESCRIPTOR', 'DISEASE', 'DRUG', 'SYMPTOM', 'TEST'], check the aliases, then set approved to true and run `python -m tools.kb_candidates --promote`.",
   "candidates": [
@@ -238,14 +238,34 @@
       "requested_by": [
         "wishlist"
       ],
-      "status": "not_found",
+      "status": "matched",
       "approved": false,
-      "entry": null,
-      "reference": null,
+      "entry": {
+        "term": "bilirubin",
+        "aliases": [
+          "bilirubin",
+          "Bilirubin Blood Test",
+          "total bilirubin"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "Bilirubin is a yellow substance made when the body breaks down old red blood cells. The liver normally clears it from the body.",
+        "clinical_context": "Reported in a liver function panel, sometimes as total and direct bilirubin. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Bilirubin Blood Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/bilirubin-blood-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A bilirubin blood test can check the health of you or your newborn. High bilirubin levels may be a sign of liver, bile duct, or other health problems.",
+        "summary_excerpt": "What is a bilirubin blood test? A bilirubin blood test measures the levels of bilirubin in your blood. Bilirubin is a yellowish substance made during your body's normal process of breaking down old red blood cells. Bilirubin is found in bile, a fluid your liver makes to help you digest food. If your liver is healthy, it will remove most of the bilirubin from your body through your bile ducts (the tubes that carry bile from your liver). If your liver is damaged or your bile ducts are blocked, bilirubin can leak out of your liver and into your blood. When too much bilirubin gets into the bloodstream, it can cause jaundice , a condition that causes your skin and eyes to turn yellow. If you have",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": ""
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
     },
     {
       "wanted": "pancreatitis",
@@ -1653,6 +1673,920 @@
       "alias_warnings": [],
       "suggestions": [],
       "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "complete blood count",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "complete blood count",
+        "aliases": [
+          "complete blood count",
+          "Complete Blood Count (CBC)",
+          "CBC"
+        ],
+        "label": "TEST",
+        "plain_definition": "A group of blood tests that count the different cells in the blood: red blood cells, white blood cells, and platelets.",
+        "clinical_context": "One of the most common blood tests. Results list each cell type with its own reference range.",
+        "source_citation": "MedlinePlus Medical Tests - 'Complete Blood Count (CBC)'",
+        "source_url": "https://medlineplus.gov/lab-tests/complete-blood-count-cbc/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A complete blood count measures the number and type of cells in your blood. It may be done as part of a routine exam or to monitor or diagnose health conditions.",
+        "summary_excerpt": "What is a Complete Blood Count? A complete blood count, or CBC, is a group of blood tests that measure the number and size of the different cells in your blood. A CBC measures: Red blood cells , which carry oxygen from your lungs to the rest of your body. White blood cells , which fight infections and other diseases. There are five major types of white blood cells. A CBC test measures the total number of white cells in your blood. A different test called a CBC with differential measures the number of each type of these white blood cells. Platelets , which stop bleeding by helping your blood to clot. Hemoglobin , an iron-rich protein in red blood cells that carries oxygen from your lungs to t",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "WBC",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "WBC",
+        "aliases": [
+          "WBC",
+          "White Blood Count (WBC)",
+          "White Blood Count",
+          "white blood cell count",
+          "WBC count"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "The number of white blood cells in the blood. White blood cells are part of the body's defense against infection.",
+        "clinical_context": "Reported in a complete blood count (CBC). Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'White Blood Count (WBC)'",
+        "source_url": "https://medlineplus.gov/lab-tests/white-blood-count-wbc/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A white blood count measures the number of white cells in your blood. Too few or too many white blood cells may be a sign of a health condition. Learn more.",
+        "summary_excerpt": "What is a white blood count (WBC)? A white blood count measures the number of white blood cells (WBCs) in your blood. White blood cells, also called leukocytes, are part of your immune system . They are a type of blood cell made in your bone marrow and found in your blood and lymph tissue (part of your immune system). If you are injured or get sick, the white blood cells will travel through your bloodstream and tissues to where they are needed. There, they will help your body fight off infections and other diseases. When you get sick, your body makes more white blood cells to fight the bacteria , viruses , or other foreign substances causing your illness. This increases your white blood coun",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [
+        {
+          "title": "White Blood Cell (WBC) in Stool",
+          "url": "https://medlineplus.gov/lab-tests/white-blood-cell-wbc-in-stool/"
+        }
+      ],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval. 'WBC' is also the abbreviation for a stool test; this draft cites the blood count. kb-023 (leukocytosis) covers a high count."
+    },
+    {
+      "wanted": "red blood cell count",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "red blood cell count",
+        "aliases": [
+          "red blood cell count",
+          "Red Blood Cell (RBC) Count",
+          "RBC",
+          "RBC count"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "The number of red blood cells in the blood. Red blood cells carry oxygen from the lungs to the rest of the body.",
+        "clinical_context": "Reported in a complete blood count (CBC). Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Red Blood Cell (RBC) Count'",
+        "source_url": "https://medlineplus.gov/lab-tests/red-blood-cell-rbc-count/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A red blood cell (RBC) count measures the number of red blood cells in your blood. Too few or too many may be a sign of a health condition. Learn more.",
+        "summary_excerpt": "What is a red blood cell (RBC) count? A red blood cell (RBC) count measures the number of red blood cells, also known as erythrocytes, in your blood. Red blood cells are made in your bone marrow, the spongy tissue inside your large bones. They contain hemoglobin, an iron-rich protein that carries oxygen from your lungs to every cell in your body. Your cells need oxygen to grow, reproduce, and make energy for you to function. An RBC count that is higher or lower than normal is often the first sign of an illness. So, the test may allow you to get treatment even before you have symptoms. Other names: erythrocyte count, red count, RBC Count",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "platelets",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "platelets",
+        "aliases": [
+          "platelets",
+          "Platelet Tests",
+          "Platelet",
+          "platelet count"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "Small blood cells that help the blood clot and stop bleeding. A blood test counts how many are in the blood.",
+        "clinical_context": "Reported in a complete blood count (CBC) as the platelet count. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Platelet Tests'",
+        "source_url": "https://medlineplus.gov/lab-tests/platelet-tests/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Platelet tests check for conditions that cause too much bleeding or blood clotting. They include a platelet count test and platelet function tests. Learn more.",
+        "summary_excerpt": "What are platelet tests? Platelets, also known as thrombocytes, are small blood cells. They form in your bone marrow, the sponge-like tissue in your bones. Platelets are essential for blood clotting . A blood clot is a mass of blood that forms when platelets, proteins, and cells in the blood stick together. When you get hurt, your body forms a blood clot to stop the bleeding. There are two types of platelet tests: a platelet count test and platelet function tests. A platelet count test measures the number of platelets in your blood: A lower-than-normal platelet count is called thrombocytopenia. This condition can cause you to bleed too much after a cut or other injury that causes bleeding. A",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval. kb-024 (thrombocytopenia) covers a low count."
+    },
+    {
+      "wanted": "hematocrit",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "hematocrit",
+        "aliases": [
+          "hematocrit",
+          "Hematocrit Test",
+          "Hct",
+          "haematocrit"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "The share of the blood that is made up of red blood cells, given as a percentage.",
+        "clinical_context": "Reported in a complete blood count (CBC), often shortened to Hct. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Hematocrit Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/hematocrit-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A hematocrit test measures the percentage of red blood cells in your blood. This blood test can help diagnose anemia and other blood disorders. Learn more.",
+        "summary_excerpt": "What is a hematocrit test? A hematocrit test is a blood test that measures the amount (percent) of your blood that is made up of red blood cells. Red blood cells carry oxygen from your lungs to the rest of your body. The other parts of your blood include white blood cells (to help fight infection and other diseases), platelets (to help make blood clots to stop bleeding ), and a liquid called plasma. Hematocrit levels that are too high or too low can be a sign of a blood disorder , dehydration , or other medical conditions that affect your blood. Other names: HCT, packed cell volume, PCV, Crit; H and H (Hemoglobin and Hematocrit)",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "mean corpuscular volume",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "mean corpuscular volume",
+        "aliases": [
+          "mean corpuscular volume",
+          "MCV (Mean Corpuscular Volume)",
+          "MCV"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "The average size of the red blood cells.",
+        "clinical_context": "Reported in a complete blood count (CBC). Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'MCV (Mean Corpuscular Volume)'",
+        "source_url": "https://medlineplus.gov/lab-tests/mcv-mean-corpuscular-volume/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "An MCV blood test measures the size of your red blood cells. If red blood cells are too small or too large, it may be a sign of a blood disorder. Learn more.",
+        "summary_excerpt": "What is an MCV blood test? MCV stands for mean corpuscular volume. An MCV blood test measures the average size of your red blood cells. Red blood cells carry oxygen from your lungs to every cell in your body. Your cells need oxygen to grow, reproduce, and make energy. If your red blood cells are too small or too large, it could be a sign of a blood disorder such as anemia , a lack of certain vitamins, or other medical conditions. Other names: CBC with differential, Mean Cell Volume, Mean Corpuscular Volume",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "erythrocyte sedimentation rate",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "erythrocyte sedimentation rate",
+        "aliases": [
+          "erythrocyte sedimentation rate",
+          "Erythrocyte Sedimentation Rate (ESR)",
+          "ESR",
+          "sed rate"
+        ],
+        "label": "TEST",
+        "plain_definition": "A blood test that measures how quickly red blood cells settle to the bottom of a tube. It is a general check for inflammation in the body.",
+        "clinical_context": "Reported in millimetres per hour (mm/hr). Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Erythrocyte Sedimentation Rate (ESR)'",
+        "source_url": "https://medlineplus.gov/lab-tests/erythrocyte-sedimentation-rate-esr/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "An erythrocyte sedimentation rate (ESR) blood test checks for inflammation in your body. It may help monitor or diagnose inflammatory conditions. Learn more.",
+        "summary_excerpt": "What is an erythrocyte sedimentation rate (ESR)? Erythrocytes are red blood cells. The sedimentation rate is the time it takes for your red blood cells to settle at the bottom of a test tube. An erythrocyte sedimentation rate (ESR) is a blood test that can show if you have inflammation in your body. Inflammation is your immune system's response to injury, infection, and many other conditions, including immune system disorders , certain cancers , and blood disorders . To do an ESR test, a sample of your blood is sent to a lab. A health care professional places the sample in a tall, thin test tube and measures how quickly your red blood cells settle or sink to the bottom of the tube. Typically",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "liver function tests",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "liver function tests",
+        "aliases": [
+          "liver function tests",
+          "LFT",
+          "LFTs",
+          "liver panel"
+        ],
+        "label": "TEST",
+        "plain_definition": "A group of blood tests that measure substances made or handled by the liver, such as albumin, bilirubin, and liver enzymes.",
+        "clinical_context": "Also called a liver panel. Each result has its own reference range.",
+        "source_citation": "MedlinePlus Medical Tests - 'Liver Function Tests'",
+        "source_url": "https://medlineplus.gov/lab-tests/liver-function-tests/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Liver function tests are blood tests that measure different substances made by your liver. The tests can show how well your liver is working. Learn more.",
+        "summary_excerpt": "What are liver function tests? Liver function tests (also called a liver panel) use a sample of your blood to measure several substances made by your liver. The most common liver function tests measure: Albumin , a protein made in the liver. Total protein . This test measures the total amount of protein in your blood, which includes albumin and globulins. These proteins are mainly made in your liver. ALP (alkaline phosphatase), ALT (alanine transaminase), AST (aspartate aminotransferase), and GGT (gamma-glutamyl transferase). These are enzymes that are mainly made in your liver. Enzymes are proteins that speed up certain chemical reactions in your body. Bilirubin , a waste product your body ",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval. Removed alias 'Liver Function': as a bare phrase it would also match ordinary sentences."
+    },
+    {
+      "wanted": "albumin",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "albumin",
+        "aliases": [
+          "albumin",
+          "Albumin Blood Test",
+          "serum albumin"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "A protein made by the liver. It helps keep fluid inside the blood vessels.",
+        "clinical_context": "Reported in a liver function panel. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Albumin Blood Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/albumin-blood-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "An albumin blood test measures the level of albumin in your blood. Low albumin levels can be a sign of a disorder of your liver or kidneys. Learn more.",
+        "summary_excerpt": "What is an albumin blood test? An albumin blood test measures the amount of albumin in your blood. Albumin is a protein made by your liver. Low albumin levels can be a sign of liver or kidney disease or another medical condition. High levels may be a sign of dehydration . Blood is made of fluid and blood cells. Albumin keeps the fluid part of your blood from leaking out of your blood vessels (the tubes your blood flows through) and into other tissues. If you don't have enough albumin, fluid can leak out of your blood and build up in your lungs, abdomen (belly), or other parts of your body. Albumin also helps carry important substances throughout your body. These include hormones , vitamins ,",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval. Check this does not compete with kb-040 (microalbuminuria), which covers albumin in urine."
+    },
+    {
+      "wanted": "alkaline phosphatase",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "alkaline phosphatase",
+        "aliases": [
+          "alkaline phosphatase",
+          "ALP"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "An enzyme found in many parts of the body, mostly in the liver, bile ducts, and bones. A blood test measures how much is in the blood.",
+        "clinical_context": "Reported in a liver function panel, often shortened to ALP. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Alkaline Phosphatase'",
+        "source_url": "https://medlineplus.gov/lab-tests/alkaline-phosphatase/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "An alkaline phosphatase (ALP) test measures the amount of ALP in your blood. It is commonly used to diagnose liver damage or bone disorders. Learn more.",
+        "summary_excerpt": "What is an alkaline phosphatase test? An alkaline phosphatase (ALP) test measures the amount of ALP in your blood. ALP is an enzyme, a protein that speeds up certain chemical reactions in your body. ALP is found in all your body tissues, but higher amounts can be found in your liver, bile ducts, and bones. Each part of your body makes a different type of ALP. Abnormal levels of ALP in your blood may be a sign of a wide range of health conditions, including liver disease , bone disorders , and chronic kidney disease . The amount of ALP released into your blood can be affected by liver damage, conditions that affect bone growth, and certain gastrointestinal diseases. But an alkaline phosphatas",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "gamma-glutamyl transferase",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "gamma-glutamyl transferase",
+        "aliases": [
+          "gamma-glutamyl transferase",
+          "Gamma-glutamyl Transferase (GGT) Test",
+          "Gamma-glutamyl Transferase Test",
+          "GGT"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "An enzyme found mainly in the liver. A blood test measures how much is in the blood.",
+        "clinical_context": "Reported in a liver function panel, often shortened to GGT. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Gamma-glutamyl Transferase (GGT) Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/gamma-glutamyl-transferase-ggt-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A gamma-glutamyl transferase (GGT) test measures the amount of the enzyme GGT in your blood. High levels of GGT may be a sign of liver damage. Learn more.",
+        "summary_excerpt": "What is a gamma-glutamyl transferase (GGT) test? A gamma-glutamyl transferase (GGT) test measures the amount of GGT in your blood GGT is an enzyme. Enzymes are proteins that speed up certain chemical reactions in your body. Thousands of enzymes play an important role in all of your body functions. The GGT enzyme is found throughout your body, but it is mainly found in your liver. If your liver or bile duct is damaged, GGT may leak into your bloodstream. So high levels of GGT in your blood may be a sign of liver disease or damage to the bile ducts . Bile ducts are tubes that carry bile in and out of the liver. Bile is a fluid made by the liver that is important for digestion. A GGT test can't",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "blood urea nitrogen",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "blood urea nitrogen",
+        "aliases": [
+          "blood urea nitrogen",
+          "BUN (Blood Urea Nitrogen)",
+          "BUN",
+          "urea"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "Urea nitrogen is a waste product made when the body breaks down protein. The kidneys remove it from the blood.",
+        "clinical_context": "Reported in a kidney function or metabolic panel, often shortened to BUN. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'BUN (Blood Urea Nitrogen)'",
+        "source_url": "https://medlineplus.gov/lab-tests/bun-blood-urea-nitrogen/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A BUN (blood urea nitrogen) test measures urea nitrogen, a waste product, in your blood. It can provide information about your kidney function. Learn more.",
+        "summary_excerpt": "What is a BUN (Blood Urea Nitrogen) Test? A BUN, or blood urea nitrogen test, measures the amount of urea nitrogen in your blood. Urea nitrogen is a waste product that forms as your body breaks down proteins. It's carried in your blood and then removed by your kidneys when you urinate (pee). Having a small amount of urea nitrogen in your blood is normal. But higher-than-normal BUN levels may be a sign that your kidneys aren't working well. If you have kidney disease , this waste material can build up in your blood and may lead to serious health problems, including high blood pressure , anemia , and heart disease . People with early kidney disease may not have any symptoms. A BUN test can hel",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval. Alias 'urea' added because many labs report urea rather than BUN; confirm it should share this entry."
+    },
+    {
+      "wanted": "uric acid",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "uric acid",
+        "aliases": [
+          "uric acid",
+          "Uric Acid Test",
+          "serum uric acid"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "A waste product the body makes when it breaks down substances called purines. The kidneys normally remove it in urine.",
+        "clinical_context": "Measured in blood or urine. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Uric Acid Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/uric-acid-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A uric acid test measures how much uric acid is in a sample of your blood or urine. High levels can cause gout, kidney disease, and other problems. Learn more.",
+        "summary_excerpt": "What is a uric acid test? A uric acid test measures the amount of uric acid in a sample of your blood or urine (pee). Uric acid is a normal waste product that your body makes when it breaks down chemicals called purines. These chemicals come from your cells when they die and can be found in certain foods and beverages. Normally, uric acid dissolves in your blood and is filtered out by the kidneys. It then exits your body through your urine. But if your body makes too much uric acid or your kidneys don't remove enough of it, uric acid can build up in your blood. When that happens, it can form needle-shaped crystals in and around your joints. This condition is called gout . Gout is a type of a",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "sodium",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "sodium",
+        "aliases": [
+          "sodium",
+          "Sodium Blood Test"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "A mineral in the blood (an electrolyte) that helps control the amount of fluid in the body.",
+        "clinical_context": "Reported in an electrolyte or metabolic panel, often shortened to Na. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Sodium Blood Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/sodium-blood-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A sodium blood test measures the level of sodium in your blood. Abnormal sodium levels may be a sign of a kidney problem or other medical condition. Learn more.",
+        "summary_excerpt": "What is a sodium blood test? A sodium blood test measures the amount of sodium in your blood. Sodium is a type of electrolyte . Electrolytes are minerals that have an electrical charge when they are dissolved in water or body fluids. You have electrolytes in your blood, urine (pee), tissues, and other body fluids. They help control the amount of fluid and the balance of acids and bases (pH balance) in your body. Sodium also helps your nerves and muscles work properly. You get most of the sodium you need in your diet. If you take in too much, your kidneys get rid of the extra sodium in your urine (pee). Normally, your body keeps your sodium levels in a very narrow range. If your sodium blood ",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "potassium",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "potassium",
+        "aliases": [
+          "potassium",
+          "Potassium Blood Test"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "A mineral in the blood (an electrolyte) that helps the muscles and nerves, including the heart, work properly.",
+        "clinical_context": "Reported in an electrolyte or metabolic panel, often shortened to K. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Potassium Blood Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/potassium-blood-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A potassium blood test measures the potassium levels in your blood. Too much or too little potassium may be a sign of a serious medical condition. Learn more.",
+        "summary_excerpt": "What is a potassium blood test? A potassium blood test measures the amount of potassium in your blood. Potassium is a type of electrolyte . Electrolytes are electrically charged minerals that help control the amount of fluids and the balance of acids and bases (pH balance) in your body. They also help control muscle and nerve activity and perform other important functions. Your cells, nerves, heart, and muscles need potassium to work properly. You can usually get most of the potassium that you need from the foods that you eat. Almost all of your body's potassium is inside your cells, but a small amount is in your blood. Your kidneys remove potassium in your urine (pee) to help keep the right",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "chloride",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "chloride",
+        "aliases": [
+          "chloride",
+          "Chloride Blood Test"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "A mineral in the blood (an electrolyte) that helps control the amount of fluid and the balance of acids in the body.",
+        "clinical_context": "Reported in an electrolyte or metabolic panel, often shortened to Cl. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Chloride Blood Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/chloride-blood-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A chloride test measures chloride in your blood. It may be used to check for or monitor conditions that affect your body's acid-base balance. Learn more.",
+        "summary_excerpt": "What is a chloride blood test? A chloride blood test measures the amount of chloride in your blood. Chloride is a type of electrolyte. Electrolytes are electrically charged minerals that help control the amount of fluids and the balance of acids and bases (pH balance) in your body. You have electrolytes in your blood, urine, tissues, and other body fluids. You get chloride through the food you eat. It is mainly found in salt. Your body gets rid of the extra chloride in your urine (pee). Chloride helps control the amount of fluid in your body. In addition, it helps maintain healthy blood volume and blood pressure. Many diseases and other factors can cause abnormal chloride levels. Chloride is",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "T3",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "T3",
+        "aliases": [
+          "T3",
+          "Triiodothyronine (T3) Tests",
+          "Triiodothyronine Tests",
+          "Triiodothyronine",
+          "free T3"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "One of the two main hormones made by the thyroid gland. A blood test measures how much is in the blood.",
+        "clinical_context": "Reported in a thyroid panel, sometimes as free T3. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Triiodothyronine (T3) Tests'",
+        "source_url": "https://medlineplus.gov/lab-tests/triiodothyronine-t3-tests/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "This test measures triiodothyronine (T3) in your blood. Your thyroid gland makes T3. The test is mainly used to diagnose hyperthyroidism. Learn more.",
+        "summary_excerpt": "What is a triiodothyronine (T3) test? A triiodothyronine (T3) test measures the level of T3 in a sample of your blood. It's used to help diagnose thyroid disease . Your thyroid is a small, butterfly-shaped gland at the base of your throat. It makes two hormones , T3 and T4 (thyroxine). Hormones are chemical messengers in your bloodstream that control the actions of certain cells or organs. Thyroid hormones work together to control the way your body uses energy. They affect your weight, heart, body temperature, muscle strength, and even your mood. In children, thyroid hormones affect growth, too. There are two forms of T3 in your blood: Free T3 is the active form that enters your tissues wher",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [
+        "'T3' is very short; it may match unrelated text"
+      ],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "T4",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "T4",
+        "aliases": [
+          "T4",
+          "Thyroxine (T4) Test",
+          "Thyroxine Test",
+          "Thyroxine",
+          "free T4"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "The main hormone made by the thyroid gland, also called thyroxine. A blood test measures how much is in the blood.",
+        "clinical_context": "Reported in a thyroid panel, often as free T4. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Thyroxine (T4) Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/thyroxine-t4-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A thyroxine test measures the level of thyroxine (T4) in your blood. Too much or too little T4 can be a sign of thyroid disease. Learn more.",
+        "summary_excerpt": "What is a thyroxine (T4) test? Thyroxine is also called T4. T4 is a hormone that your thyroid gland makes. A T4 test measures the level of T4 in a sample of your blood. Too much or too little T4 may be a sign of a thyroid problem . Your thyroid is a small, butterfly-shaped gland in the front of your neck. It makes hormones that control the way your body uses energy. These hormones affect nearly every organ in your body and control many of your body's most important functions. For example, they affect your breathing, heart rate, weight, digestion, and mood. In children, thyroid hormones affect growth, too. T4 is the main hormone that your thyroid makes. There are two forms of it in your blood",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [
+        "'T4' is very short; it may match unrelated text"
+      ],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "ferritin",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "ferritin",
+        "aliases": [
+          "ferritin",
+          "Ferritin Blood Test",
+          "serum ferritin"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "A protein that stores iron in the body. A blood test measures it to check how much iron the body has stored.",
+        "clinical_context": "Often reported with other iron tests. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Ferritin Blood Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/ferritin-blood-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Ferritin is a protein that stores iron in your cells. A ferritin blood test can tell whether you are getting too much or too little iron. Learn more.",
+        "summary_excerpt": "What is a ferritin blood test? A ferritin blood test measures the level of ferritin in your blood. Ferritin is a protein that binds to iron and stores it in your body. You need iron to make healthy red blood cells. Red blood cells carry oxygen from your lungs to the rest of your body. Iron is also important for healthy muscles, bone marrow, and organs, including brain development in children. You get iron from eating food or taking supplements. There are iron-only supplements, but many multivitamin/mineral supplements also contain iron. Too little or too much iron in your body can cause serious health problems if not treated. A ferritin blood test can show how much iron you have stored in yo",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "iron",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "iron",
+        "aliases": [
+          "iron",
+          "Iron Tests",
+          "serum iron"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "A mineral the body needs to make hemoglobin, the part of red blood cells that carries oxygen. Iron tests measure how much is in the blood.",
+        "clinical_context": "Often reported with ferritin and other iron tests. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Iron Tests'",
+        "source_url": "https://medlineplus.gov/lab-tests/iron-tests/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Iron tests measure the iron levels in your body. If your iron level is too low or too high, it may be a sign of anemia or other health conditions. Learn more.",
+        "summary_excerpt": "What are iron tests? Iron tests measure different substances in the blood to check iron levels in your body. Iron is a mineral that your body needs for growth and development. Your body uses iron to make hemoglobin, a protein in red blood cells. It carries oxygen from the lungs to all parts of the body, Iron is also important for healthy muscles, bone marrow, and organ function. Your body also needs iron to make some hormones . You get iron from eating food or taking supplements. There are iron-only supplements, but many multivitamin/mineral supplements also contain iron. Most people in the United States get enough iron. However, certain people may be more likely to have trouble getting enou",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "vitamin B12",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "not_found",
+      "approved": false,
+      "entry": null,
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": ""
+    },
+    {
+      "wanted": "folate",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "folate",
+        "aliases": [
+          "folate",
+          "Folic Acid",
+          "Folacin",
+          "Pteroylglutamic acid",
+          "Vitamin B9"
+        ],
+        "label": "",
+        "plain_definition": "",
+        "clinical_context": "",
+        "source_citation": "MedlinePlus Health Topics - 'Folic Acid'",
+        "source_url": "https://medlineplus.gov/folicacid.html",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "If you are pregnant, your doctor has probably talked to you about folic acid. This important B vitamin is also important for everyone. Learn more.",
+        "summary_excerpt": "Folic acid is a B vitamin . It helps the body make healthy new cells. Everyone needs folic acid. For women who may get pregnant, it is really important. Getting enough folic acid before and during pregnancy can prevent major birth defects of her baby's brain or spine. Foods with folic acid in them include: Leafy green vegetables Fruits Dried beans, peas, and nuts Enriched breads, cereals and other grain products If you don't get enough folic acid from the foods you eat, you can also take it as a dietary supplement . NIH: National Institutes of Health Office of Dietary Supplements",
+        "groups": [
+          "Food and Nutrition"
+        ],
+        "mesh": [
+          "Folic Acid Deficiency",
+          "Folic Acid"
+        ],
+        "primary_institute": "NIH Office of Dietary Supplements",
+        "see_also_not_aliases": [
+          "Folate"
+        ]
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": ""
+    },
+    {
+      "wanted": "C-reactive protein",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "C-reactive protein",
+        "aliases": [
+          "C-reactive protein",
+          "C-Reactive Protein (CRP) Test",
+          "C-Reactive Protein Test",
+          "CRP"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "A protein made by the liver when there is inflammation in the body. A blood test measures how much is in the blood.",
+        "clinical_context": "Often shortened to CRP. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'C-Reactive Protein (CRP) Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/c-reactive-protein-crp-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A c-reactive protein blood test checks for inflammation in your body. Inflammation can be caused by infection, injury, or chronic disease. Learn more.",
+        "summary_excerpt": "What is a c-reactive (CRP) protein test? A c-reactive protein test measures the level of c-reactive protein (CRP) in a sample of your blood. Your liver makes CRP in response to inflammation. Inflammation is your body's way of protecting your tissues and helping them heal from an injury , infection , or other disease. When it's acute (sudden) and for a short time, inflammation is helpful. For example, when you get a cut on your skin, the area around the cut may turn red and swell. These are signs that inflammation is working to stop infection. Inflammation acts in a similar way when responding to germs or harmful substances (toxins) inside your body. If inflammation lasts too long, however, i",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "troponin",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "troponin",
+        "aliases": [
+          "troponin",
+          "Troponin Test"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "A protein found in heart muscle cells. A blood test measures how much is in the blood.",
+        "clinical_context": "Often measured more than once, a few hours apart. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Troponin Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/troponin-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A troponin test measures the level of troponin in your blood. High troponin levels may be a sign of a heart attack. Learn more.",
+        "summary_excerpt": "What is a troponin test? A troponin test measures the level of troponin in a sample of your blood. Troponin is a protein that's found in the cells of your heart muscle. Normally, troponin levels in blood are so low that only the most sensitive types of tests can measure them. But if your heart muscle is damaged, troponin leaks into your bloodstream, and your troponin blood levels will rise. Troponin testing is mainly used to help diagnose heart attacks . Heart attacks damage the heart by suddenly blocking the blood flow that brings oxygen to part of the heart muscle. Without oxygen from blood, heart muscle cells die and release troponin. Troponin test results can confirm damage to the heart ",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "brain natriuretic peptide",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "not_found",
+      "approved": false,
+      "entry": null,
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": ""
+    },
+    {
+      "wanted": "prostate-specific antigen",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "matched",
+      "approved": false,
+      "entry": {
+        "term": "prostate-specific antigen",
+        "aliases": [
+          "prostate-specific antigen",
+          "Prostate-Specific Antigen (PSA) Test",
+          "Prostate-Specific Antigen Test",
+          "PSA"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "A protein made by the prostate, a gland in the male body. A blood test measures how much is in the blood.",
+        "clinical_context": "Often shortened to PSA. Reference ranges vary by lab.",
+        "source_citation": "MedlinePlus Medical Tests - 'Prostate-Specific Antigen (PSA) Test'",
+        "source_url": "https://medlineplus.gov/lab-tests/prostate-specific-antigen-psa-test/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "A PSA test is a blood test that screens for prostate cancer. PSA is made by your prostate. High levels may mean cancer or other prostate conditions. Learn more.",
+        "summary_excerpt": "What is a prostate-specific antigen (PSA) test? A prostate-specific antigen (PSA) test is a blood test that measures the level of PSA in a sample of your blood. PSA is a protein made by your prostate. The prostate is a gland in the male reproductive system. It lies just below the bladder. It makes the fluid part of semen. It's normal to have a low level of PSA in your blood. A high PSA level may be caused by: Prostate cancer An enlarged prostate (also called benign prostatic hyperplasia or BPH) Prostatitis, inflammation (swelling and pain) in the prostate gland Other common prostate problems Urinary tract infections (UTIs) Taking certain medicines A PSA test can't show what is causing abnorm",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+    },
+    {
+      "wanted": "fasting blood sugar",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "not_found",
+      "approved": false,
+      "entry": null,
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": ""
+    },
+    {
+      "wanted": "urine culture",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "not_found",
+      "approved": false,
+      "entry": null,
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": ""
+    },
+    {
+      "wanted": "calculus",
+      "requested_by": [
+        "wishlist"
+      ],
+      "status": "not_found",
+      "approved": false,
+      "entry": null,
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": ""
     }
   ]
 }
