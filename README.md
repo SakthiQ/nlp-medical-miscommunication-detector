@@ -759,13 +759,16 @@ backend/
   tests/                    Unit and end-to-end tests (real-LLM tests marked `llm`,
                             real-translation tests marked `i18n`, both slow)
   tools/kb_candidates.py    Drafts new KB entries from MedlinePlus for human review
+  tools/ncit_import.py      Builds the imported (unreviewed) tier from the NCI Thesaurus
 
 knowledge_base/
-  knowledge_base.json       The curated KB: the only text the explainer may draw from
+  knowledge_base.json       The curated, reviewed KB: the only text the explainer may draw from
   common_words.txt          Everyday words the NER flags but patients already know
   README.md                 Curation rules and how to add entries
   curation/                 Review queue: kb_wishlist.txt, kb_candidates.json,
-                            raw/ (downloaded MedlinePlus files, not committed)
+                            raw/ (downloaded MedlinePlus and NCIt files, not committed)
+  imported/ncit.json.gz     ~42,000 unreviewed NCI Thesaurus entries (CC BY 4.0); not yet
+                            used by the app (see imported/README.md)
 
 evaluation/
   datasets/                 eval_corpus.json (18 annotated reports), retrieval_queries.json
