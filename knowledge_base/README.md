@@ -8,10 +8,22 @@ isolation is how you end up with an evaluation full of terms you never covered.
 
 | Metric | Value |
 | --- | --- |
-| KB entries | 51 (46 explainable, 5 commonly-understood) |
-| Corpus snippets | 18, across 16 report types |
-| Gold-annotated terms | 55 (48 covered, 7 deliberate gaps) |
-| Corpus coverage | 87.3% |
+| KB entries | 128 (123 explainable, 5 commonly-understood) |
+| Corpus snippets | 21, across 16 report types |
+| Gold-annotated terms | 65 (60 covered, 5 deliberate gaps) |
+| Corpus coverage | 92.3% |
+
+77 entries (`kb-047`–`kb-123`) were promoted on 2026-10-19 from a reviewed
+`curation/kb_candidates.json` in which all 77 were approved. Each candidate's `notes`
+records what its review covered. For 17 of them the note says only that the approval
+flag was set at the user's request and that **source support has not been verified**;
+their `source_citation` says "supplied source lead; … pending verification". Re-check
+those, and the ones below that cite non-public-domain sources, before relying on them:
+
+| Status | Entries |
+| --- | --- |
+| Approved, source not verified | `kb-053` afebrile, `kb-061` enlarged prostate, `kb-077` iron deficiency, `kb-079` vitamin B12 deficiency, `kb-080` hyponatremia, `kb-081` hypokalemia, `kb-084` goiter, `kb-089` diverticulosis, `kb-096` WBC count, `kb-103` albumin (test), `kb-111` free T3, `kb-112` free T4, `kb-115` vitamin B12 (test), `kb-119` BNP, `kb-121` fasting blood glucose, `kb-122` urine culture, `kb-123` calculus |
+| Non-public-domain source | `kb-047` consolidation (Fleischner Society), `kb-048` renal (MedlinePlus Encyclopedia), `kb-049` canal stenosis (StatPearls), `kb-050` mediastinal (Cambridge Dictionary) |
 
 ## `knowledge_base.json`
 
@@ -73,8 +85,10 @@ A gold term with `kb_id: null` is a **deliberate coverage gap**. The correct sys
 behaviour is to detect the term and report that no vetted definition exists — not to
 retrieve the nearest-looking entry and explain the wrong thing.
 
-Current gaps: `consolidation`, `renal`, `canal stenosis`, `Mediastinal`,
-`femoral neck`, `antral`, `Afebrile`.
+Current gaps: `pneumothorax`, `bronchiectasis`, `cholecystitis`, `hemangioma`,
+`osteophytes` (snippets ev-019 to ev-021). The earlier gaps (consolidation, renal,
+canal stenosis, Mediastinal, femoral neck, antral, Afebrile) are now in the KB and
+annotated as covered.
 
 ## Validation
 

@@ -99,7 +99,7 @@ def test_everyday_words_are_not_flagged(ner, corpus):
 
 @pytest.mark.parametrize(
     ("snippet_id", "gap"),
-    [("ev-007", "renal"), ("ev-013", "Mediastinal"), ("ev-014", "femoral neck"), ("ev-015", "antral")],
+    [("ev-019", "bronchiectasis"), ("ev-020", "cholecystitis"), ("ev-020", "hemangioma")],
 )
 def test_known_coverage_gaps_surface_as_unvetted_terms(ner, matcher, kb, corpus, snippet_id, gap):
     status = {t.text: t.status for t in _terms(ner, matcher, kb, corpus[snippet_id].text)}

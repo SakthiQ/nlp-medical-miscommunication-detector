@@ -457,8 +457,8 @@ These are the choices that shaped the system.
 
 | File | Contents |
 |---|---|
-| `knowledge_base/knowledge_base.json` | 51 entries: 46 explainable terms + 5 commonly understood. Each has an id, canonical term, aliases (ALT/SGPT, anemia/anaemia), label, plain-language definition (6th–8th grade), non-interpretive context, and source citation. |
-| `evaluation/datasets/eval_corpus.json` | 18 synthetic, non-PHI report snippets across 16 report types, with 55 hand-labelled terms: 48 covered by the KB and 7 deliberate gaps (consolidation, renal, canal stenosis, Mediastinal, femoral neck, antral, Afebrile). |
+| `knowledge_base/knowledge_base.json` | 128 entries: 123 explainable terms + 5 commonly understood. Each has an id, canonical term, aliases (ALT/SGPT, anemia/anaemia), label, plain-language definition (6th–8th grade), non-interpretive context, and source citation. |
+| `evaluation/datasets/eval_corpus.json` | 21 synthetic, non-PHI report snippets across 16 report types, with 65 hand-labelled terms: 60 covered by the KB and 5 deliberate gaps (pneumothorax, bronchiectasis, cholecystitis, hemangioma, osteophytes). |
 | `knowledge_base/common_words.txt` | Everyday words the NER model flags but patients already know. |
 | `evaluation/datasets/retrieval_queries.json` | 12 lay-language paraphrases with their correct KB entry, plus 10 unrelated medical terms, for retrieval evaluation. |
 
@@ -868,12 +868,12 @@ python -m evaluation.translation_eval                  # translation latency/qua
 
 ## 13. Known limitations
 
-- 46 of 51 knowledge-base entries cite a public-domain page (MedlinePlus Health Topics
-  or Medical Tests, the NCI Dictionary of Cancer Terms, or NIAMS) with a verified
-  `source_url`. Five still cite the MedlinePlus Medical Encyclopedia, which is licensed
-  from A.D.A.M. and must not be copied, and have no URL yet: cardiomegaly, spondylosis,
-  normal sinus rhythm, incidental finding, unremarkable (see `knowledge_base/README.md`). The
-  definitions themselves still need a clinician's review.
+- The knowledge base has 128 entries. 102 cite a public-domain page (MedlinePlus Health
+  Topics or Medical Tests, the NCI Dictionary of Cancer Terms, NIAMS, or NLM MeSH).
+  The other 26 need follow-up (listed in `knowledge_base/README.md`): 17 promoted
+  entries were approved without their source being verified, 4 cite non-public-domain
+  sources, and 5 older entries still cite the MedlinePlus Medical Encyclopedia (licensed
+  from A.D.A.M.) with no URL. No definition has had a clinician's review yet.
 - Ambiguous abbreviations (PE, MS) are not handled yet and are left out of the dictionary.
 - The evaluation corpus is small, synthetic and single-annotator.
 - Generated explanations have not had the human faithfulness review the project brief

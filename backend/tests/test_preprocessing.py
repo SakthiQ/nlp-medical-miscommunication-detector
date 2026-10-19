@@ -82,9 +82,10 @@ def _negation(kb, matcher, detector, text):
         ("No evidence of acute ischemia.", {"ischemia": True}),
         ("Denies dyspnea.", {"dyspnea": True}),
         ("Negative for proteinuria.", {"proteinuria": True}),
-        ("Afebrile, no hepatomegaly.", {"hepatomegaly": True}),
+        # "Afebrile" means "without fever"; the word itself is not negated.
+        ("Afebrile, no hepatomegaly.", {"Afebrile": False, "hepatomegaly": True}),
         # Added following-negation phrasings that NegEx's termset misses.
-        ("Mediastinal lymphadenopathy is absent.", {"lymphadenopathy": True}),
+        ("Mediastinal lymphadenopathy is absent.", {"Mediastinal": True, "lymphadenopathy": True}),
         ("Pleural effusion not seen.", {"Pleural effusion": True}),
         # Genuine negation after the fact.
         ("Cholelithiasis was ruled out.", {"Cholelithiasis": True}),
@@ -102,17 +103,21 @@ def test_negation(kb, matcher, detector, text, expected):
 
 
 def test_negation_on_the_eval_corpus(kb, matcher, detector):
-    """Exactly these four flagged terms in the corpus are negated, and no others."""
+    """Exactly these flagged terms in the corpus are negated, and no others."""
     negated = set()
     for snippet in load_corpus().snippets:
         for term, is_negated in _negation(kb, matcher, detector, snippet.text).items():
             if is_negated:
                 negated.add((snippet.id, term))
     assert negated == {
+        ("ev-003", "consolidation"),
         ("ev-007", "hydronephrosis"),
+        ("ev-008", "canal stenosis"),
         ("ev-010", "ischemia"),
+        ("ev-013", "Mediastinal"),
         ("ev-013", "lymphadenopathy"),
         ("ev-014", "osteoporosis"),
+        ("ev-019", "pulmonary embolism"),
     }
 
 

@@ -90,7 +90,7 @@ def test_common_terms_are_matched_but_not_flagged(kb, matcher):
 
 
 def test_ner_term_outside_kb_becomes_a_gap(kb):
-    [term] = identify_terms([], [_ner_entity("consolidation", 10)], kb)
+    [term] = identify_terms([], [_ner_entity("pneumothorax", 10)], kb)
     assert term.status == "no_vetted_definition"
     assert term.kb_id is None
 

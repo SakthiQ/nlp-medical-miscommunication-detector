@@ -50,6 +50,34 @@ def wishlist(tmp_path):
     return path
 
 
+# A fixed two-entry KB, so these tests don't change meaning as the real KB grows (the
+# real one now contains urinary tract infection and hypokalemia, used as inputs here).
+SMALL_KB = {
+    "schema_version": "1.0",
+    "entries": [
+        {"id": "kb-001", "term": "hepatic steatosis", "aliases": ["fatty liver", "hepatic steatosis"],
+         "label": "DISEASE", "plain_definition": "Extra fat has built up inside the liver.",
+         "clinical_context": "Graded on imaging.", "source_citation": "s", "source_url": None, "is_common": False},
+        {"id": "kb-002", "term": "alanine aminotransferase", "aliases": ["ALT", "alanine aminotransferase"],
+         "label": "BIOMARKER", "plain_definition": "ALT is an enzyme found mostly in the liver.",
+         "clinical_context": "Reported in a liver function panel.", "source_citation": "s", "source_url": None,
+         "is_common": False},
+    ],
+}
+
+
+@pytest.fixture
+def kb_copy(tmp_path):
+    path = tmp_path / "knowledge_base.json"
+    path.write_text(dump_kb(SMALL_KB), encoding="utf-8")
+    return path
+
+
+@pytest.fixture
+def small_kb(kb_copy):
+    return load_knowledge_base(kb_copy)
+
+
 def _by_term(candidates):
     return {c["wanted"]: c for c in candidates["candidates"]}
 
@@ -63,8 +91,8 @@ def test_parse_keeps_english_and_separates_synonyms_from_cross_references(xml_pa
     assert uti.summary == "Infections of the urinary tract ."
 
 
-def test_build_matches_plural_titles_and_drafts_an_unapproved_entry(xml_path, wishlist):
-    candidate = _by_term(build_candidates(xml_path, wishlist_path=wishlist))["urinary tract infection"]
+def test_build_matches_plural_titles_and_drafts_an_unapproved_entry(xml_path, wishlist, small_kb):
+    candidate = _by_term(build_candidates(xml_path, kb=small_kb, wishlist_path=wishlist))["urinary tract infection"]
     assert candidate["status"] == "matched"
     assert candidate["approved"] is False
     entry = candidate["entry"]
@@ -75,31 +103,31 @@ def test_build_matches_plural_titles_and_drafts_an_unapproved_entry(xml_path, wi
     assert candidate["reference"]["see_also_not_aliases"] == ["Pyelonephritis"]
 
 
-def test_alias_already_owned_by_another_entry_is_reported_not_suggested(xml_path, wishlist):
-    candidate = _by_term(build_candidates(xml_path, wishlist_path=wishlist))["urinary tract infection"]
+def test_alias_already_owned_by_another_entry_is_reported_not_suggested(xml_path, wishlist, small_kb):
+    candidate = _by_term(build_candidates(xml_path, kb=small_kb, wishlist_path=wishlist))["urinary tract infection"]
     assert candidate["alias_conflicts"] == {"Fatty liver": "kb-001"}
     assert "Fatty liver" not in candidate["entry"]["aliases"]
 
 
-def test_cross_reference_match_borrows_no_aliases(xml_path, wishlist):
+def test_cross_reference_match_borrows_no_aliases(xml_path, wishlist, small_kb):
     # "Hypokalemia" is only a see-reference on Potassium, whose synonyms include its
     # opposite, Hyperkalemia. That must never be offered as an alias.
-    candidate = _by_term(build_candidates(xml_path, wishlist_path=wishlist))["hypokalemia"]
+    candidate = _by_term(build_candidates(xml_path, kb=small_kb, wishlist_path=wishlist))["hypokalemia"]
     assert candidate["status"] == "related_topic"
     assert candidate["entry"]["aliases"] == ["hypokalemia"]
 
 
-def test_existing_and_unknown_terms(xml_path, wishlist):
-    candidates = _by_term(build_candidates(xml_path, wishlist_path=wishlist))
+def test_existing_and_unknown_terms(xml_path, wishlist, small_kb):
+    candidates = _by_term(build_candidates(xml_path, kb=small_kb, wishlist_path=wishlist))
     assert candidates["ALT"]["status"] == "already_in_kb: kb-002"
     assert candidates["zzz unknown"]["status"] == "not_found"
     assert candidates["zzz unknown"]["entry"] is None
 
 
-def test_rebuild_keeps_reviewed_candidates(xml_path, wishlist):
-    first = build_candidates(xml_path, wishlist_path=wishlist)
+def test_rebuild_keeps_reviewed_candidates(xml_path, wishlist, small_kb):
+    first = build_candidates(xml_path, kb=small_kb, wishlist_path=wishlist)
     _by_term(first)["urinary tract infection"]["entry"]["plain_definition"] = "Reviewer text."
-    second = build_candidates(xml_path, existing=first, wishlist_path=wishlist)
+    second = build_candidates(xml_path, existing=first, kb=small_kb, wishlist_path=wishlist)
     assert _by_term(second)["urinary tract infection"]["entry"]["plain_definition"] == "Reviewer text."
 
 
@@ -121,7 +149,7 @@ def test_parse_lab_tests_derives_bare_and_abbreviated_names():
     assert tests["White Blood Count (WBC)"].source == "MedlinePlus Medical Tests"
 
 
-def test_lab_tests_take_precedence_and_cite_medical_tests(xml_path, tmp_path):
+def test_lab_tests_take_precedence_and_cite_medical_tests(xml_path, tmp_path, small_kb):
     # "potassium" is also a Health Topic (the mineral); in a report it is a test result.
     wishlist = tmp_path / "w.txt"
     wishlist.write_text("potassium\nWBC\n", encoding="utf-8")
@@ -131,7 +159,7 @@ def test_lab_tests_take_precedence_and_cite_medical_tests(xml_path, tmp_path):
         fetched.append(topic.title)
         topic.meta_desc = f"About {topic.title}."
 
-    candidates = _by_term(build_candidates(xml_path, wishlist_path=wishlist,
+    candidates = _by_term(build_candidates(xml_path, kb=small_kb, wishlist_path=wishlist,
                                            lab_tests=parse_lab_tests(LAB_INDEX), fetch_details=fake_fetch))
     potassium = candidates["potassium"]
     assert potassium["entry"]["source_citation"] == "MedlinePlus Medical Tests - 'Potassium Blood Test'"
@@ -143,13 +171,6 @@ def test_lab_tests_take_precedence_and_cite_medical_tests(xml_path, tmp_path):
 
 
 # --- promotion ------------------------------------------------------------------------
-
-
-@pytest.fixture
-def kb_copy(tmp_path):
-    path = tmp_path / "knowledge_base.json"
-    path.write_text(DEFAULT_KB_PATH.read_text(encoding="utf-8"), encoding="utf-8")
-    return path
 
 
 def _approved(**overrides):
@@ -169,10 +190,10 @@ def _approved(**overrides):
 
 def test_promote_appends_approved_entries_with_the_next_id(kb_copy):
     candidates = {"candidates": [_approved(), {"wanted": "x", "approved": False, "entry": None}]}
-    assert promote(candidates, kb_copy) == ["kb-047"]
+    assert promote(candidates, kb_copy) == ["kb-003"]
     kb = load_knowledge_base(kb_copy)
-    assert kb.lookup("UTI").id == "kb-047"
-    assert candidates["candidates"][0]["promoted_as"] == "kb-047"
+    assert kb.lookup("UTI").id == "kb-003"
+    assert candidates["candidates"][0]["promoted_as"] == "kb-003"
     assert promote(candidates, kb_copy) == []  # already promoted: not added twice
 
 

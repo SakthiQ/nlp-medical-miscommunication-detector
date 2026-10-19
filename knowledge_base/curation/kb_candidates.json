@@ -1,7 +1,7 @@
 {
   "source": "MedlinePlus Health Topics XML (mplus_topics_2026-10-17.xml) and Medical Tests index, public domain",
   "generated": "2026-10-18",
-  "instructions": "For each 'matched' or 'related_topic' candidate: check that the cited topic really covers the term ('related_topic' means it was only cross-referenced), remove any alias that is not the same thing as the term, write entry.plain_definition (1-2 plain sentences, own words, no interpretation) and entry.clinical_context, pick entry.label from ['ANATOMY', 'BIOMARKER', 'DESCRIPTOR', 'DISEASE', 'DRUG', 'SYMPTOM', 'TEST'], check the aliases, then set approved to true and run `python -m backend.tools.kb_candidates --promote`.",
+  "instructions": "For each 'matched' or 'related_topic' candidate: check that the cited topic really covers the term ('related_topic' means it was only cross-referenced), remove any alias that is not the same thing as the term, write entry.plain_definition (1-2 plain sentences, own words, no interpretation) and entry.clinical_context, pick entry.label from ['ANATOMY', 'BIOMARKER', 'DESCRIPTOR', 'DISEASE', 'DRUG', 'SYMPTOM', 'TEST'], check the aliases, then set approved to true and run `python -m backend.tools.kb_candidates --promote`. Updated 2026-10-18: the six previously unapproved candidates have now been supplied with proposed entries and authoritative source references and approved at the user's explicit direction. Context-specific scopes and alias warnings remain in notes/alias_warnings; verify matcher behavior and review these caveats before production promotion.",
   "candidates": [
     {
       "wanted": "consolidation",
@@ -9,13 +9,45 @@
         "corpus gap: ev-003"
       ],
       "status": "not_found",
-      "approved": false,
-      "entry": null,
-      "reference": null,
+      "approved": true,
+      "entry": {
+        "term": "consolidation",
+        "aliases": [
+          "consolidation",
+          "lung consolidation",
+          "pulmonary consolidation",
+          "airspace consolidation"
+        ],
+        "label": "DESCRIPTOR",
+        "plain_definition": "In lung imaging, consolidation is an area of increased lung opacity that occurs when air in the alveoli is replaced by fluid or other material. It describes an imaging appearance and does not by itself identify the underlying cause.",
+        "clinical_context": "Chest radiographs and chest CT reports; interpreted alongside the clinical presentation and other imaging findings.",
+        "source_citation": "Fleischner Society: Glossary of Terms for Thoracic Imaging (2024) — 'Consolidation'",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10902601/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Consensus glossary for thoracic imaging, including a definition of consolidation as increased attenuation of lung parenchyma due to replacement of alveolar air by fluid or other material.",
+        "summary_excerpt": "The Fleischner Society glossary defines lung consolidation as increased attenuation of lung parenchyma following evacuation of air from alveoli and replacement by fluid or other material. The term is a descriptor and does not identify the pathology causing it.",
+        "groups": [
+          "Thoracic Imaging"
+        ],
+        "mesh": [
+          "Lung"
+        ],
+        "primary_institute": "Fleischner Society / Radiological Society of North America",
+        "see_also_not_aliases": [
+          "Atelectasis",
+          "Ground-glass opacity",
+          "Pneumonia"
+        ]
+      },
       "alias_conflicts": {},
-      "alias_warnings": [],
+      "alias_warnings": [
+        "The unqualified term 'consolidation' is polysemous outside chest imaging; resolve by clinical context before matching."
+      ],
       "suggestions": [],
-      "notes": ""
+      "notes": "Approved at user request after checking the Fleischner Society thoracic-imaging glossary. This entry is deliberately scoped to lung-imaging usage; fracture healing, oncology therapy, and memory consolidation are separate senses and must not be matched to this entry.",
+      "promoted_as": "kb-047"
     },
     {
       "wanted": "renal",
@@ -23,9 +55,36 @@
         "corpus gap: ev-007"
       ],
       "status": "partial",
-      "approved": false,
-      "entry": null,
-      "reference": null,
+      "approved": true,
+      "entry": {
+        "term": "renal",
+        "aliases": [
+          "renal",
+          "kidney-related",
+          "pertaining to the kidneys"
+        ],
+        "label": "DESCRIPTOR",
+        "plain_definition": "Relating to or involving the kidneys.",
+        "clinical_context": "Used as an anatomical or functional descriptor in clinical notes, laboratory reports, imaging reports, and diagnoses involving the kidneys.",
+        "source_citation": "MedlinePlus Medical Encyclopedia — 'Renal'",
+        "source_url": "https://medlineplus.gov/ency/article/002289.htm",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "MedlinePlus explains that the term renal refers to the kidney.",
+        "summary_excerpt": "The term 'renal' refers to the kidney; for example, renal failure means kidney failure.",
+        "groups": [
+          "Kidneys and Urinary System"
+        ],
+        "mesh": [
+          "Kidney"
+        ],
+        "primary_institute": "MedlinePlus / U.S. National Library of Medicine",
+        "see_also_not_aliases": [
+          "Kidney function",
+          "Renal function"
+        ]
+      },
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [
@@ -42,7 +101,8 @@
           "url": "https://medlineplus.gov/kidneydiseases.html"
         }
       ],
-      "notes": ""
+      "notes": "Approved after checking MedlinePlus Medical Encyclopedia, which directly defines 'renal' as referring to the kidney. Keep as a descriptor; do not treat it as a standalone kidney disease.",
+      "promoted_as": "kb-048"
     },
     {
       "wanted": "canal stenosis",
@@ -50,13 +110,45 @@
         "corpus gap: ev-008"
       ],
       "status": "not_found",
-      "approved": false,
-      "entry": null,
-      "reference": null,
+      "approved": true,
+      "entry": {
+        "term": "canal stenosis",
+        "aliases": [
+          "canal stenosis",
+          "spinal canal stenosis",
+          "central spinal canal stenosis"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "In a spinal context, canal stenosis is narrowing of the spinal canal, which may reduce space available for the spinal cord or spinal nerve roots. The affected region and clinical significance depend on the location and degree of narrowing.",
+        "clinical_context": "Usually appears in cervical or lumbar spine MRI/CT reports and orthopedic, neurosurgical, or neurology notes. Read with the stated spinal level and whether central canal, lateral recess, or neural foraminal narrowing is described.",
+        "source_citation": "StatPearls / NCBI Bookshelf — 'Lumbar Spinal Stenosis'",
+        "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK531493/",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "NCBI Bookshelf review defining lumbar spinal stenosis as narrowing of the spinal canal in the lower back and discussing central canal, lateral recess, and neural foraminal narrowing.",
+        "summary_excerpt": "Lumbar spinal stenosis is described as narrowing in the lumbar spinal canal. Narrowing may involve the central canal, lateral recess, or neural foraminal areas, with potential compression of neural structures.",
+        "groups": [
+          "Musculoskeletal System",
+          "Nervous System"
+        ],
+        "mesh": [
+          "Spinal Stenosis"
+        ],
+        "primary_institute": "NCBI Bookshelf / StatPearls",
+        "see_also_not_aliases": [
+          "Foraminal stenosis",
+          "Lumbar spinal stenosis",
+          "Cervical spinal stenosis"
+        ]
+      },
       "alias_conflicts": {},
-      "alias_warnings": [],
+      "alias_warnings": [
+        "The phrase 'canal stenosis' is context-dependent; this entry is scoped to the spinal canal and must not be applied to other anatomical canals without evidence."
+      ],
       "suggestions": [],
-      "notes": ""
+      "notes": "Approved at user request using a source that directly describes lumbar spinal canal stenosis. Contextual scope is spinal; if the corpus uses 'canal stenosis' for another anatomical site, create a separate site-specific entry.",
+      "promoted_as": "kb-049"
     },
     {
       "wanted": "Mediastinal",
@@ -64,13 +156,42 @@
         "corpus gap: ev-013"
       ],
       "status": "not_found",
-      "approved": false,
-      "entry": null,
-      "reference": null,
+      "approved": true,
+      "entry": {
+        "term": "mediastinal",
+        "aliases": [
+          "mediastinal",
+          "relating to the mediastinum"
+        ],
+        "label": "DESCRIPTOR",
+        "plain_definition": "Relating to the mediastinum, the central compartment of the chest between the lungs that contains the heart and major blood vessels, trachea, esophagus, thymus, and lymph nodes.",
+        "clinical_context": "Used in chest imaging and thoracic clinical documentation to describe anatomy or findings, such as mediastinal lymph nodes, masses, widening, or pleural structures.",
+        "source_citation": "Cambridge Dictionary — 'Mediastinal'; anatomy cross-checked against NLM MeSH — 'Mediastinum'",
+        "source_url": "https://dictionary.cambridge.org/dictionary/english/mediastinal",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "Medical adjective meaning relating to the mediastinum.",
+        "summary_excerpt": "The mediastinum is the area between the lungs. It contains the heart and large blood vessels, trachea, esophagus, thymus, and lymph nodes.",
+        "groups": [
+          "Thorax",
+          "Anatomy"
+        ],
+        "mesh": [
+          "Mediastinum"
+        ],
+        "primary_institute": "Cambridge Dictionary; National Library of Medicine",
+        "see_also_not_aliases": [
+          "Mediastinum",
+          "Mediastinal lymph nodes",
+          "Mediastinal mass"
+        ]
+      },
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": ""
+      "notes": "Approved after verifying the adjective definition and the anatomical scope of the mediastinum. The original capitalization has been normalized in entry.term; preserve the user's original wanted value for traceability.",
+      "promoted_as": "kb-050"
     },
     {
       "wanted": "femoral neck",
@@ -78,13 +199,44 @@
         "corpus gap: ev-014"
       ],
       "status": "not_found",
-      "approved": false,
-      "entry": null,
-      "reference": null,
+      "approved": true,
+      "entry": {
+        "term": "femoral neck",
+        "aliases": [
+          "femoral neck",
+          "femur neck",
+          "neck of femur",
+          "neck of the femur"
+        ],
+        "label": "ANATOMY",
+        "plain_definition": "The narrowed portion of the femur between the femoral head and the trochanters, connecting the head of the femur to its shaft.",
+        "clinical_context": "Hip radiographs, CT/MRI reports, orthopedic notes, bone-density assessment, and descriptions of femoral-neck fractures.",
+        "source_citation": "National Library of Medicine MeSH — 'Femur Neck'",
+        "source_url": "https://www.ncbi.nlm.nih.gov/mesh/68005272",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "MeSH anatomical heading defining the femoral neck as the constricted portion of the thigh bone between the femoral head and trochanters.",
+        "summary_excerpt": "NLM MeSH defines Femur Neck as the constricted portion of the femur between the head and the trochanters and lists Femoral Neck and Neck of Femur as entry terms.",
+        "groups": [
+          "Anatomy",
+          "Musculoskeletal System"
+        ],
+        "mesh": [
+          "Femur Neck"
+        ],
+        "primary_institute": "National Library of Medicine",
+        "see_also_not_aliases": [
+          "Femoral neck fracture",
+          "Femoral head",
+          "Femur"
+        ]
+      },
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": ""
+      "notes": "Approved after checking the NLM MeSH anatomical definition. This entry describes the structure, not a femoral-neck fracture; retain fracture terms as separate concepts.",
+      "promoted_as": "kb-051"
     },
     {
       "wanted": "antral",
@@ -92,13 +244,45 @@
         "corpus gap: ev-015"
       ],
       "status": "not_found",
-      "approved": false,
-      "entry": null,
-      "reference": null,
+      "approved": true,
+      "entry": {
+        "term": "antral",
+        "aliases": [
+          "antral",
+          "gastric antral",
+          "relating to the gastric antrum"
+        ],
+        "label": "DESCRIPTOR",
+        "plain_definition": "Relating to an antrum; in gastric clinical documentation, specifically relating to the pyloric antrum, the distal region of the stomach extending toward the pylorus.",
+        "clinical_context": "Upper endoscopy, gastric biopsy and pathology reports, and gastrointestinal imaging; examples include antral mucosa, antral gastritis, and antral biopsy.",
+        "source_citation": "National Library of Medicine MeSH — 'Pyloric Antrum'",
+        "source_url": "https://www.ncbi.nlm.nih.gov/mesh/68011706",
+        "is_common": false
+      },
+      "reference": {
+        "meta_desc": "MeSH anatomical heading defining the pyloric antrum as the region of the stomach between the incisura angularis and the pylorus-duodenum junction.",
+        "summary_excerpt": "NLM MeSH defines the pyloric antrum as a region of the stomach extending from the incisura angularis to the junction of the pylorus and duodenum; it lists Gastric Antrum as an entry term.",
+        "groups": [
+          "Digestive System",
+          "Stomach"
+        ],
+        "mesh": [
+          "Pyloric Antrum"
+        ],
+        "primary_institute": "National Library of Medicine",
+        "see_also_not_aliases": [
+          "Pylorus",
+          "Gastric antrum",
+          "Antrum"
+        ]
+      },
       "alias_conflicts": {},
-      "alias_warnings": [],
+      "alias_warnings": [
+        "'Antral' can refer to different anatomical antra; this entry is scoped to the gastric antrum based on the stated dataset intent."
+      ],
       "suggestions": [],
-      "notes": ""
+      "notes": "Approved at user request after checking NLM MeSH for the pyloric/gastric antrum. Use this interpretation only in gastric context; other anatomical uses of 'antrum' require separate concepts.",
+      "promoted_as": "kb-052"
     },
     {
       "wanted": "Afebrile",
@@ -106,13 +290,25 @@
         "corpus gap: ev-016"
       ],
       "status": "not_found",
-      "approved": false,
-      "entry": null,
+      "approved": true,
+      "entry": {
+        "term": "afebrile",
+        "aliases": [
+          "afebrile"
+        ],
+        "label": "DESCRIPTOR",
+        "plain_definition": "Afebrile means without fever at the time of clinical assessment.",
+        "clinical_context": "Triage vitals, physical examinations, nursing notes, and progress notes.",
+        "source_citation": "Direct authoritative medical dictionary or clinical glossary reference required",
+        "source_url": null,
+        "is_common": false
+      },
       "reference": null,
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": ""
+      "notes": "User-requested approval flag set to true on 2026-10-18. This records the requested approval state; it does not mean source coverage, semantic scope, taxonomy, aliases, or matcher regression tests have been independently verified. Existing caveats below remain relevant before production promotion. Updated from unreviewed_kb_candidates_checklist_reviewed_draft.docx on 2026-10-18. Source verification remains pending; no direct source URL was supplied. Do not define this as necessarily having a normal temperature in every circumstance; the interpretation of temperature depends on clinical context.",
+      "promoted_as": "kb-053"
     },
     {
       "wanted": "cirrhosis",
@@ -120,12 +316,11 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "cirrhosis",
         "aliases": [
-          "cirrhosis",
-          "Hepatic fibrosis"
+          "cirrhosis"
         ],
         "label": "DISEASE",
         "plain_definition": "Scarring of the liver. The scar tissue takes the place of healthy liver tissue and cannot do the liver's usual work.",
@@ -151,7 +346,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Removed 'Hepatic fibrosis' as an alias because it can be broader than cirrhosis; definition and DISEASE label checked.",
+      "promoted_as": "kb-054"
     },
     {
       "wanted": "hepatitis",
@@ -159,14 +355,14 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "hepatitis",
         "aliases": [
           "hepatitis"
         ],
         "label": "DISEASE",
-        "plain_definition": "The liver is swollen and irritated (inflamed). This has several possible causes, including viruses.",
+        "plain_definition": "Inflammation of the liver. It can have several causes, including viruses.",
         "clinical_context": "Often named by type or cause, for example hepatitis B or hepatitis C. Liver blood tests are usually reported alongside.",
         "source_citation": "MedlinePlus Health Topics - 'Hepatitis'",
         "source_url": "https://medlineplus.gov/hepatitis.html",
@@ -190,7 +386,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-055"
     },
     {
       "wanted": "jaundice",
@@ -198,7 +395,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "jaundice",
         "aliases": [
@@ -231,7 +428,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-056"
     },
     {
       "wanted": "bilirubin",
@@ -239,16 +437,14 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "bilirubin",
         "aliases": [
-          "bilirubin",
-          "Bilirubin Blood Test",
-          "total bilirubin"
+          "bilirubin"
         ],
         "label": "BIOMARKER",
-        "plain_definition": "Bilirubin is a yellow substance made when the body breaks down old red blood cells. The liver normally clears it from the body.",
+        "plain_definition": "A yellow substance produced when the body breaks down old red blood cells. The liver processes it so it can leave the body.",
         "clinical_context": "Reported in a liver function panel, sometimes as total and direct bilirubin. Reference ranges vary by lab.",
         "source_citation": "MedlinePlus Medical Tests - 'Bilirubin Blood Test'",
         "source_url": "https://medlineplus.gov/lab-tests/bilirubin-blood-test/",
@@ -265,7 +461,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-057"
     },
     {
       "wanted": "pancreatitis",
@@ -273,14 +470,14 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "pancreatitis",
         "aliases": [
           "pancreatitis"
         ],
         "label": "DISEASE",
-        "plain_definition": "The pancreas is swollen and irritated (inflamed). The pancreas is a gland behind the stomach that helps digest food and control blood sugar.",
+        "plain_definition": "Inflammation of the pancreas, a gland behind the stomach that helps digest food and control blood sugar.",
         "clinical_context": "Described as acute (sudden) or chronic (long-term). Often reported with lipase or amylase blood test results.",
         "source_citation": "MedlinePlus Health Topics - 'Pancreatitis'",
         "source_url": "https://medlineplus.gov/pancreatitis.html",
@@ -305,7 +502,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-058"
     },
     {
       "wanted": "kidney cyst",
@@ -313,7 +511,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "kidney cyst",
         "aliases": [
@@ -321,8 +519,8 @@
           "Kidney Cysts"
         ],
         "label": "DISEASE",
-        "plain_definition": "A small sac filled with fluid in the kidney. Simple kidney cysts are common as people get older.",
-        "clinical_context": "Seen on ultrasound, CT or MRI. Reports often describe a cyst as simple or complex and give its size.",
+        "plain_definition": "A kidney cyst is a fluid-filled sac in the kidney. Simple kidney cysts are often harmless and become more common with age.",
+        "clinical_context": "Usually described from imaging, such as ultrasound, CT, or MRI; reports may note the cyst’s size and whether it appears simple or complex.",
         "source_citation": "MedlinePlus Health Topics - 'Kidney Cysts'",
         "source_url": "https://medlineplus.gov/kidneycysts.html",
         "is_common": false
@@ -345,7 +543,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval. The MedlinePlus topic is mostly about polycystic kidney disease; check it supports a simple-cyst definition."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. The page supports a simple kidney cyst definition; wording is narrowed to fluid-filled sacs and avoids implying every cyst is harmless.",
+      "promoted_as": "kb-059"
     },
     {
       "wanted": "urinary tract infection",
@@ -353,7 +552,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "urinary tract infection",
         "aliases": [
@@ -390,7 +589,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-060"
     },
     {
       "wanted": "enlarged prostate",
@@ -398,8 +598,19 @@
         "wishlist"
       ],
       "status": "partial",
-      "approved": false,
-      "entry": null,
+      "approved": true,
+      "entry": {
+        "term": "enlarged prostate",
+        "aliases": [
+          "prostate enlargement"
+        ],
+        "label": "DESCRIPTOR",
+        "plain_definition": "Enlarged prostate describes an increase in the size or volume of the prostate gland. Causes may include benign prostatic hyperplasia, inflammation, malignancy, or other structural changes.",
+        "clinical_context": "Urology notes, digital rectal examination, ultrasound or other imaging reports, and diagnostic lists.",
+        "source_citation": "NCBI Bookshelf (supplied source lead; ensure it supports the broader descriptive definition)",
+        "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK558920/",
+        "is_common": false
+      },
       "reference": null,
       "alias_conflicts": {},
       "alias_warnings": [],
@@ -409,7 +620,8 @@
           "url": "https://medlineplus.gov/enlargedprostatebph.html"
         }
       ],
-      "notes": ""
+      "notes": "User-requested approval flag set to true on 2026-10-18. This records the requested approval state; it does not mean source coverage, semantic scope, taxonomy, aliases, or matcher regression tests have been independently verified. Existing caveats below remain relevant before production promotion. Updated from unreviewed_kb_candidates_checklist_reviewed_draft.docx on 2026-10-18. Source verification and confirmation that the dataset uses a general descriptive finding rather than a specific BPH diagnosis remain pending. The supplied source may focus on BPH; ensure it supports the broader definition or select a source that does. Do not automatically alias “enlarged prostate” to BPH.",
+      "promoted_as": "kb-061"
     },
     {
       "wanted": "atrial fibrillation",
@@ -417,12 +629,11 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "atrial fibrillation",
         "aliases": [
           "atrial fibrillation",
-          "AF",
           "AFib"
         ],
         "label": "DISEASE",
@@ -447,11 +658,10 @@
         ]
       },
       "alias_conflicts": {},
-      "alias_warnings": [
-        "'AF' is very short; it may match unrelated text"
-      ],
+      "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval. Alias 'AF' is only two letters; keep it only if the dictionary matcher handles it safely."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Removed ambiguous two-letter alias 'AF'; retained the full term and 'AFib'. Definition and DISEASE label checked.",
+      "promoted_as": "kb-062"
     },
     {
       "wanted": "heart failure",
@@ -459,16 +669,14 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "heart failure",
         "aliases": [
           "heart failure",
           "CHF",
           "Cardiac failure",
-          "Congestive heart failure",
-          "Left-sided heart failure",
-          "Right-sided heart failure"
+          "Congestive heart failure"
         ],
         "label": "DISEASE",
         "plain_definition": "The heart cannot pump enough blood to meet the body's needs. It does not mean the heart has stopped.",
@@ -498,7 +706,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval. Aliases 'Left-sided heart failure' and 'Right-sided heart failure' would map to this general definition; keep only if intended."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Removed left-sided and right-sided heart failure as aliases because they are specific types, not the general term.",
+      "promoted_as": "kb-063"
     },
     {
       "wanted": "cardiomyopathy",
@@ -506,16 +715,12 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "cardiomyopathy",
         "aliases": [
           "cardiomyopathy",
-          "Arrhythmogenic right ventricular cardiomyopathy",
-          "Dilated cardiomyopathy",
-          "Hypertrophic cardiomyopathy",
-          "Myocardiopathy",
-          "Restrictive cardiomyopathy"
+          "Myocardiopathy"
         ],
         "label": "DISEASE",
         "plain_definition": "A disease of the heart muscle that makes it larger, thicker, or stiffer than usual.",
@@ -539,7 +744,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval. The four subtype aliases (dilated, hypertrophic, restrictive, arrhythmogenic) would map to this general definition; keep only if intended."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Removed named cardiomyopathy subtypes as aliases; retained the general term and 'Myocardiopathy'.",
+      "promoted_as": "kb-064"
     },
     {
       "wanted": "atherosclerosis",
@@ -547,7 +753,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "atherosclerosis",
         "aliases": [
@@ -579,7 +785,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval. Removed alias 'Arteriosclerosis': the MedlinePlus summary itself says the two are not the same thing."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-065"
     },
     {
       "wanted": "aneurysm",
@@ -587,7 +794,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "aneurysm",
         "aliases": [
@@ -595,8 +802,8 @@
           "Aneurysms"
         ],
         "label": "DISEASE",
-        "plain_definition": "A bulge or ballooning in the wall of a blood vessel (artery).",
-        "clinical_context": "Described by location, such as the aorta or the brain, and by size.",
+        "plain_definition": "A bulge or ballooning in the wall of an artery.",
+        "clinical_context": "Usually described by its location, such as the aorta or a brain artery, and by its size.",
         "source_citation": "MedlinePlus Health Topics - 'Aneurysms'",
         "source_url": "https://medlineplus.gov/aneurysms.html",
         "is_common": false
@@ -616,7 +823,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-066"
     },
     {
       "wanted": "deep vein thrombosis",
@@ -624,7 +832,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "deep vein thrombosis",
         "aliases": [
@@ -656,7 +864,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-067"
     },
     {
       "wanted": "pulmonary embolism",
@@ -664,12 +873,12 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "pulmonary embolism",
         "aliases": [
           "pulmonary embolism",
-          "Blood clots in the lung"
+          "blood clot in the lung"
         ],
         "label": "DISEASE",
         "plain_definition": "A blockage in a blood vessel in the lungs, usually caused by a blood clot that has travelled there.",
@@ -695,7 +904,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-068"
     },
     {
       "wanted": "pneumonia",
@@ -703,12 +913,11 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "pneumonia",
         "aliases": [
-          "pneumonia",
-          "Bronchopneumonia"
+          "pneumonia"
         ],
         "label": "DISEASE",
         "plain_definition": "An infection in one or both lungs that makes the tiny air sacs fill with fluid or pus.",
@@ -736,7 +945,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-069"
     },
     {
       "wanted": "emphysema",
@@ -744,7 +954,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "emphysema",
         "aliases": [
@@ -776,7 +986,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-070"
     },
     {
       "wanted": "COPD",
@@ -784,11 +995,12 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "COPD",
         "aliases": [
-          "COPD"
+          "COPD",
+          "chronic obstructive pulmonary disease"
         ],
         "label": "DISEASE",
         "plain_definition": "A group of long-term lung diseases that make it hard to breathe air in and out. Emphysema and chronic bronchitis are two kinds.",
@@ -815,23 +1027,24 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-071"
     },
     {
       "wanted": "bronchitis",
       "requested_by": [
         "wishlist"
       ],
-      "status": "related_topic",
-      "approved": false,
+      "status": "matched",
+      "approved": true,
       "entry": {
         "term": "bronchitis",
         "aliases": [
           "bronchitis"
         ],
-        "label": "",
-        "plain_definition": "",
-        "clinical_context": "",
+        "label": "DISEASE",
+        "plain_definition": "Inflammation of the bronchial tubes, the airways that carry air to the lungs. It commonly causes a cough that may bring up mucus.",
+        "clinical_context": "Often described as acute (short-term) or chronic (long-term); symptoms and duration vary by type.",
         "source_citation": "MedlinePlus Health Topics - 'Acute Bronchitis'",
         "source_url": "https://medlineplus.gov/acutebronchitis.html",
         "is_common": false
@@ -860,7 +1073,8 @@
           "url": "https://medlineplus.gov/chronicbronchitis.html"
         }
       ],
-      "notes": ""
+      "notes": "Reviewed 2026-10-18: the cited MedlinePlus page directly defines bronchitis and distinguishes acute from chronic bronchitis. Added a plain-language definition, clinical context, and DISEASE label.",
+      "promoted_as": "kb-072"
     },
     {
       "wanted": "asthma",
@@ -868,7 +1082,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "asthma",
         "aliases": [
@@ -899,7 +1113,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-073"
     },
     {
       "wanted": "prediabetes",
@@ -907,7 +1122,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "prediabetes",
         "aliases": [
@@ -938,7 +1153,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval. Alias 'Insulin Resistance' is related but not the same thing; consider removing it."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Insulin resistance is not included as an alias because it is related but not the same term. Definition and DISEASE label checked.",
+      "promoted_as": "kb-074"
     },
     {
       "wanted": "hyperglycemia",
@@ -946,7 +1162,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "hyperglycemia",
         "aliases": [
@@ -981,7 +1197,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-075"
     },
     {
       "wanted": "hypoglycemia",
@@ -989,7 +1206,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "hypoglycemia",
         "aliases": [
@@ -1020,7 +1237,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-076"
     },
     {
       "wanted": "iron deficiency",
@@ -1028,13 +1246,25 @@
         "wishlist"
       ],
       "status": "not_found",
-      "approved": false,
-      "entry": null,
+      "approved": true,
+      "entry": {
+        "term": "iron deficiency",
+        "aliases": [
+          "iron deficiency"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "Iron deficiency is a state in which the body’s available iron stores are insufficient to meet physiological needs. It can occur before, or alongside, iron-deficiency anemia.",
+        "clinical_context": "Hematology notes, ferritin and transferrin-saturation results, and diagnostic lists.",
+        "source_citation": "NLM MeSH (supplied source lead; direct support pending verification)",
+        "source_url": "https://www.ncbi.nlm.nih.gov/mesh/68007506",
+        "is_common": false
+      },
       "reference": null,
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": ""
+      "notes": "User-requested approval flag set to true on 2026-10-18. This records the requested approval state; it does not mean source coverage, semantic scope, taxonomy, aliases, or matcher regression tests have been independently verified. Existing caveats below remain relevant before production promotion. Updated from unreviewed_kb_candidates_checklist_reviewed_draft.docx on 2026-10-18. Verification that the reference directly covers iron deficiency, rather than anemia alone, remains pending. Ferritin and transferrin saturation are indicators interpreted in context; ferritin may be affected by inflammation. Avoid embedding a universal numerical cutoff without a specific source.",
+      "promoted_as": "kb-077"
     },
     {
       "wanted": "vitamin D deficiency",
@@ -1042,7 +1272,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "vitamin D deficiency",
         "aliases": [
@@ -1074,7 +1304,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-078"
     },
     {
       "wanted": "vitamin B12 deficiency",
@@ -1082,13 +1313,26 @@
         "wishlist"
       ],
       "status": "not_found",
-      "approved": false,
-      "entry": null,
+      "approved": true,
+      "entry": {
+        "term": "vitamin B12 deficiency",
+        "aliases": [
+          "vitamin B12 deficiency",
+          "cobalamin deficiency"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "Vitamin B12 deficiency occurs when the body does not have enough vitamin B12 to meet its needs. It can affect blood-cell formation and neurological function and may be present before macrocytic anemia or neurological symptoms become apparent.",
+        "clinical_context": "Diagnosis lists, hematology and neurology notes, nutritional assessment, and B12-related laboratory workups.",
+        "source_citation": "NCBI Bookshelf (supplied source lead; direct support pending verification)",
+        "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK441923/",
+        "is_common": false
+      },
       "reference": null,
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": ""
+      "notes": "User-requested approval flag set to true on 2026-10-18. This records the requested approval state; it does not mean source coverage, semantic scope, taxonomy, aliases, or matcher regression tests have been independently verified. Existing caveats below remain relevant before production promotion. Updated from unreviewed_kb_candidates_checklist_reviewed_draft.docx on 2026-10-18. Source verification and confirmation of any diagnostic threshold required by the KB remain pending. Do not conflate this condition with the Vitamin B12 nutrient or the Vitamin B12 laboratory test.",
+      "promoted_as": "kb-079"
     },
     {
       "wanted": "hyponatremia",
@@ -1096,20 +1340,25 @@
         "wishlist"
       ],
       "status": "related_topic",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "hyponatremia",
         "aliases": [
           "hyponatremia"
         ],
-        "label": "",
-        "plain_definition": "",
-        "clinical_context": "",
-        "source_citation": "MedlinePlus Health Topics - 'Sodium'",
-        "source_url": "https://medlineplus.gov/sodium.html",
+        "label": "DISEASE",
+        "plain_definition": "Hyponatremia is a low concentration of sodium in the blood. A commonly used threshold is serum sodium below 135 mEq/L, interpreted in the clinical context.",
+        "clinical_context": "Diagnosis lists, internal medicine notes, electrolyte panels, and inpatient assessments.",
+        "source_citation": "NCBI Bookshelf (supplied source lead; direct support pending verification)",
+        "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK470386/",
         "is_common": false
       },
-      "reference": {
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "User-requested approval flag set to true on 2026-10-18. This records the requested approval state; it does not mean source coverage, semantic scope, taxonomy, aliases, or matcher regression tests have been independently verified. Existing caveats below remain relevant before production promotion. Updated from unreviewed_kb_candidates_checklist_reviewed_draft.docx on 2026-10-18. Direct-source validation and KB mapping remain pending; check the supplied URL and replace the previous cross-reference-only source before treating the candidate as promotion-ready. Treat the threshold as a commonly used definition, not as a complete severity classification or patient-specific interpretation.",
+      "previous_reference": {
         "meta_desc": "Did you know that most Americans get more sodium than they need? Read about what you can do to manage your sodium intake",
         "summary_excerpt": "Table salt is a combination of two minerals - sodium and chloride Your body needs some sodium to work properly. It helps with the function of nerves and muscles. It also helps to keep the right balance of fluids in your body. Your kidneys control how much sodium is in your body. If you have too much and your kidneys can't get rid it, sodium builds up in your blood. This can lead to high blood pressure . High blood pressure can lead to other health problems. Most people in the U.S. get more sodium in their diets than they need. A key to healthy eating is choosing foods low in sodium. The Dietary Guidelines recommend that most adults eat less than 2.3 grams per day. That equals about 1 teaspoo",
         "groups": [
@@ -1126,10 +1375,7 @@
           "Salt"
         ]
       },
-      "alias_conflicts": {},
-      "alias_warnings": [],
-      "suggestions": [],
-      "notes": ""
+      "promoted_as": "kb-080"
     },
     {
       "wanted": "hypokalemia",
@@ -1137,20 +1383,25 @@
         "wishlist"
       ],
       "status": "related_topic",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "hypokalemia",
         "aliases": [
           "hypokalemia"
         ],
-        "label": "",
-        "plain_definition": "",
-        "clinical_context": "",
-        "source_citation": "MedlinePlus Health Topics - 'Potassium'",
-        "source_url": "https://medlineplus.gov/potassium.html",
+        "label": "DISEASE",
+        "plain_definition": "Hypokalemia is a low concentration of potassium in the blood. A commonly used threshold is serum potassium below 3.5 mEq/L, interpreted with the laboratory reference range and clinical context.",
+        "clinical_context": "Diagnosis lists, metabolic panels, cardiology notes, and internal medicine assessments.",
+        "source_citation": "NCBI Bookshelf (supplied source lead; direct support pending verification)",
+        "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK482465/",
         "is_common": false
       },
-      "reference": {
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "User-requested approval flag set to true on 2026-10-18. This records the requested approval state; it does not mean source coverage, semantic scope, taxonomy, aliases, or matcher regression tests have been independently verified. Existing caveats below remain relevant before production promotion. Updated from unreviewed_kb_candidates_checklist_reviewed_draft.docx on 2026-10-18. Direct-source validation and KB mapping remain pending; check the supplied URL and replace the previous cross-reference-only source before treating the candidate as promotion-ready. Thresholds and reference intervals can vary slightly across laboratories; the entry should not encode severity unless separately supported.",
+      "previous_reference": {
         "meta_desc": "Potassium is an essential mineral your body needs for healthy cells, muscles, nerves, and heart function. Learn the best food sources and how much you need.",
         "summary_excerpt": "Potassium is a mineral that your body needs to work properly. It is a type of electrolyte . It helps your nerves to function and muscles to contract. It helps your heartbeat stay regular. It also helps move nutrients into cells and waste products out of cells. A diet rich in potassium helps to offset some of sodium's harmful effects on blood pressure. Many people get all the potassium they need from what they eat and drink. Sources of potassium in the diet include: Leafy greens, such as spinach and collards Fruit from vines, such as grapes and blackberries Root vegetables, such as carrots and potatoes Citrus fruits, such as oranges and grapefruit Your kidneys help to keep the right amount of",
         "groups": [
@@ -1166,10 +1417,7 @@
           "Hypokalemia"
         ]
       },
-      "alias_conflicts": {},
-      "alias_warnings": [],
-      "suggestions": [],
-      "notes": ""
+      "promoted_as": "kb-081"
     },
     {
       "wanted": "gout",
@@ -1177,7 +1425,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "gout",
         "aliases": [
@@ -1185,7 +1433,7 @@
           "Gouty arthritis"
         ],
         "label": "DISEASE",
-        "plain_definition": "A type of arthritis caused by too much uric acid building up in the body. It can make joints painful, swollen, and red.",
+        "plain_definition": "A type of inflammatory arthritis caused by uric acid crystals forming in joints. It can cause sudden pain, swelling, and redness.",
         "clinical_context": "Often reported with a uric acid blood test. It commonly affects the big toe.",
         "source_citation": "MedlinePlus Health Topics - 'Gout'",
         "source_url": "https://medlineplus.gov/gout.html",
@@ -1210,7 +1458,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-082"
     },
     {
       "wanted": "hyperthyroidism",
@@ -1218,7 +1467,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "hyperthyroidism",
         "aliases": [
@@ -1252,7 +1501,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-083"
     },
     {
       "wanted": "goiter",
@@ -1260,20 +1510,25 @@
         "wishlist"
       ],
       "status": "related_topic",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "goiter",
         "aliases": [
           "goiter"
         ],
-        "label": "",
-        "plain_definition": "",
-        "clinical_context": "",
-        "source_citation": "MedlinePlus Health Topics - 'Thyroid Diseases'",
-        "source_url": "https://medlineplus.gov/thyroiddiseases.html",
+        "label": "DISEASE",
+        "plain_definition": "A goiter is an enlargement of the thyroid gland. It may occur when thyroid hormone levels are normal, elevated, or decreased.",
+        "clinical_context": "Neck examination, thyroid ultrasound, endocrine notes, and diagnostic lists.",
+        "source_citation": "NCBI Bookshelf (supplied source lead; direct support pending verification)",
+        "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK562161/",
         "is_common": false
       },
-      "reference": {
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "User-requested approval flag set to true on 2026-10-18. This records the requested approval state; it does not mean source coverage, semantic scope, taxonomy, aliases, or matcher regression tests have been independently verified. Existing caveats below remain relevant before production promotion. Updated from unreviewed_kb_candidates_checklist_reviewed_draft.docx on 2026-10-18. Direct-source validation and KB mapping remain pending; check the supplied URL and replace the previous cross-reference-only source before treating the candidate as promotion-ready. Do not treat “goiter” as a synonym for hyperthyroidism or hypothyroidism.",
+      "previous_reference": {
         "meta_desc": "The thyroid is a gland in the neck. The thyroid gland creates hormones that affect metabolism. Learn about thyroid diseases, such as hypothyroidism.",
         "summary_excerpt": "Your thyroid is a small, butterfly-shaped gland in the front of your neck. It makes hormones that control the way the body uses energy. These hormones affect nearly every organ in your body and control many of your body's most important functions. For example, they affect your breathing, heart rate, weight, digestion, and moods. Thyroid diseases cause your thyroid to make either too much or too little of the hormones. Some of the different thyroid diseases include: Goiter, an enlargement of the thyroid gland Hyperthyroidism , which happens when your thyroid gland makes more thyroid hormones than your body needs Hypothyroidism , which happens when your thyroid gland does not make enough thyro",
         "groups": [
@@ -1287,10 +1542,7 @@
           "Goiter"
         ]
       },
-      "alias_conflicts": {},
-      "alias_warnings": [],
-      "suggestions": [],
-      "notes": ""
+      "promoted_as": "kb-084"
     },
     {
       "wanted": "osteoarthritis",
@@ -1298,13 +1550,12 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "osteoarthritis",
         "aliases": [
           "osteoarthritis",
           "Degenerative joint disease",
-          "OA",
           "Osteoarthrosis"
         ],
         "label": "DISEASE",
@@ -1330,11 +1581,10 @@
         ]
       },
       "alias_conflicts": {},
-      "alias_warnings": [
-        "'OA' is very short; it may match unrelated text"
-      ],
+      "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval. Alias 'OA' is only two letters; keep it only if the dictionary matcher handles it safely."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Removed ambiguous two-letter alias 'OA'; retained the full term and unambiguous synonyms.",
+      "promoted_as": "kb-085"
     },
     {
       "wanted": "scoliosis",
@@ -1342,7 +1592,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "scoliosis",
         "aliases": [
@@ -1370,7 +1620,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-086"
     },
     {
       "wanted": "herniated disk",
@@ -1378,12 +1629,11 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "herniated disk",
         "aliases": [
           "herniated disk",
-          "Compressed disk",
           "Herniated intervertebral disk",
           "Herniated nucleus pulposus",
           "Prolapsed disk",
@@ -1415,7 +1665,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval. Removed alias 'Bulging disk': radiology reports use 'bulge' and 'herniation' for different findings. 'Compressed disk' may need the same check."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Removed 'Compressed disk' because it can describe a different disc finding. Retained aliases that refer to herniation.",
+      "promoted_as": "kb-087"
     },
     {
       "wanted": "spinal stenosis",
@@ -1423,7 +1674,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "spinal stenosis",
         "aliases": [
@@ -1451,7 +1702,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-088"
     },
     {
       "wanted": "diverticulosis",
@@ -1459,8 +1711,19 @@
         "wishlist"
       ],
       "status": "partial",
-      "approved": false,
-      "entry": null,
+      "approved": true,
+      "entry": {
+        "term": "diverticulosis",
+        "aliases": [
+          "diverticulosis"
+        ],
+        "label": "DISEASE",
+        "plain_definition": "Diverticulosis is a condition characterized by the presence of small pouches called diverticula in the wall of the digestive tract, most commonly the colon. It is often asymptomatic and is distinct from diverticulitis, which involves inflammation of diverticula.",
+        "clinical_context": "Colonoscopy reports, abdominal CT findings, gastroenterology notes, and diagnosis lists.",
+        "source_citation": "NCBI Bookshelf (supplied source lead; direct support pending verification)",
+        "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK541088/",
+        "is_common": false
+      },
       "reference": null,
       "alias_conflicts": {},
       "alias_warnings": [],
@@ -1470,7 +1733,8 @@
           "url": "https://medlineplus.gov/diverticulosisanddiverticulitis.html"
         }
       ],
-      "notes": ""
+      "notes": "User-requested approval flag set to true on 2026-10-18. This records the requested approval state; it does not mean source coverage, semantic scope, taxonomy, aliases, or matcher regression tests have been independently verified. Existing caveats below remain relevant before production promotion. Updated from unreviewed_kb_candidates_checklist_reviewed_draft.docx on 2026-10-18. Source verification and confirmation that the KB entry is specifically colonic, if intended, remain pending. Avoid defining all diverticulosis as asymptomatic. Do not alias diverticulosis to diverticulitis.",
+      "promoted_as": "kb-089"
     },
     {
       "wanted": "hernia",
@@ -1478,7 +1742,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "hernia",
         "aliases": [
@@ -1512,7 +1776,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval. Removed alias 'Enterocele': it is one specific type of hernia, not a synonym."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-090"
     },
     {
       "wanted": "hemorrhoids",
@@ -1520,7 +1785,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "hemorrhoids",
         "aliases": [
@@ -1552,7 +1817,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-091"
     },
     {
       "wanted": "colonic polyps",
@@ -1560,7 +1826,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "colonic polyps",
         "aliases": [
@@ -1590,7 +1856,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-092"
     },
     {
       "wanted": "uterine fibroids",
@@ -1598,7 +1865,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "uterine fibroids",
         "aliases": [
@@ -1607,7 +1874,7 @@
           "Uterine leiomyomata"
         ],
         "label": "DISEASE",
-        "plain_definition": "Growths made of muscle and other tissue in or around the wall of the uterus (womb). They are almost always not cancer.",
+        "plain_definition": "Growths made of muscle and other tissue in or around the wall of the uterus (womb). They are usually noncancerous.",
         "clinical_context": "Seen on ultrasound or MRI, with the number and size described.",
         "source_citation": "MedlinePlus Health Topics - 'Uterine Fibroids'",
         "source_url": "https://medlineplus.gov/uterinefibroids.html",
@@ -1634,7 +1901,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-093"
     },
     {
       "wanted": "ovarian cysts",
@@ -1642,11 +1910,12 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "ovarian cysts",
         "aliases": [
-          "ovarian cysts"
+          "ovarian cysts",
+          "ovarian cyst"
         ],
         "label": "DISEASE",
         "plain_definition": "Fluid-filled sacs in or on an ovary. They are common and often form as part of the normal monthly cycle.",
@@ -1672,7 +1941,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label and context drafted by Claude from the MedlinePlus summary (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-094"
     },
     {
       "wanted": "complete blood count",
@@ -1680,7 +1950,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "complete blood count",
         "aliases": [
@@ -1689,7 +1959,7 @@
           "CBC"
         ],
         "label": "TEST",
-        "plain_definition": "A group of blood tests that count the different cells in the blood: red blood cells, white blood cells, and platelets.",
+        "plain_definition": "A group of blood measurements that counts blood cells and measures features such as hemoglobin and hematocrit.",
         "clinical_context": "One of the most common blood tests. Results list each cell type with its own reference range.",
         "source_citation": "MedlinePlus Medical Tests - 'Complete Blood Count (CBC)'",
         "source_url": "https://medlineplus.gov/lab-tests/complete-blood-count-cbc/",
@@ -1706,7 +1976,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-095"
     },
     {
       "wanted": "WBC",
@@ -1714,31 +1985,22 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
-        "term": "WBC",
+        "term": "WBC Count",
         "aliases": [
-          "WBC",
-          "White Blood Count (WBC)",
-          "White Blood Count",
           "white blood cell count",
+          "leukocyte count",
           "WBC count"
         ],
-        "label": "BIOMARKER",
-        "plain_definition": "The number of white blood cells in the blood. White blood cells are part of the body's defense against infection.",
-        "clinical_context": "Reported in a complete blood count (CBC). Reference ranges vary by lab.",
-        "source_citation": "MedlinePlus Medical Tests - 'White Blood Count (WBC)'",
-        "source_url": "https://medlineplus.gov/lab-tests/white-blood-count-wbc/",
+        "label": "TEST",
+        "plain_definition": "A laboratory measurement that quantifies the number of white blood cells in a specified volume of blood.",
+        "clinical_context": "Complete blood count (CBC) and hematology reports.",
+        "source_citation": "NLM MeSH (supplied source lead; direct support pending verification)",
+        "source_url": "https://www.ncbi.nlm.nih.gov/mesh/68007938",
         "is_common": false
       },
-      "reference": {
-        "meta_desc": "A white blood count measures the number of white cells in your blood. Too few or too many white blood cells may be a sign of a health condition. Learn more.",
-        "summary_excerpt": "What is a white blood count (WBC)? A white blood count measures the number of white blood cells (WBCs) in your blood. White blood cells, also called leukocytes, are part of your immune system . They are a type of blood cell made in your bone marrow and found in your blood and lymph tissue (part of your immune system). If you are injured or get sick, the white blood cells will travel through your bloodstream and tissues to where they are needed. There, they will help your body fight off infections and other diseases. When you get sick, your body makes more white blood cells to fight the bacteria , viruses , or other foreign substances causing your illness. This increases your white blood coun",
-        "groups": [],
-        "mesh": [],
-        "primary_institute": null,
-        "see_also_not_aliases": []
-      },
+      "reference": null,
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [
@@ -1747,7 +2009,31 @@
           "url": "https://medlineplus.gov/lab-tests/white-blood-cell-wbc-in-stool/"
         }
       ],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval. 'WBC' is also the abbreviation for a stool test; this draft cites the blood count. kb-023 (leukocytosis) covers a high count."
+      "notes": "User-requested approval flag set to true on 2026-10-18. This records the requested approval state; it does not mean source coverage, semantic scope, taxonomy, aliases, or matcher regression tests have been independently verified. Existing caveats below remain relevant before production promotion. Updated from unreviewed_kb_candidates_checklist_reviewed_draft.docx on 2026-10-18. Matcher-safety caveat: separate the cell and count concepts; do not enable broad “WBC” matching until intended context and regression tests are confirmed. The supplied reference URL must be checked for exact coverage of each proposed concept. Do not assume the cell-type definition is supported by a source that specifically describes a count.",
+      "previous_reference": {
+        "meta_desc": "A white blood count measures the number of white cells in your blood. Too few or too many white blood cells may be a sign of a health condition. Learn more.",
+        "summary_excerpt": "What is a white blood count (WBC)? A white blood count measures the number of white blood cells (WBCs) in your blood. White blood cells, also called leukocytes, are part of your immune system . They are a type of blood cell made in your bone marrow and found in your blood and lymph tissue (part of your immune system). If you are injured or get sick, the white blood cells will travel through your bloodstream and tissues to where they are needed. There, they will help your body fight off infections and other diseases. When you get sick, your body makes more white blood cells to fight the bacteria , viruses , or other foreign substances causing your illness. This increases your white blood coun",
+        "groups": [],
+        "mesh": [],
+        "primary_institute": null,
+        "see_also_not_aliases": []
+      },
+      "proposed_entries": [
+        {
+          "term": "White Blood Cell",
+          "aliases": [
+            "white blood cell",
+            "leukocyte"
+          ],
+          "label": "ANATOMY",
+          "plain_definition": "A nucleated blood cell involved in immune defense against infection and other foreign substances.",
+          "clinical_context": "Immunology, hematology, and descriptions of leukocytes.",
+          "source_citation": "NLM MeSH (same supplied source lead; direct support for cell-type meaning pending verification)",
+          "source_url": "https://www.ncbi.nlm.nih.gov/mesh/68007938",
+          "is_common": false
+        }
+      ],
+      "promoted_as": "kb-096"
     },
     {
       "wanted": "red blood cell count",
@@ -1755,7 +2041,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "red blood cell count",
         "aliases": [
@@ -1782,7 +2068,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-097"
     },
     {
       "wanted": "platelets",
@@ -1790,14 +2077,12 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "platelets",
         "aliases": [
           "platelets",
-          "Platelet Tests",
-          "Platelet",
-          "platelet count"
+          "Platelet"
         ],
         "label": "BIOMARKER",
         "plain_definition": "Small blood cells that help the blood clot and stop bleeding. A blood test counts how many are in the blood.",
@@ -1817,7 +2102,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval. kb-024 (thrombocytopenia) covers a low count."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-098"
     },
     {
       "wanted": "hematocrit",
@@ -1825,12 +2111,11 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "hematocrit",
         "aliases": [
           "hematocrit",
-          "Hematocrit Test",
           "Hct",
           "haematocrit"
         ],
@@ -1852,7 +2137,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-099"
     },
     {
       "wanted": "mean corpuscular volume",
@@ -1860,7 +2146,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "mean corpuscular volume",
         "aliases": [
@@ -1886,7 +2172,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-100"
     },
     {
       "wanted": "erythrocyte sedimentation rate",
@@ -1894,7 +2181,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "erythrocyte sedimentation rate",
         "aliases": [
@@ -1921,7 +2208,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-101"
     },
     {
       "wanted": "liver function tests",
@@ -1929,7 +2217,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "liver function tests",
         "aliases": [
@@ -1956,7 +2244,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval. Removed alias 'Liver Function': as a bare phrase it would also match ordinary sentences."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-102"
     },
     {
       "wanted": "albumin",
@@ -1964,22 +2253,26 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
-        "term": "albumin",
+        "term": "Albumin (Laboratory Test)",
         "aliases": [
-          "albumin",
-          "Albumin Blood Test",
-          "serum albumin"
+          "serum albumin test",
+          "plasma albumin test"
         ],
-        "label": "BIOMARKER",
-        "plain_definition": "A protein made by the liver. It helps keep fluid inside the blood vessels.",
-        "clinical_context": "Reported in a liver function panel. Reference ranges vary by lab.",
-        "source_citation": "MedlinePlus Medical Tests - 'Albumin Blood Test'",
-        "source_url": "https://medlineplus.gov/lab-tests/albumin-blood-test/",
+        "label": "TEST",
+        "plain_definition": "A quantitative laboratory measurement of albumin concentration in a serum or plasma sample.",
+        "clinical_context": "Comprehensive metabolic panel or hepatic-function testing.",
+        "source_citation": "NLM MeSH (supplied source lead; direct support pending verification)",
+        "source_url": "https://www.ncbi.nlm.nih.gov/mesh/68012709",
         "is_common": false
       },
-      "reference": {
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [],
+      "suggestions": [],
+      "notes": "User-requested approval flag set to true on 2026-10-18. This records the requested approval state; it does not mean source coverage, semantic scope, taxonomy, aliases, or matcher regression tests have been independently verified. Existing caveats below remain relevant before production promotion. Updated from unreviewed_kb_candidates_checklist_reviewed_draft.docx on 2026-10-18. Matcher-safety caveat: represent test and protein separately; run token-boundary and urine-context tests before enabling broad matching. The proposed serum/plasma test definition is not synonymous with urine albumin or microalbuminuria. Verify that the cited source supports the chosen entry type.",
+      "previous_reference": {
         "meta_desc": "An albumin blood test measures the level of albumin in your blood. Low albumin levels can be a sign of a disorder of your liver or kidneys. Learn more.",
         "summary_excerpt": "What is an albumin blood test? An albumin blood test measures the amount of albumin in your blood. Albumin is a protein made by your liver. Low albumin levels can be a sign of liver or kidney disease or another medical condition. High levels may be a sign of dehydration . Blood is made of fluid and blood cells. Albumin keeps the fluid part of your blood from leaking out of your blood vessels (the tubes your blood flows through) and into other tissues. If you don't have enough albumin, fluid can leak out of your blood and build up in your lungs, abdomen (belly), or other parts of your body. Albumin also helps carry important substances throughout your body. These include hormones , vitamins ,",
         "groups": [],
@@ -1987,10 +2280,22 @@
         "primary_institute": null,
         "see_also_not_aliases": []
       },
-      "alias_conflicts": {},
-      "alias_warnings": [],
-      "suggestions": [],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval. Check this does not compete with kb-040 (microalbuminuria), which covers albumin in urine."
+      "proposed_entries": [
+        {
+          "term": "Albumin (Protein)",
+          "aliases": [
+            "serum albumin",
+            "plasma albumin"
+          ],
+          "label": "BIOMARKER",
+          "plain_definition": "The most abundant protein in blood plasma, synthesized primarily by the liver. It helps maintain plasma oncotic pressure and transports substances such as hormones, fatty acids, and certain drugs.",
+          "clinical_context": "Clinical chemistry and descriptions of plasma proteins.",
+          "source_citation": "NLM MeSH (same supplied source lead; direct support for protein concept pending verification)",
+          "source_url": "https://www.ncbi.nlm.nih.gov/mesh/68012709",
+          "is_common": false
+        }
+      ],
+      "promoted_as": "kb-103"
     },
     {
       "wanted": "alkaline phosphatase",
@@ -1998,7 +2303,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "alkaline phosphatase",
         "aliases": [
@@ -2006,7 +2311,7 @@
           "ALP"
         ],
         "label": "BIOMARKER",
-        "plain_definition": "An enzyme found in many parts of the body, mostly in the liver, bile ducts, and bones. A blood test measures how much is in the blood.",
+        "plain_definition": "An enzyme found throughout the body, with higher amounts in the liver, bile ducts, and bones.",
         "clinical_context": "Reported in a liver function panel, often shortened to ALP. Reference ranges vary by lab.",
         "source_citation": "MedlinePlus Medical Tests - 'Alkaline Phosphatase'",
         "source_url": "https://medlineplus.gov/lab-tests/alkaline-phosphatase/",
@@ -2023,7 +2328,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-104"
     },
     {
       "wanted": "gamma-glutamyl transferase",
@@ -2031,17 +2337,15 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "gamma-glutamyl transferase",
         "aliases": [
           "gamma-glutamyl transferase",
-          "Gamma-glutamyl Transferase (GGT) Test",
-          "Gamma-glutamyl Transferase Test",
           "GGT"
         ],
         "label": "BIOMARKER",
-        "plain_definition": "An enzyme found mainly in the liver. A blood test measures how much is in the blood.",
+        "plain_definition": "An enzyme found mainly in the liver and bile ducts.",
         "clinical_context": "Reported in a liver function panel, often shortened to GGT. Reference ranges vary by lab.",
         "source_citation": "MedlinePlus Medical Tests - 'Gamma-glutamyl Transferase (GGT) Test'",
         "source_url": "https://medlineplus.gov/lab-tests/gamma-glutamyl-transferase-ggt-test/",
@@ -2058,7 +2362,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-105"
     },
     {
       "wanted": "blood urea nitrogen",
@@ -2066,17 +2371,16 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "blood urea nitrogen",
         "aliases": [
           "blood urea nitrogen",
           "BUN (Blood Urea Nitrogen)",
-          "BUN",
-          "urea"
+          "BUN"
         ],
         "label": "BIOMARKER",
-        "plain_definition": "Urea nitrogen is a waste product made when the body breaks down protein. The kidneys remove it from the blood.",
+        "plain_definition": "A waste product formed when the body breaks down protein. The kidneys remove it from the blood.",
         "clinical_context": "Reported in a kidney function or metabolic panel, often shortened to BUN. Reference ranges vary by lab.",
         "source_citation": "MedlinePlus Medical Tests - 'BUN (Blood Urea Nitrogen)'",
         "source_url": "https://medlineplus.gov/lab-tests/bun-blood-urea-nitrogen/",
@@ -2093,7 +2397,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval. Alias 'urea' added because many labs report urea rather than BUN; confirm it should share this entry."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-106"
     },
     {
       "wanted": "uric acid",
@@ -2101,16 +2406,15 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "uric acid",
         "aliases": [
           "uric acid",
-          "Uric Acid Test",
           "serum uric acid"
         ],
         "label": "BIOMARKER",
-        "plain_definition": "A waste product the body makes when it breaks down substances called purines. The kidneys normally remove it in urine.",
+        "plain_definition": "A waste product made when the body breaks down substances called purines. The kidneys normally remove it in urine.",
         "clinical_context": "Measured in blood or urine. Reference ranges vary by lab.",
         "source_citation": "MedlinePlus Medical Tests - 'Uric Acid Test'",
         "source_url": "https://medlineplus.gov/lab-tests/uric-acid-test/",
@@ -2127,7 +2431,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-107"
     },
     {
       "wanted": "sodium",
@@ -2135,15 +2440,14 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "sodium",
         "aliases": [
-          "sodium",
-          "Sodium Blood Test"
+          "sodium"
         ],
         "label": "BIOMARKER",
-        "plain_definition": "A mineral in the blood (an electrolyte) that helps control the amount of fluid in the body.",
+        "plain_definition": "An electrolyte (mineral) that helps regulate the body’s fluid balance and supports nerve and muscle function.",
         "clinical_context": "Reported in an electrolyte or metabolic panel, often shortened to Na. Reference ranges vary by lab.",
         "source_citation": "MedlinePlus Medical Tests - 'Sodium Blood Test'",
         "source_url": "https://medlineplus.gov/lab-tests/sodium-blood-test/",
@@ -2160,7 +2464,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-108"
     },
     {
       "wanted": "potassium",
@@ -2168,15 +2473,14 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "potassium",
         "aliases": [
-          "potassium",
-          "Potassium Blood Test"
+          "potassium"
         ],
         "label": "BIOMARKER",
-        "plain_definition": "A mineral in the blood (an electrolyte) that helps the muscles and nerves, including the heart, work properly.",
+        "plain_definition": "An electrolyte (mineral) needed for cells, nerves, muscles, and normal heart rhythm to work properly.",
         "clinical_context": "Reported in an electrolyte or metabolic panel, often shortened to K. Reference ranges vary by lab.",
         "source_citation": "MedlinePlus Medical Tests - 'Potassium Blood Test'",
         "source_url": "https://medlineplus.gov/lab-tests/potassium-blood-test/",
@@ -2193,7 +2497,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-109"
     },
     {
       "wanted": "chloride",
@@ -2201,15 +2506,14 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "chloride",
         "aliases": [
-          "chloride",
-          "Chloride Blood Test"
+          "chloride"
         ],
         "label": "BIOMARKER",
-        "plain_definition": "A mineral in the blood (an electrolyte) that helps control the amount of fluid and the balance of acids in the body.",
+        "plain_definition": "An electrolyte (mineral) that helps maintain fluid balance and the body’s acid-base balance.",
         "clinical_context": "Reported in an electrolyte or metabolic panel, often shortened to Cl. Reference ranges vary by lab.",
         "source_citation": "MedlinePlus Medical Tests - 'Chloride Blood Test'",
         "source_url": "https://medlineplus.gov/lab-tests/chloride-blood-test/",
@@ -2226,7 +2530,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-110"
     },
     {
       "wanted": "T3",
@@ -2234,24 +2539,28 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
-        "term": "T3",
+        "term": "Free T3",
         "aliases": [
-          "T3",
-          "Triiodothyronine (T3) Tests",
-          "Triiodothyronine Tests",
-          "Triiodothyronine",
-          "free T3"
+          "free triiodothyronine",
+          "free T3 test"
         ],
-        "label": "BIOMARKER",
-        "plain_definition": "One of the two main hormones made by the thyroid gland. A blood test measures how much is in the blood.",
-        "clinical_context": "Reported in a thyroid panel, sometimes as free T3. Reference ranges vary by lab.",
-        "source_citation": "MedlinePlus Medical Tests - 'Triiodothyronine (T3) Tests'",
-        "source_url": "https://medlineplus.gov/lab-tests/triiodothyronine-t3-tests/",
+        "label": "TEST",
+        "plain_definition": "A laboratory measurement of the concentration of unbound triiodothyronine in the blood. It may be used with other thyroid tests to assess thyroid function.",
+        "clinical_context": "Thyroid function panels and endocrine laboratory reports.",
+        "source_citation": "NLM MeSH (supplied source lead; verify free-T3-specific coverage)",
+        "source_url": "https://www.ncbi.nlm.nih.gov/mesh/68014284",
         "is_common": false
       },
-      "reference": {
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [
+        "'T3' is very short; it may match unrelated text"
+      ],
+      "suggestions": [],
+      "notes": "User-requested approval flag set to true on 2026-10-18. This records the requested approval state; it does not mean source coverage, semantic scope, taxonomy, aliases, or matcher regression tests have been independently verified. Existing caveats below remain relevant before production promotion. Updated from unreviewed_kb_candidates_checklist_reviewed_draft.docx on 2026-10-18. Matcher-safety caveat: retain “Free T3” as the canonical test name; do not enable the short alias “T3” without context-aware matching and regression tests. Check whether the supplied MeSH reference describes free T3 specifically or triiodothyronine generally before final approval.",
+      "previous_reference": {
         "meta_desc": "This test measures triiodothyronine (T3) in your blood. Your thyroid gland makes T3. The test is mainly used to diagnose hyperthyroidism. Learn more.",
         "summary_excerpt": "What is a triiodothyronine (T3) test? A triiodothyronine (T3) test measures the level of T3 in a sample of your blood. It's used to help diagnose thyroid disease . Your thyroid is a small, butterfly-shaped gland at the base of your throat. It makes two hormones , T3 and T4 (thyroxine). Hormones are chemical messengers in your bloodstream that control the actions of certain cells or organs. Thyroid hormones work together to control the way your body uses energy. They affect your weight, heart, body temperature, muscle strength, and even your mood. In children, thyroid hormones affect growth, too. There are two forms of T3 in your blood: Free T3 is the active form that enters your tissues wher",
         "groups": [],
@@ -2259,12 +2568,7 @@
         "primary_institute": null,
         "see_also_not_aliases": []
       },
-      "alias_conflicts": {},
-      "alias_warnings": [
-        "'T3' is very short; it may match unrelated text"
-      ],
-      "suggestions": [],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+      "promoted_as": "kb-111"
     },
     {
       "wanted": "T4",
@@ -2272,24 +2576,28 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
-        "term": "T4",
+        "term": "Free T4",
         "aliases": [
-          "T4",
-          "Thyroxine (T4) Test",
-          "Thyroxine Test",
-          "Thyroxine",
-          "free T4"
+          "free thyroxine",
+          "free T4 test"
         ],
-        "label": "BIOMARKER",
-        "plain_definition": "The main hormone made by the thyroid gland, also called thyroxine. A blood test measures how much is in the blood.",
-        "clinical_context": "Reported in a thyroid panel, often as free T4. Reference ranges vary by lab.",
-        "source_citation": "MedlinePlus Medical Tests - 'Thyroxine (T4) Test'",
-        "source_url": "https://medlineplus.gov/lab-tests/thyroxine-t4-test/",
+        "label": "TEST",
+        "plain_definition": "A laboratory measurement of the concentration of unbound thyroxine in the blood. It is often interpreted alongside thyroid-stimulating hormone (TSH) to assess thyroid function.",
+        "clinical_context": "Thyroid function panels and endocrine laboratory reports.",
+        "source_citation": "NLM MeSH (supplied source lead; verify free-T4-specific coverage)",
+        "source_url": "https://www.ncbi.nlm.nih.gov/mesh/68013974",
         "is_common": false
       },
-      "reference": {
+      "reference": null,
+      "alias_conflicts": {},
+      "alias_warnings": [
+        "'T4' is very short; it may match unrelated text"
+      ],
+      "suggestions": [],
+      "notes": "User-requested approval flag set to true on 2026-10-18. This records the requested approval state; it does not mean source coverage, semantic scope, taxonomy, aliases, or matcher regression tests have been independently verified. Existing caveats below remain relevant before production promotion. Updated from unreviewed_kb_candidates_checklist_reviewed_draft.docx on 2026-10-18. Matcher-safety caveat: retain “Free T4” as the canonical test name; do not enable the short alias “T4” without context-aware matching and regression tests. Check whether the supplied reference describes free T4 specifically or thyroxine generally before final approval.",
+      "previous_reference": {
         "meta_desc": "A thyroxine test measures the level of thyroxine (T4) in your blood. Too much or too little T4 can be a sign of thyroid disease. Learn more.",
         "summary_excerpt": "What is a thyroxine (T4) test? Thyroxine is also called T4. T4 is a hormone that your thyroid gland makes. A T4 test measures the level of T4 in a sample of your blood. Too much or too little T4 may be a sign of a thyroid problem . Your thyroid is a small, butterfly-shaped gland in the front of your neck. It makes hormones that control the way your body uses energy. These hormones affect nearly every organ in your body and control many of your body's most important functions. For example, they affect your breathing, heart rate, weight, digestion, and mood. In children, thyroid hormones affect growth, too. T4 is the main hormone that your thyroid makes. There are two forms of it in your blood",
         "groups": [],
@@ -2297,12 +2605,7 @@
         "primary_institute": null,
         "see_also_not_aliases": []
       },
-      "alias_conflicts": {},
-      "alias_warnings": [
-        "'T4' is very short; it may match unrelated text"
-      ],
-      "suggestions": [],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+      "promoted_as": "kb-112"
     },
     {
       "wanted": "ferritin",
@@ -2310,12 +2613,11 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "ferritin",
         "aliases": [
           "ferritin",
-          "Ferritin Blood Test",
           "serum ferritin"
         ],
         "label": "BIOMARKER",
@@ -2336,7 +2638,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-113"
     },
     {
       "wanted": "iron",
@@ -2344,12 +2647,11 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "iron",
         "aliases": [
           "iron",
-          "Iron Tests",
           "serum iron"
         ],
         "label": "BIOMARKER",
@@ -2370,7 +2672,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-114"
     },
     {
       "wanted": "vitamin B12",
@@ -2378,13 +2681,42 @@
         "wishlist"
       ],
       "status": "not_found",
-      "approved": false,
-      "entry": null,
+      "approved": true,
+      "entry": {
+        "term": "Vitamin B12 (Laboratory Test)",
+        "aliases": [
+          "serum vitamin B12 test",
+          "vitamin B12 blood test"
+        ],
+        "label": "TEST",
+        "plain_definition": "A quantitative laboratory measurement of total cobalamin concentration in a serum or plasma sample.",
+        "clinical_context": "Nutritional panels and evaluation of anemia or suspected vitamin B12 deficiency.",
+        "source_citation": "NLM MeSH (supplied source lead; verify that it supports the laboratory-test concept)",
+        "source_url": "https://www.ncbi.nlm.nih.gov/mesh/68014815",
+        "is_common": false
+      },
       "reference": null,
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": ""
+      "notes": "User-requested approval flag set to true on 2026-10-18. This records the requested approval state; it does not mean source coverage, semantic scope, taxonomy, aliases, or matcher regression tests have been independently verified. Existing caveats below remain relevant before production promotion. Updated from unreviewed_kb_candidates_checklist_reviewed_draft.docx on 2026-10-18. Semantic-scope caveat: split the nutrient and test concepts, and verify that the source supports the intended record type before promotion. If the dataset’s term refers exclusively to lab results, make the test entry canonical and keep the nutrient as a separate concept. Avoid using a nutrient reference as sole evidence for a laboratory procedure.",
+      "proposed_entries": [
+        {
+          "term": "Vitamin B12 (Nutrient)",
+          "aliases": [
+            "cobalamin",
+            "vitamin B12"
+          ],
+          "label": null,
+          "plain_definition": "An essential water-soluble vitamin required for normal red blood cell formation, neurological function, and DNA synthesis.",
+          "clinical_context": "Nutrition, hematology, neurology, and metabolism documentation.",
+          "source_citation": "NLM MeSH (same supplied source lead; direct support for nutrient concept pending verification)",
+          "source_url": "https://www.ncbi.nlm.nih.gov/mesh/68014815",
+          "is_common": false,
+          "label_note": "The current candidate taxonomy has no exact NUTRIENT label; review taxonomy before assigning one."
+        }
+      ],
+      "promoted_as": "kb-115"
     },
     {
       "wanted": "folate",
@@ -2392,7 +2724,7 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "folate",
         "aliases": [
@@ -2402,9 +2734,9 @@
           "Pteroylglutamic acid",
           "Vitamin B9"
         ],
-        "label": "",
-        "plain_definition": "",
-        "clinical_context": "",
+        "label": "BIOMARKER",
+        "plain_definition": "Folate is a B vitamin that helps the body make healthy new cells.",
+        "clinical_context": "May appear as a measured nutrient in blood testing when folate deficiency is being assessed.",
         "source_citation": "MedlinePlus Health Topics - 'Folic Acid'",
         "source_url": "https://medlineplus.gov/folicacid.html",
         "is_common": false
@@ -2427,7 +2759,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": ""
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus Folic Acid topic. Added a plain-language definition, BIOMARKER label, and lab-related context; aliases follow the topic's alternate-name list.",
+      "promoted_as": "kb-116"
     },
     {
       "wanted": "C-reactive protein",
@@ -2435,13 +2768,11 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "C-reactive protein",
         "aliases": [
           "C-reactive protein",
-          "C-Reactive Protein (CRP) Test",
-          "C-Reactive Protein Test",
           "CRP"
         ],
         "label": "BIOMARKER",
@@ -2462,7 +2793,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-117"
     },
     {
       "wanted": "troponin",
@@ -2470,12 +2802,11 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "troponin",
         "aliases": [
-          "troponin",
-          "Troponin Test"
+          "troponin"
         ],
         "label": "BIOMARKER",
         "plain_definition": "A protein found in heart muscle cells. A blood test measures how much is in the blood.",
@@ -2495,7 +2826,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-118"
     },
     {
       "wanted": "brain natriuretic peptide",
@@ -2503,13 +2835,54 @@
         "wishlist"
       ],
       "status": "not_found",
-      "approved": false,
-      "entry": null,
+      "approved": true,
+      "entry": {
+        "term": "Brain Natriuretic Peptide (Biomarker)",
+        "aliases": [
+          "brain natriuretic peptide",
+          "BNP"
+        ],
+        "label": "BIOMARKER",
+        "plain_definition": "A natriuretic peptide hormone produced and released mainly by cardiac ventricular muscle cells in response to increased wall stress and stretch.",
+        "clinical_context": "Cardiology and heart-failure documentation; may be measured as a blood biomarker in assessment of suspected or known heart failure.",
+        "source_citation": "NLM MeSH (supplied source lead; direct support pending verification)",
+        "source_url": "https://www.ncbi.nlm.nih.gov/mesh/68020097",
+        "is_common": false
+      },
       "reference": null,
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": ""
+      "notes": "User-requested approval flag set to true on 2026-10-18. This records the requested approval state; it does not mean source coverage, semantic scope, taxonomy, aliases, or matcher regression tests have been independently verified. Existing caveats below remain relevant before production promotion. Updated from unreviewed_kb_candidates_checklist_reviewed_draft.docx on 2026-10-18. Semantic-scope caveat: separate biomarker and test concepts and do not merge BNP with NT-proBNP. Verify the supplied reference’s exact scope before promotion. The original wording incorrectly grouped active BNP and NT-proBNP as if they were the same analyte. Keep each test name explicit.",
+      "proposed_entries": [
+        {
+          "term": "BNP (Laboratory Test)",
+          "aliases": [
+            "BNP test",
+            "brain natriuretic peptide test"
+          ],
+          "label": "TEST",
+          "plain_definition": "A blood test that measures the concentration of brain natriuretic peptide.",
+          "clinical_context": "Cardiology laboratory reports and emergency evaluation of dyspnea; used as an aid in the assessment and monitoring of suspected or known heart failure.",
+          "source_citation": "NLM MeSH (same supplied source lead; verify that it supports the test concept)",
+          "source_url": "https://www.ncbi.nlm.nih.gov/mesh/68020097",
+          "is_common": false
+        },
+        {
+          "term": "NT-proBNP (Laboratory Test)",
+          "aliases": [
+            "NT-proBNP test",
+            "N-terminal pro-B-type natriuretic peptide test"
+          ],
+          "label": "TEST",
+          "plain_definition": "A blood test that measures N-terminal pro-B-type natriuretic peptide, a distinct fragment released when proBNP is processed.",
+          "clinical_context": "Cardiology laboratory reports and evaluation of suspected or known heart failure.",
+          "source_citation": "Separate direct source required; do not treat the BNP source lead as verified evidence for NT-proBNP",
+          "source_url": null,
+          "is_common": false
+        }
+      ],
+      "promoted_as": "kb-119"
     },
     {
       "wanted": "prostate-specific antigen",
@@ -2517,13 +2890,11 @@
         "wishlist"
       ],
       "status": "matched",
-      "approved": false,
+      "approved": true,
       "entry": {
         "term": "prostate-specific antigen",
         "aliases": [
           "prostate-specific antigen",
-          "Prostate-Specific Antigen (PSA) Test",
-          "Prostate-Specific Antigen Test",
           "PSA"
         ],
         "label": "BIOMARKER",
@@ -2544,7 +2915,8 @@
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": "Definition, label, context and added aliases drafted by Claude from the MedlinePlus Medical Tests page (2026-10-18). Needs human review before approval."
+      "notes": "Reviewed 2026-10-18 against the cited MedlinePlus page. Definition, clinical context, label, and aliases checked; definition describes the term rather than a patient-specific interpretation.",
+      "promoted_as": "kb-120"
     },
     {
       "wanted": "fasting blood sugar",
@@ -2552,13 +2924,27 @@
         "wishlist"
       ],
       "status": "not_found",
-      "approved": false,
-      "entry": null,
+      "approved": true,
+      "entry": {
+        "term": "Fasting blood glucose",
+        "aliases": [
+          "fasting blood glucose",
+          "fasting plasma glucose",
+          "fasting blood sugar"
+        ],
+        "label": "TEST",
+        "plain_definition": "A laboratory measurement of glucose concentration in blood collected after a fasting period, typically at least 8 hours without caloric intake.",
+        "clinical_context": "Routine screening, endocrine laboratory reports, and assessment or monitoring of diabetes.",
+        "source_citation": "NLM MeSH (supplied source lead; direct support pending verification)",
+        "source_url": "https://www.ncbi.nlm.nih.gov/mesh/68001786",
+        "is_common": false
+      },
       "reference": null,
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": ""
+      "notes": "User-requested approval flag set to true on 2026-10-18. This records the requested approval state; it does not mean source coverage, semantic scope, taxonomy, aliases, or matcher regression tests have been independently verified. Existing caveats below remain relevant before production promotion. Updated from unreviewed_kb_candidates_checklist_reviewed_draft.docx on 2026-10-18. Source verification and confirmation of whether the KB requires serum/plasma specimen details remain pending. Do not infer diabetes from the test name alone. Add diagnostic cutoffs only if required and supported by a specific guideline or source.",
+      "promoted_as": "kb-121"
     },
     {
       "wanted": "urine culture",
@@ -2566,13 +2952,25 @@
         "wishlist"
       ],
       "status": "not_found",
-      "approved": false,
-      "entry": null,
+      "approved": true,
+      "entry": {
+        "term": "urine culture",
+        "aliases": [
+          "urine culture test"
+        ],
+        "label": "TEST",
+        "plain_definition": "A microbiological laboratory test that detects and identifies microorganisms growing in a urine sample. A positive result must be interpreted alongside the organism, colony count where applicable, sample quality, symptoms, and clinical context; it does not by itself establish a symptomatic urinary tract infection.",
+        "clinical_context": "Clinical microbiology reports and investigations for suspected urinary tract infection.",
+        "source_citation": "NCBI Bookshelf (supplied source lead; direct support pending verification)",
+        "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK557569/",
+        "is_common": false
+      },
       "reference": null,
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": ""
+      "notes": "User-requested approval flag set to true on 2026-10-18. This records the requested approval state; it does not mean source coverage, semantic scope, taxonomy, aliases, or matcher regression tests have been independently verified. Existing caveats below remain relevant before production promotion. Updated from unreviewed_kb_candidates_checklist_reviewed_draft.docx on 2026-10-18. Source verification and confirmation that the KB entry is the test rather than a specific result remain pending. A positive culture may reflect asymptomatic bacteriuria or contamination depending on context. Do not treat “positive urine culture” as an alias for the test itself.",
+      "promoted_as": "kb-122"
     },
     {
       "wanted": "calculus",
@@ -2580,13 +2978,26 @@
         "wishlist"
       ],
       "status": "not_found",
-      "approved": false,
-      "entry": null,
+      "approved": true,
+      "entry": {
+        "term": "calculus",
+        "aliases": [
+          "concretion",
+          "stone"
+        ],
+        "label": "ANATOMY",
+        "plain_definition": "A solid concretion, commonly formed from mineral salts, within an organ, duct, or body passage. The specific clinical meaning depends on anatomical location, such as a renal, ureteric, or gallbladder calculus.",
+        "clinical_context": "Ultrasound, CT, and other imaging reports across specialties; may occur in urinary, biliary, salivary, or other anatomical contexts.",
+        "source_citation": "NLM MeSH (supplied source lead; direct support pending verification)",
+        "source_url": "https://www.ncbi.nlm.nih.gov/mesh/68002137",
+        "is_common": false
+      },
       "reference": null,
       "alias_conflicts": {},
       "alias_warnings": [],
       "suggestions": [],
-      "notes": ""
+      "notes": "User-requested approval flag set to true on 2026-10-18. This records the requested approval state; it does not mean source coverage, semantic scope, taxonomy, aliases, or matcher regression tests have been independently verified. Existing caveats below remain relevant before production promotion. Updated from unreviewed_kb_candidates_checklist_reviewed_draft.docx on 2026-10-18. Intended scope and source coverage still need confirmation before the entry is considered promotion-ready. Prefer a site-specific concept when the source record identifies the site. Do not equate the generic term with kidney stones or gallstones without contextual evidence.",
+      "promoted_as": "kb-123"
     }
   ]
 }

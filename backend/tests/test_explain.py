@@ -74,16 +74,18 @@ def test_response_reports_which_stages_are_placeholders(client):
 
 @pytest.mark.llm
 def test_unvetted_term_found_by_ner_is_reported_honestly(client):
-    # Corpus report ev-014. The NER model needs the full report as context: it misses
-    # "femoral neck" when the first sentence is sent on its own.
-    text = "Bone density scan shows osteopenia at the femoral neck. T-score -1.8. No osteoporosis."
+    # Corpus report ev-020: "cholecystitis" is found by the NER model but has no KB entry.
+    text = (
+        "Gallbladder wall thickening consistent with cholecystitis. Small hemangioma in the "
+        "right hepatic lobe. No hydronephrosis. Known diverticulosis."
+    )
     body = client.post("/explain", json={"report_text": text}).json()
 
     terms = {t["text"]: t for t in body["terms"]}
-    assert terms["osteopenia"]["status"] == "explained"
-    assert terms["femoral neck"]["status"] == "no_vetted_definition"
-    assert terms["osteoporosis"]["negated"] is True
-    assert 'Your report mentions "femoral neck". We do not have a checked' in body["explanation"]
+    assert terms["diverticulosis"]["status"] == "explained"
+    assert terms["cholecystitis"]["status"] == "no_vetted_definition"
+    assert terms["hydronephrosis"]["negated"] is True
+    assert 'Your report mentions "cholecystitis". We do not have a checked' in body["explanation"]
     assert body["validation"]["passed"] is True
 
 
@@ -189,22 +191,22 @@ def test_blank_report_is_rejected(client, text):
 
 @pytest.mark.llm
 def test_unvetted_term_gets_curation_suggestions_but_no_explanation(client):
-    # Corpus report ev-007. "renal" is nearest to hydronephrosis by embedding similarity,
+    # Corpus report ev-020. "cholecystitis" is close to gallstones by embedding similarity,
     # but related is not equivalent: it must stay an "ask your doctor" term.
     text = (
-        "Non-obstructing 4 mm calculus in the right renal pelvis. No hydronephrosis. "
-        "Cholelithiasis noted incidentally."
+        "Gallbladder wall thickening consistent with cholecystitis. Small hemangioma in the "
+        "right hepatic lobe. Known diverticulosis."
     )
     body = client.post("/explain", json={"report_text": text}).json()
 
     status = {t["text"]: t["status"] for t in body["terms"]}
-    assert status["renal"] == "no_vetted_definition"
-    assert 'Your report mentions "renal". We do not have a checked' in body["explanation"]
+    assert status["cholecystitis"] == "no_vetted_definition"
+    assert 'Your report mentions "cholecystitis". We do not have a checked' in body["explanation"]
 
     suggestions = {s["text"]: s["suggestions"] for s in body["curation_suggestions"]}
     assert set(suggestions) == {t for t, s in status.items() if s == "no_vetted_definition"}
-    assert len(suggestions["renal"]) == 3
-    assert all(0 < s["score"] < 1 for s in suggestions["renal"])
+    assert len(suggestions["cholecystitis"]) == 3
+    assert all(0 < s["score"] < 1 for s in suggestions["cholecystitis"])
 
 
 def test_stage_failure_names_the_stage(client, monkeypatch):

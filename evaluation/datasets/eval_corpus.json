@@ -29,7 +29,7 @@
         {"surface": "cardiomegaly", "kb_id": "kb-008"},
         {"surface": "pleural effusion", "kb_id": "kb-010"},
         {"surface": "atelectasis", "kb_id": "kb-009"},
-        {"surface": "consolidation", "kb_id": null}
+        {"surface": "consolidation", "kb_id": "kb-047"}
       ]
     },
     {
@@ -58,6 +58,7 @@
       "source_type": "cbc",
       "text": "Complete blood count reveals hemoglobin 9.4 g/dL consistent with anemia, and mild thrombocytopenia.",
       "gold_terms": [
+        {"surface": "Complete blood count", "kb_id": "kb-095"},
         {"surface": "hemoglobin", "kb_id": "kb-022"},
         {"surface": "anemia", "kb_id": "kb-021"},
         {"surface": "thrombocytopenia", "kb_id": "kb-024"}
@@ -68,7 +69,8 @@
       "source_type": "ct_abdomen",
       "text": "Non-obstructing 4 mm calculus in the right renal pelvis. No hydronephrosis. Cholelithiasis noted incidentally.",
       "gold_terms": [
-        {"surface": "renal", "kb_id": null},
+        {"surface": "calculus", "kb_id": "kb-123"},
+        {"surface": "renal", "kb_id": "kb-048"},
         {"surface": "hydronephrosis", "kb_id": "kb-041"},
         {"surface": "Cholelithiasis", "kb_id": "kb-007"},
         {"surface": "incidentally", "kb_id": "kb-045"}
@@ -81,7 +83,7 @@
       "gold_terms": [
         {"surface": "Lumbar spondylosis", "kb_id": "kb-028"},
         {"surface": "degenerative disc disease", "kb_id": "kb-027"},
-        {"surface": "canal stenosis", "kb_id": null}
+        {"surface": "canal stenosis", "kb_id": "kb-049"}
       ]
     },
     {
@@ -128,7 +130,7 @@
       "gold_terms": [
         {"surface": "nodule", "kb_id": "kb-031"},
         {"surface": "benign", "kb_id": "kb-029"},
-        {"surface": "Mediastinal", "kb_id": null},
+        {"surface": "Mediastinal", "kb_id": "kb-050"},
         {"surface": "lymphadenopathy", "kb_id": "kb-044"}
       ]
     },
@@ -138,7 +140,7 @@
       "text": "Bone density scan shows osteopenia at the femoral neck. T-score -1.8. No osteoporosis.",
       "gold_terms": [
         {"surface": "osteopenia", "kb_id": "kb-025"},
-        {"surface": "femoral neck", "kb_id": null},
+        {"surface": "femoral neck", "kb_id": "kb-051"},
         {"surface": "osteoporosis", "kb_id": "kb-026"}
       ]
     },
@@ -147,7 +149,7 @@
       "source_type": "endoscopy",
       "text": "Endoscopy demonstrates antral gastritis. Findings consistent with GERD.",
       "gold_terms": [
-        {"surface": "antral", "kb_id": null},
+        {"surface": "antral", "kb_id": "kb-052"},
         {"surface": "gastritis", "kb_id": "kb-035"},
         {"surface": "GERD", "kb_id": "kb-034"}
       ]
@@ -159,7 +161,7 @@
       "gold_terms": [
         {"surface": "myocardial infarction", "kb_id": "kb-037"},
         {"surface": "tachycardia", "kb_id": "kb-013"},
-        {"surface": "Afebrile", "kb_id": null},
+        {"surface": "Afebrile", "kb_id": "kb-053"},
         {"surface": "cough", "kb_id": "kb-common-004"}
       ]
     },
@@ -181,6 +183,37 @@
         {"surface": "headache", "kb_id": "kb-common-002"},
         {"surface": "nausea", "kb_id": "kb-common-005"},
         {"surface": "Blood pressure", "kb_id": "kb-common-003"}
+      ]
+    },
+    {
+      "id": "ev-019",
+      "source_type": "ct_chest",
+      "text": "Small right pneumothorax. Mild bronchiectasis in the left lower lobe. No pulmonary embolism.",
+      "gold_terms": [
+        {"surface": "pneumothorax", "kb_id": null},
+        {"surface": "bronchiectasis", "kb_id": null},
+        {"surface": "pulmonary embolism", "kb_id": "kb-068"}
+      ]
+    },
+    {
+      "id": "ev-020",
+      "source_type": "ultrasound_abdomen",
+      "text": "Gallbladder wall thickening consistent with cholecystitis. Small hemangioma in the right hepatic lobe. Known diverticulosis.",
+      "gold_terms": [
+        {"surface": "cholecystitis", "kb_id": null},
+        {"surface": "hemangioma", "kb_id": null},
+        {"surface": "diverticulosis", "kb_id": "kb-089"}
+      ]
+    },
+    {
+      "id": "ev-021",
+      "source_type": "lab_panel",
+      "text": "WBC count 12.4, ferritin 8 ng/mL, CRP elevated. Lumbar spine X-ray shows osteophytes.",
+      "gold_terms": [
+        {"surface": "WBC count", "kb_id": "kb-096"},
+        {"surface": "ferritin", "kb_id": "kb-113"},
+        {"surface": "CRP", "kb_id": "kb-117"},
+        {"surface": "osteophytes", "kb_id": null}
       ]
     }
   ]
